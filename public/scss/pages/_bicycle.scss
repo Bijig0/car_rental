@@ -1,0 +1,804 @@
+/***************** cycle hero ***************/
+.cycle-hero {
+    margin-top: -90px;
+    .hero-dark-shape {
+        width: 770px;
+        right: 0; 
+        top: 0;
+        height: 100%;
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+            line-height: 0.9em;
+            font-size: 190px;
+            text-transform: uppercase;
+            position: absolute;
+            font-weight: 700;
+            left: 30%;
+            top: 30%;
+            color: rgba($bg-icon, 0.2);
+        }
+        &::before {
+            content: ''; 
+            position: absolute;
+            right: 0; 
+            top: 0; 
+            width: 100%;
+            height: 100%;
+            background: $black-gradient; 
+            z-index: -1;
+        }
+    }
+    .hero-color-shape {
+        width: 1320px;
+        height: 45px;
+        left: 50%;
+        bottom: -1px;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    @include screen-1500 {
+        .hero-dark-shape {
+            span {
+                font-size: 150px;
+                top: 30%;
+            }
+        }
+    }
+    @include screen-1400 {
+        .hero-dark-shape {
+            width: 400px;
+        }
+    }
+    @include large-screen {
+        .hero-dark-shape {
+            display: none;
+        }
+        .hero-color-shape {
+            display: none;
+        }
+    }
+}
+
+.bc_color_variant {
+    ul {
+        li {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 3px;
+            span {
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+                border: 3px solid $white;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
+            input {
+                position: absolute;
+                left: 0; 
+                top: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 1;
+                &:checked {
+                    ~ span {
+                        box-shadow: $box-shadow;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cycle-hero {
+    padding: 120px 0;
+    .cycle-hero-pagination {
+        position: absolute;
+        right: 25px;
+        left: auto;
+        width: 76px;
+        top: 50%;
+        bottom: auto; 
+        transform: translateY(-50%);
+        z-index: 2;
+        .swiper-pagination-bullet {
+            display: block;
+            width: 70px;
+            height: 50px;
+            background: transparent;
+            color: $bc-gray;
+            border-radius: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            opacity: 1;
+            margin: 0;
+            transition: $transition;
+            &.swiper-pagination-bullet-active {
+                background: $primary;
+                color: $white;
+            }
+        }
+    }
+    @include large-screen {
+        padding: 190px 0 50px 0;
+    }
+    @include small-screen {
+        .cycle-hero-pagination {
+            display: none;
+        }
+    }
+}
+.cl-hero-control-slider-wrapper {
+    width: 550px;
+    @include small-screen {
+        width: 100%;
+    }
+}
+.cl-hero-slider-control {
+    margin-left: 0;
+    margin-top: -60px;
+    .cl-hero-slider-control-thumb {
+        transform: scale(0.8); 
+        opacity: 0.50;
+        transition: $transition; 
+        &.swiper-slide-active {
+            opacity: 1; 
+            transform: scale(1);
+        }
+    }
+    @include large-screen {
+        margin-top: 24px;
+    }
+}
+.cl-hero-slide-control-arrow {
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    color: $headings-color; 
+    border-radius: 50%;
+    text-align: center; 
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    &.cl-hero-slides-control-prev {
+        left: 0;
+    }
+    &.cl-hero-slides-control-next {
+        right: 0;
+    }
+}
+
+
+/***************** cycle brands *************/
+.cycle-brands-list {
+    .cycle-brand-item {
+        width: calc(20% - 20px);
+    }
+    @include medium-screen {
+        .cycle-brand-item {
+            width: calc(25% - 18px);
+        }
+    }
+    @include small-screen {
+        .cycle-brand-item {
+            width: calc(33% - 15px);
+        }
+    }
+    @include portrait-phone {
+        .cycle-brand-item {
+            width: calc(50% - 12px);
+        }
+    }
+}
+.cycle-brand-item {
+    background-color: $white;
+    transition: $transition;
+    &::before {
+        content: ''; 
+        position: absolute;
+        left: 0; 
+        bottom: -10px;
+        width: 100%;
+        height: 10px;
+        background-color: $primary;
+        filter: blur(24px);
+        opacity: 0;
+        transition: $transition;
+    }
+    img {
+        transition: $transition;
+    }
+    .brand-white {
+        position: absolute;
+        left: 50%; 
+        top: 50%; 
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+    }
+    &:hover {
+        background-color: $primary;
+        &::before {
+            opacity: 0.6;
+        }
+        .brand-gray {
+            transform: scale(0.7); 
+            opacity: 0;
+        }
+        .brand-white {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+.cycle-category-box {
+    padding: 40px 24px;
+    img.cycle {
+        border: 2px solid rgba(180, 180, 180, 0.2);
+    }
+    .meta-text {
+        font-size: 14px;
+        font-weight: 500;
+        color: $bc-gray;
+        position: relative; 
+        &::before {
+            content: '';
+            position: absolute;
+            left: -12px; 
+            top: 6px; 
+            width: 8px;
+            height: 8px;
+            background-color: $primary;
+            border-radius: 50%;
+        }
+    }
+    .box-overlay {
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 0;
+        transition: $transition;
+        &::before {
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            width: 100%;
+            height: 100%;
+            background: $headings-color;
+            opacity: 0.8;
+            z-index: -1;
+        }
+    }
+    &:hover {
+        .box-overlay {
+            opacity: 1;
+            .overlay-title {
+                animation: 0.3s fadeInUp;
+            }
+            .meta-text {
+                animation: 0.5s fadeInUp; 
+            }
+            .explore-btn {
+                animation: 0.6s fadeInUp;
+            }
+        }
+    }
+}
+
+.cycle-banner {
+    padding: 0 0 0 24px;
+    &.banner-overlay {
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: 0;
+            top: 0; 
+            width: 100%;
+            height: 100%;
+            background: $bc-dark-linear;
+            z-index: -1;
+        }
+    }
+    .circle-shape {
+        position: absolute;
+        width: 342px; 
+        height: 342px;
+        background-color: #FF757F;
+        border-radius: 50%;
+        position: absolute;
+        right: -171px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: -2;
+        opacity: 0.5;
+    }
+    .banner-subtitle {
+        font-family: $bc-subtitle-font;
+        font-size: 20px;
+    }
+    .banner-list {
+        li {
+            font-size: 14px;
+            span {
+                width: 8px; 
+                height: 8px; 
+                display: inline-block;
+                background-color: $white;
+                border-radius: 50%;
+                transform: translateY(-1px);
+            }
+        }
+    }
+    .banner-img {
+        img {
+            margin-left: -30px;
+        }
+    }
+    &.ps-32 {
+        padding-left: 32px;
+    }
+}
+
+/********************** about section ***********/
+.cycle-ab-badge {
+    left: 52%; 
+    top: 14%;
+    @include portrait-phone {
+        left: 45%;
+        max-width: 170px;
+    }
+}
+.cl-explore-btn {
+    font-weight: 700;
+    color: $secondary;
+    transition: $transition; 
+    &:hover {
+        color: $primary;
+    }
+}
+
+/******************** featured cycle **************/
+.featured-cycle {
+    .dark-clip-shape {
+        left: 0; 
+        top: 0; 
+        width: 50%;
+        height: 100%;
+        clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: 0; 
+            top: 0; 
+            width: 100%;
+            height: 100%;
+            background: $black-gradient;
+            z-index: -1; 
+        }
+    }
+    .featured-text {
+        position: absolute;
+        right: 80px;
+        top: 30px;
+        font-size: 220px;
+        font-family: $headings-font-family; 
+        font-weight: 700;
+        text-transform: uppercase;
+        color: rgba($bc-gray-2, 0.08);
+        z-index: -1;
+        line-height: 0.8;
+    }
+    @include screen-1400 {
+        .featured-text {
+            font-size: 140px;
+        }
+    }
+    @include large-screen {
+        .dark-clip-shape {
+            width: 100%;
+            clip-path: initial;
+        }
+    }
+}
+.cl-featured-left {
+    max-width: 500px;
+    p {
+        color: $bg-color;
+    }
+}
+.cl-feature-single {
+    &.border-left {
+        padding-left: 32px;
+        position: relative;
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 40px;
+            background-color: rgba($bc-placeholder, 0.2);
+        }
+    }
+    @include portrait-phone {
+        &.border-left {
+            padding-left: 0;
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+.cl-featured-img {
+    img {
+        @include screen-1600 {
+            max-width: 100%;
+        }
+    }
+}
+
+.cl-feature-btn {
+    width: 32px; 
+    height: 32px; 
+    text-align: center;
+    line-height: 32px;
+    background-color: $primary;
+    border-radius: 50%;
+    color: $white;
+    z-index: 2;
+    transition: $transition; 
+    &:hover {
+        background-color: $secondary; 
+        color: $white;
+    }
+    &.btn-1 {
+        left: 80px;
+        bottom: 24px;
+    }
+    &.btn-2 {
+        top: 64%;
+        right: -30px;
+    }
+    &.btn-3 {
+        left: 250px;
+        top: 60px;
+    }
+    @include screen-1600 {
+        &.btn-2 {
+            right: 0;
+        }
+    }
+}
+
+/******************** cycle filter ****************/
+.cycle-filter-nav {
+    li {
+        a {
+            color: $bg-icon; 
+            padding: 8px 22px; 
+            display: inline-block;
+            border-radius: 4px;
+            border: 1px solid rgba($bg-icon, 0.6);
+            font-weight: 500;
+            transition: $transition; 
+            &.active {
+                background-color: $primary;
+                color: $white; 
+                border-color: $primary;
+            }
+            &:hover {
+                background-color: $primary; 
+                color: $white; 
+                border-color: $primary;
+            }
+        }
+    }
+}
+.cycle-card {
+    transition: $transition;
+    .thumbnail {
+        background-color: rgba($bc-placeholder, 0.6);
+        padding: 12px;
+    }
+    .at_product_action {
+        bottom: 0; 
+        opacity: 0; 
+        visibility: hidden;
+    }
+    .card-title {
+        transition: $transition; 
+        &:hover {
+            color: $primary;
+        }
+    }
+    &:hover {
+        box-shadow: $box-hover-shadow;
+        .at_product_action {
+            bottom: 20px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+/******************* call to action ****************/
+.cycle-cta-box {
+    border-radius: 8px;
+    padding: 60px 80px 60px 48px;
+    &::before {
+        content: ''; 
+        position: absolute;
+        left: 0; 
+        top: 0; 
+        width: 100%;
+        height: 100%;
+        background: $black-gradient;
+        z-index: -1;
+        border-radius: 8px;
+    }
+    .cycle-cta-left {
+        width: 36%;
+    }
+    .cycle-man {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+    .cycle-cta-right {
+        .arrow-icon {
+            left: -100px;
+            top: 0;
+        }
+    }
+    @include large-screen {
+        .cycle-cta-left {
+            width: 50%;
+        }
+    }
+    @include medium-screen {
+        .cycle-cta-left {
+            width: 100%;
+            margin-bottom: 32px;
+        }
+    }
+}
+
+.cl-cta-explore {
+    color: $white;
+    font-weight: 500;
+    transition: $transition;
+    svg {
+        circle {
+            transition: $transition;
+        }
+        path {
+            transition: $transition;
+        }
+    }
+    &:hover {
+        svg {
+            circle {
+                stroke: $primary;
+            }
+            path {
+                fill: $primary;
+                stroke: $primary;
+            }
+        }
+    }
+}
+
+
+/******************* feedback section **************/
+.cycle-feedback {
+    .dark-clip-shape {
+        width: calc(50% - 150px);
+        height: 500px;
+        bottom: 0; 
+        left: 0;
+        clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: 0; 
+            top: 0; 
+            width: 100%;
+            height: 100%;
+            background: $black-gradient;
+            z-index: -1;
+        }
+    }
+    @include screen-1400 {
+        .dark-clip-shape {
+            display: none;
+        }
+    }
+}
+.cl-feedback-single {
+    padding: 40px 32px;
+    .quote-icon {
+        right: -22px; 
+        top: 36px;
+    }
+    p {
+        font-style: italic;
+        font-size: 18px;
+    }
+}
+
+.cycle-blog {
+    .circle-shape {
+        left: 10%; 
+        top: 100px;
+    }
+    .circle-half {
+        right: 0; 
+        top: 150px;
+    }
+}
+
+
+/****************** subscribe area **************/
+.cycle-sb-form {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/*************************** cycle listing page **************************/
+.cycle-pagination {
+    li {
+        a {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            text-align: center;
+            line-height: 32px;
+            color: $headings-color;
+            background-color: transparent;
+            border-radius: 4px;
+            transition: $transition;
+            font-weight: 500;
+            &.active {
+                background-color: $primary;
+                color: $white;
+            }
+            &:hover {
+                background-color: $primary;
+                color: $white;
+            }
+        }
+    }
+}
+
+/************************ bicycle details ***********************/
+.cycle_product_modal {
+    .product_view_right {
+        .product_color_select_box {
+            ul {
+                li {
+                    width: 30px;
+                    height: 30px;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    span {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 2px;
+                        display: inline-block;
+                        box-sizing: border-box;
+                        border: 3px solid transparent;
+                    }
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        &:checked {
+                            ~ span {
+                                border: 3px solid $white;
+                                box-shadow: $box-shadow;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.product_size_select {
+    ul {
+        li {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            input {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                &:checked {
+                    ~ span {
+                        border-color: $primary;
+                    }
+                }
+            }
+            span {
+                width: 100%;
+                height: 100%;
+                border: 1px solid $accordion-header-active;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                font-weight: 600;
+                border-radius: 3px;
+            }
+        }
+    }
+}
+
+.cycle-details-nav {
+    grid-row-gap: 15px;
+    grid-column-gap: 60px;
+    li {
+        a {
+            font-weight: 600;
+            color: $headings-color;
+            padding: 16px 0;
+            display: inline-block;
+            transition: $transition;
+            position: relative;
+            &::before {
+                content: ''; 
+                position: absolute;
+                right: 0; 
+                bottom: -1px;
+                width: 0;
+                height: 2px;
+                background-color: $primary;
+                transition: $transition;
+            }
+            &.active {
+                color: $primary;
+                &::before {
+                    right: auto; 
+                     left: 0;
+                     width: 100%;
+                }
+            }
+        }
+    }
+    @include small-screen {
+        grid-column-gap: 16px; 
+    }
+}
+
+.cycle-sidebar {
+    &.mt-110 {
+        margin-top: 110px;
+        @include large-screen {
+            margin-top: 30px;
+        }
+    }
+}

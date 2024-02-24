@@ -1,0 +1,172 @@
+/***************** bike listing *****************/ 
+.bike_listing_top {
+    padding: 18px 32px;
+    .form-select {
+        max-width: 160px;
+        padding-right: 0;
+    }
+}
+
+/************** bike listing details sidebar ************/
+.bld-author-widget {
+    .widget-top {
+        padding: 32px;
+    }
+    .author-info {
+        padding: 0 32px 32px;
+    }
+    .author-socials {
+        a {
+            width: 32px; 
+            height: 32px; 
+            background-color: transparent; 
+            color: $secondary; 
+            border: 1px solid rgba($md-border-color, 0.7);
+            transition: $transition;
+            margin-right: 4px;
+            &:hover {
+                background-color: $primary; 
+                color: $white;
+            }
+        }
+    }
+    .info-list {
+        padding: 0 32px 32px;
+        li {
+            padding: 16px 0;
+            border-top: 1px solid $md-border-color;
+            .icon-wrapper {
+                width: 56px; 
+                height: 56px;
+                border: 1px solid $md-border-color;
+                font-size: 24px;
+            }
+            h6 {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.bld-contact-widget {
+    padding: 40px 24px;
+}
+
+/***************** listing details *****************/ 
+.bld-feature-box {
+    padding: 32px 24px;
+    .icon-wrapper {
+        background-color: $bg-default;
+        width: 74px; 
+        height: 74px;
+    }
+}
+
+.bld-title {
+    &::after {
+        content: ''; 
+        position: absolute;
+        left: calc(100% + 10px); 
+        bottom: 3px;
+        background-color: $border-color;
+        width: 1500px;
+        height: 1px;
+    }
+    &::before {
+        content: ''; 
+        position: absolute;
+        left: calc(100% + 10px); 
+        bottom: 3px;
+        background-color: $primary;
+        width: 70px;
+        height: 2px;
+        z-index: 1;
+    }
+}
+
+.bld-tab-navs {
+    grid-column-gap: 24px;
+    grid-row-gap: 16px;
+    li {
+        display: inline-block;
+        a {
+            padding: 12px 24px;
+            background-color: $white;
+            color: $secondary;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: $transition;
+            display: inline-block;
+            &.active {
+                background-color: $md-primary-color;
+                color: $white;
+            }
+        }
+    }
+}
+
+.bld-info-list {
+    grid-row-gap: 24px;
+    grid-column-gap: 16px;
+    .iv_info_item {
+        width: calc(25% - 12px);
+        flex-shrink: 0;
+    }
+    @include medium-screen {
+        .iv_info_item {
+            width: calc(33% - 10px);
+        }
+    }
+    @include small-screen {
+        .iv_info_item {
+            width: calc(50% - 12px);
+            flex-shrink: 1;
+        }
+    }
+}
+
+.bld-features-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    li {
+        font-weight: 600;
+        width: 25%;
+        margin-bottom: 8px;
+    }
+    @include medium-screen {
+        li {
+            width: 33%;
+        }
+    }
+    @include small-screen {
+        li {
+            width: calc(50% - 12px);
+        }
+    }
+    @include portrait-phone {
+        grid-row-gap: 10px;
+        grid-column-gap: 24px;
+    }
+}
+
+.bike-listing-slider-control {
+    width: 114px;
+    height: 330px;
+    position: absolute;
+    right: 24px;
+    bottom: 70px;
+    .swiper-slide {
+        border: 1px solid $white;
+        &.swiper-slide-thumb-active {
+            border-color: $md-primary-color;
+        }
+    }
+    @include medium-screen {
+        position: relative;
+        width: 330px;
+        height: auto;
+        bottom: auto;
+        right: auto;
+        margin-top: 24px;
+    }
+}

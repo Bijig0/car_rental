@@ -1,0 +1,74 @@
+.login-section { 
+    .bg-primary-blur {
+        width: 200px; 
+        height: 200px; 
+        background: rgba($primary, 0.3);
+        filter: blur(200px); 
+    }
+}
+.login-form {
+    .cookies-area {
+        label, a {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        a {
+            text-decoration: underline;
+            transition: $transition;
+            color: $color-blue;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+    .login-btns {
+        gap: 24px;
+        button, a {
+            width: 50%;
+            text-align: center;
+        }
+        .outline-btn {
+            svg {
+                path {
+                    transition: $transition;
+                }
+            }
+            &:hover {
+                svg {
+                    path {
+                        fill: $white !important;
+                    }
+                }
+            }
+        }
+        @include large-screen {
+            button, a {
+                width: auto;
+            }
+        }
+    }
+    p {
+        font-weight: 500; 
+        font-size: 14px;
+        a {
+            color: $color-blue;
+            transition: $transition; 
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+.login-form-right {
+    .bg-star-color {
+        width: 206px; 
+        height: 200px; 
+        background: rgba($star-color, 0.5);
+        filter: blur(200px);
+        border-radius: 50%;
+    }
+    .ball-shape {
+        top: 50%;
+        right: -90px;
+    }
+}

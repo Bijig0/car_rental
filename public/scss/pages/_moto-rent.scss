@@ -1,0 +1,710 @@
+/**************** moto rent hero *************/ 
+.moto-rent-hero {
+    padding-bottom: 40px;
+    .md-header-social {
+        bottom: 50%;
+        ul {
+            li {
+                a {
+                    &:hover {
+                        color: $md-primary-color;
+                    }
+                }
+            }
+        }
+    } 
+    .doted-white {
+        left: 24px; 
+        bottom: 35px;
+    }
+    .texture-yellow {
+        right: 0; 
+        top: 0;
+        width: 50%;
+        height: 100%;
+    }
+    .wave-shape {
+        right: 0; 
+        top: 0;
+        width: 50%;
+    }
+    @include large-screen {
+        padding: 100px 0 60px 0;
+    }
+}
+.bg-texture-gradient {
+    &::after {
+        content: ''; 
+        position: absolute;
+        left: 0; 
+        width: 100%; 
+        top: 0; 
+        height: 100%;
+        background-image: $black-gradient;
+        z-index: -1;
+    }
+}
+.hero-bike-slider {
+    width: 776px;
+    padding: 40px 0 0 50px;
+    .bike-slider-pagination {
+        top: auto;
+        bottom: 40px;
+        left: 332px; 
+        transform: translateX(-50%);
+        width: 250px;
+        z-index: 15;
+        background: $secondary;
+        height: 2px;
+        .swiper-pagination-progressbar-fill {
+            background: $md-primary-color;
+        }
+    }
+    .bike-pagination-text {
+        position: absolute;
+        bottom: 30px;
+        left: 90px;
+        width: 465px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+            font-size: 12px;
+            color: $secondary; 
+            background-color: $badge-yellow-bg;
+            padding: 2px 4px;
+            display: inline-block;
+            font-weight: 700;
+            border-radius: 2px;
+        }
+    }
+    @include screen-1440 {
+        width: 100%;
+        padding-left: 0;
+        .bike-slider-pagination {
+            width: 180px;
+            left: 290px;
+        }
+        .bike-pagination-text {
+            width: 380px;
+        }
+    }
+    @include portrait-phone {
+        .bike-slider-pagination {
+            left: 150px;
+            display: none;
+        }
+        .bike-pagination-text {
+            display: none;
+        }
+    }
+}
+.hero-bike-single {
+    padding-bottom: 60px;
+    .slide-index {
+        font-size: 120px; 
+        color: $md-yellow-light-color;
+        bottom: 50px; 
+        left: 0;
+        line-height: 0;
+    }
+    @include portrait-phone {
+        .slide-index {
+            font-size: 80px;
+        }
+    }
+}
+
+
+/************** hero search *****************/ 
+.md-hero-search {
+    margin-top: -25px;
+    position: relative; 
+    z-index: 2;
+}
+.md-search-form {
+    padding: 24px 32px;
+    gap: 40px;
+    .md-search-form-fields {
+        gap: 60px;
+        .md-select-box {
+            + .md-select-box {
+                position: relative; 
+                &::before {
+                    content: ''; 
+                    position: absolute;
+                    left: -30px;
+                    top : 50%; 
+                    transform: translateY(-50%);
+                    width: 1px; 
+                    height: 40px;
+                    background-color: $border-color;
+                }
+            }
+        }
+    }
+    .mds-btn {
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
+        background-color: $md-primary-color;
+        border-radius: 6px;
+        color: $white;
+        flex-shrink: 0;
+        transition: $transition;
+        &:hover {
+            background-color: $md-secondary-color;
+        }
+    }
+    @include medium-screen {
+        .md-search-form-fields {
+            gap: 24px;
+            flex-wrap: wrap;
+            .md-select-box {
+                + .md-select-box {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.md-select-box {
+    width: 182px;
+    flex-shrink: 0;
+    label {
+        color: $secondary;
+        font-weight: 500;
+    }
+    .form-select {
+        margin-top: -10px;
+        margin-left: -14px;
+        max-width: 170px;
+    }
+    @include medium-screen {
+        width: calc(50% - 12px);
+    }
+    @include screen-480 {
+        width: 100%;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+
+.md-category-section {
+    padding-bottom: 95px;
+}
+.md-ct-single-item {
+    border-radius: 6px;
+    transition: $transition;
+    min-height: 250px;
+    .md-ct-single-box {
+        background-color: $white;
+        padding: 32px 24px;
+        border-radius: 6px 6px 0 0;
+        transition: $transition;
+    }
+    .icon-wrapper {
+        background-color: rgba($primary, 0.05);
+        width: 80px; 
+        height: 80px;
+        transition: $transition;
+        svg {
+            path {
+                transition: $transition;
+            }
+        }
+    }
+    h5 {
+        transition: $transition;
+    }
+    .total-count {
+        font-size: 14px;
+        font-weight: 500;
+        transition: $transition;
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: $md-primary-color;
+            display: inline-block;
+            border-radius: 50%;
+            transition: $transition;
+        }
+    }
+    .md-ct-explore-btn {
+        position: absolute;
+        white-space: nowrap;
+        left: 50%; 
+        bottom: 20px;
+        transform: translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+        color: $white;
+        transition: $transition;
+        span {
+            width: 20px;
+            height: 20px;
+            background-color: $white;
+            color: $md-primary-color;
+            transition: $transition;
+        }
+        &:hover {
+            span {
+                transform: rotate(90deg);
+                background-color: $md-secondary-color;
+                color: $white;
+            }
+        }
+    }
+    &:hover {
+        background-color: $md-primary-color;
+        .md-ct-single-box {
+            background-color: transparent;
+            .icon-wrapper {
+                background-color: rgba($white, 0.2);
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }
+            h5 {
+                color: $white;
+            }
+            .total-count {
+                color: $white;
+                .dot {
+                    background-color: $white;
+                }
+            }
+        }
+        .md-ct-explore-btn {
+            bottom: 32px;
+            opacity: 1; 
+            visibility: visible;
+        }
+    }
+}
+
+/*************** call to action ****************/ 
+.md-cta-box {
+    padding: 60px 48px;
+    background-repeat: repeat;
+    .bike-man {
+        position: absolute;
+        bottom: 0; 
+        right: 140px;
+    }
+    .cta-shape {
+        right: 120px;
+        top: -25px;
+    }
+    @include large-screen {
+        overflow: hidden;
+        .bike-man {
+            position: initial;
+        }
+    }
+    @include small-screen {
+        .bike-man {
+            max-width: 100%;
+        }
+    }
+}
+
+/**************** featured motor ********************/ 
+.md-bike-slider-wrapper {
+    .mk-bike-single {
+        position: relative;
+        span {
+            font-size: 120px; 
+            color: $md-yellow-light-color-2;
+            bottom: 50px; 
+            left: 0;
+            line-height: 0;
+            font-weight: 700;
+            opacity: 0.8;
+            margin-top: 50px;
+            display: inline-block;
+        }
+        .ex-btn {
+            position: absolute;
+            left: 50%; 
+            top: 40%; 
+            transform: translateX(-50%);
+            width: 40px; 
+            height: 40px;
+            background-color: $md-primary-color; 
+            color:  $white; 
+            z-index: 2;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+        }
+    }
+    .ft-bike-slider-pagination {
+        width: 280px;
+        height: 2px;
+        background-color: $md-light-color;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+        top: auto;
+        bottom: 50px;
+        .swiper-pagination-progressbar-fill {
+            background-color: $md-primary-color;
+        }
+        @include large-screen {
+            left: 34%;
+        }
+        @include small-screen {
+            transform: translateX(0);
+            width: 200px;
+        }
+        @include portrait-phone {
+            display: none;
+        }
+    }
+    .bike-pagination-text {
+        position: absolute;
+        bottom: 40px;
+        left: 60px;
+        width: 495px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+            font-size: 12px;
+            color: $secondary; 
+            background-color: $md-light-color;
+            padding: 2px 4px;
+            display: inline-block;
+            font-weight: 700;
+            border-radius: 2px;
+        }
+        @include medium-screen {
+            width: 410px;
+        }
+        @include portrait-phone {
+            display: none;
+        }
+    }
+}
+.md-featured-motor-list {
+    padding: 56px 32px;
+    &::before {
+        content: ''; 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-image: $md-black-gradient; 
+        z-index: -1; 
+    }
+    .nav.nav-tabs {
+       max-height: 515px;
+       .mCustomScrollBox {
+            width: 100%;
+       }
+       .mCSB_inside > .mCSB_container {
+        margin-right: 0;
+       }
+       .mCSB_scrollTools {
+        opacity: 0;
+       }
+    }
+}
+
+.motor-list-single {
+    padding: 24px 20px;
+    background-color: $md-black;
+    border-radius: 6px;
+    gap: 20px;
+    transition: $transition;
+    .motor-list-content {
+        h5 {
+            color: $white;
+        }
+        .features {
+            display: flex; 
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            span {
+                color: $white;
+                font-size: 14px;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+    }
+    &:hover {
+        background-color: $md-primary-color; 
+    }
+    &.active {
+        background-color: $md-primary-color;
+    }
+    @include portrait-phone {
+        flex-wrap: wrap;
+    }
+}
+/************ about section start *************/ 
+.md-about-section {
+    background-repeat: no-repeat; 
+    background-position: left center;
+    background-size: cover;
+    &::before {
+        content: ''; 
+        position: absolute;
+        left: 0; 
+        top: 0; 
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(261.78deg, rgba(17, 16, 16, 0.95) 7.6%, rgba(17, 16, 16, 0.7695) 67.15%);
+        z-index: -1;
+    }
+}
+ul.md-feature-list {
+    gap: 32px;
+    li {
+        width: calc(50% - 16px);
+        h4 {
+            font-size: 22px;
+        }
+        p {
+            color: $light-color;
+            font-size: 15px;
+        }
+    }
+    @include small-screen {
+        flex-wrap: wrap;
+        li {
+            width: 100%;
+        }
+    }
+}
+
+
+/******************* listing section ****************/ 
+.md-listing-single {
+    figure {
+        img {
+            transition: $transition;
+        }
+    }
+    .md-listing-single-content {
+        padding: 24px 24px 32px;
+        .meta-data {
+            font-size: 12px;
+            font-weight: 500;
+            i {
+                margin-right: 4px;
+            }
+        }
+        ul.meta-list {
+            li {
+                width: calc(50% - 12px);
+                margin-bottom: 6px;
+                &:nth-child(odd) {
+                    margin-right: 24px;
+                }
+            }
+        }
+        .pricing-bottom {
+
+        }
+    }
+    &:hover {
+        figure {
+            img {
+                transform: scale(1.02);
+            }
+        }
+    }
+}
+
+/******************* banner slider ******************/ 
+.md-banner-slider {
+    .md-banner-pagination {
+        text-align: center;
+        margin-top: 40px;
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: $secondary;
+            opacity: 1;
+            transition: $transition;
+            &.swiper-pagination-bullet-active {
+                width: 34px;
+                background-color: $md-primary-color;
+                border-radius: 50px;
+            }
+        }
+    }
+}
+
+/******************* feedback section ***************/ 
+.md-feedback-section {
+    padding-bottom: 150px;
+}
+.md-feedback-single {
+    .clients_name {
+        font-size: 18px;
+        font-weight: 700;
+        color: $secondary;
+        position: relative; 
+        padding-left: 40px;
+        margin-left: 6px;
+        display: inline-block;
+        &::before {
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            bottom: 4px; 
+            width: 35px; 
+            height: 2px; 
+            background-color: $secondary;
+
+        }
+    }
+}
+.md-feedback-carousel {
+    .carousel-indicators {
+        position: initial;
+        margin: 0;
+        justify-content: flex-start;
+        button {
+            width: 48px;
+            height: 48px;
+            text-indent: 0;
+            opacity: 1;
+            border-radius: 50%;
+            transition: $transition;
+            img {
+                border: 2px solid $white; 
+                transition: $transition;
+            }
+            &.active {
+                transform: scale(1.2);
+                position: relative;
+                z-index: 3;
+                img {
+                    border-color: $md-primary-color;
+                }
+            }
+            + button {
+                margin-left: -15px;
+            }
+        }
+    }
+}
+.md-feedback-explore {
+    font-size: 18px;
+    transition: $transition; 
+    color: $md-primary-color;
+    svg {
+        path {
+            transition: $transition;
+        }
+    }
+    &:hover {
+        color: $md-secondary-color;
+        svg {
+            path {
+                color: $md-secondary-color;
+            }
+        }
+    }
+}
+
+/*************** motor parts ************/ 
+.motor-pats {
+    margin-top: -80px;
+}
+.motor-parts-box {
+    padding: 70px 32px;
+    border-radius: 10px;
+    &::before {
+        content: ''; 
+        position: absolute;
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-image: $md-black-gradient;
+        z-index: -1;
+        border-radius: 10px;
+    }
+    .slide-control {
+        width: 40px; 
+        height: 40px;
+        background-color: $md-primary-color; 
+        color: $white; 
+        border-radius: 50%; 
+        position: absolute;
+        bottom: -20px;
+        transition: $transition; 
+        &:hover {
+            background-color: $white; 
+            color: $secondary;
+        }
+        &.moto-parts-slider-prev {
+            right: 100px;
+        }
+        &.moto-parts-slider-next {
+            right: 48px;
+        }
+    }
+}
+.moto-parts-content {
+    p {
+        color: $md-text-color;
+    }
+}
+.parts-single {
+    border-radius: 6px;
+    padding: 24px 22px;
+}
+
+/*************** apps section ************/ 
+.md-send-links {
+    form {
+        gap: 24px;
+        .phone-number {
+            box-shadow: $md-box-shadow;
+        }
+        select {
+            border-radius: 4px 0 0 4px;
+            font-size: 20px; 
+            color: $bg-icon;
+            font-weight: 500;
+            width: 80px;
+            padding: 11px 0 11px 12px;
+            background-position: right 2px center;
+        }
+        input[type="tel"] {
+            font-size: 20px;
+            font-weight: 500;
+            padding: 11px 18px 11px 10px;
+            color: $bg-icon; 
+            &::placeholder {
+                color: $bg-icon;
+            }
+        }
+    }
+}
+.apps-title {
+    &::after {
+        content: ''; 
+        position: absolute; 
+        left: calc(100% + 10px); 
+        bottom: 3px;
+        width: 80px; 
+        height: 2px; 
+        background-color: $md-primary-color;
+    }
+}

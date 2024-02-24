@@ -1,0 +1,513 @@
+/*********** Theme Buttons *************/ 
+button {
+    border: 0; 
+    outline: 0;
+}
+.listing-btn {
+    font-weight: 500;
+    background: transparent;
+    border: 0;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: $transition;
+    font-size: 14px;
+    span {
+        width: 30px; 
+        height: 30px;
+        background: $primary;
+        transition: $transition;
+        font-size: 16px;
+    }
+    &:hover {
+        background-color: $primary;
+        span {
+            background: $secondary;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.header-toggle-btn {
+    background: transparent;
+    width: 30px;
+    span {
+        width: 30px; 
+        height: 3px;
+        border-radius: 10px;
+        background: $white; 
+        display: block;
+        transition: $transition;
+        float: right;
+        + span {
+            margin-top: 5px;
+        }
+        &:nth-child(2) {
+            width: 25px;
+        }
+        &:nth-child(3) {
+            width: 20px;
+        }
+    }
+    &:hover {
+        span {
+            &:nth-child(1) {
+                width: 30px;
+            }
+            &:nth-child(2) {
+                width: 30px;
+            }
+            &:nth-child(3) {
+                width: 30px;
+            }
+        }
+    }
+}
+/******* ofcanvus close ********/
+.at-offcanvus-close {
+    border-radius: 50%;
+    width: 35px; 
+    height: 35px;
+    transition: $transition; 
+    &:hover {
+        color: $primary; 
+        transform: rotate(90deg);
+    }
+}
+
+/******** primary btn **********/ 
+.btn-primary {
+    color: $white;
+    position: relative; 
+    z-index: 1; 
+    overflow: hidden;
+    border: 0;
+    &::before {
+        content: ''; 
+        position: absolute; 
+        left: -60px; 
+        top: -110px; 
+        width: 200%; 
+        height: 200%;
+        border-radius: 50%;
+        transition: $transition;
+        background: $secondary;
+        z-index: -1;
+    }
+    &:hover {
+        color: $white;
+        &::before {
+            top: -30px;
+        }
+    }
+}
+
+/**************** secondary button ************/ 
+.btn-secondary {
+    position: relative;
+    color: $white;
+    overflow: hidden;
+    z-index: 1;
+    border: 0;
+    &::before {
+        content: ''; 
+        position: absolute; 
+        left: -60px; 
+        top: -110px; 
+        width: 200%; 
+        height: 200%;
+        border-radius: 50%;
+        transition: $transition;
+        background: $primary;
+        z-index: -1;
+    }
+    &:hover {
+        color: $white;
+        &::before {
+            top: -30px;
+        }
+    }
+}
+
+/******* social btn *******/ 
+a.social-btn {
+    width: 30px; 
+    height: 30px;
+    background: transparent;
+    border: 1px solid $gray-300;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 14px;
+    color: $secondary;
+    transition: $transition;
+    &:hover {
+        color: $primary;
+    }
+}
+
+/******** hero explore btn **********/ 
+.at-explore-btn {
+    font-weight: 600;
+    color: $white;
+    position: relative;
+    transition: $transition;
+    display: inline-block;
+    &.color-secondary {
+        color: $secondary;
+    }
+    &:hover {
+        color: $primary;
+    }
+}
+
+//hero scroll btn
+.btn-scroll-down {
+    font-weight: 500;
+    color: $white;
+    position: relative;
+    transition: $transition;
+}
+
+.btn-md {
+    padding: 12px 30px;
+    font-size: 14px;
+}
+
+.explore-btn {
+    width: 35px; 
+    height: 35px; 
+    background: $primary; 
+    color: $white; 
+    border-radius: 50%;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    i {
+        transform: rotate(-35deg);
+    }
+}
+
+.link-btn {
+    transition: $transition; 
+    &:hover {
+        color: $secondary;
+        span {
+            i {
+                animation: 0.5s fadeInLeft;
+            }
+        }
+    }
+}
+
+.at-filter-btn {
+    padding: 10px 30px;
+    font-weight: 700;
+    border-radius: 3px;
+    background: $white; 
+    color: $secondary;
+    box-shadow: $hover-shadow;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    z-index: 1;
+    transition: $transition;
+    span {
+        line-height: 0;
+        font-size: 18px;
+    }
+    &::before {
+        content: ''; 
+        position: absolute; 
+        left: -60px; 
+        top: -110px; 
+        width: 200%; 
+        height: 200%;
+        border-radius: 50%;
+        transition: $transition;
+        background: $secondary;
+        z-index: -1;
+    }
+    &:hover {
+        color: $white;
+        &::before {
+            top: -30px;
+        }
+    }
+}
+.icon-btn {
+    padding: 0px 8px;
+    border-radius: 3px;
+    color: $body-color;
+    background: $white;
+    box-shadow: $icon-btn-shadow;
+    display: inline-block;
+    transition: $transition;
+}
+.small-btn-meta {
+    padding: 6px 14px;
+    font-weight: 700; 
+    font-size: 14px;
+    background: $primary; 
+    border-radius: 3px;
+    color: $white;
+    transition: $transition;
+}
+.outline-btn {
+    border: 1px solid $border-color;
+    color: $secondary;
+    font-weight: 700;
+    transition: $transition;
+    &:hover {
+        background: $primary;
+        color: $white; 
+        border-color: $primary;
+    }
+}
+
+.app-btn {
+    padding: 12px 24px;
+    transition: $transition;
+    color: $secondary;
+    border-radius: 3px;
+    min-width: 175px;
+    .icon-wrapper {
+        font-size: 30px;
+        line-height: 0;
+    }
+    .app-btn-content {
+        span {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: -5px;
+            font-weight: 600;
+        }
+        strong {
+            font-weight: 700;
+        }
+    }
+    &.primary-btn {
+        background: $primary;
+        color: $white; 
+        &:hover {
+            background: $secondary; 
+        }
+    }
+    &.md-primary-btn {
+        background-color: $md-primary-color;
+        color: $white;
+        &:hover {
+            background-color: $secondary;
+        }
+    }
+    &.white-btn {
+        background: $white; 
+        &:hover {
+            background: $secondary;
+            color: $white;
+        }
+    }
+}
+
+.blog-explore-btn {
+    width: 42px; 
+    height: 42px; 
+    background: $bg-color;
+    color: $body-color;
+    transition: $transition; 
+    &:hover {
+        background: $primary; 
+        color: $white;
+    }
+}
+
+.video-popup-btn {
+    width: 60px; 
+    height: 60px;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: $transition; 
+    &:hover {
+        transform: translateY(-6px);
+    }
+    &.bg-primary {
+        animation: 1.2s ripple-animation linear infinite; 
+    }
+    &.bg-md-primary {
+        animation: 1.2s ripple-animation2 linear infinite;
+    }
+}
+
+.slide-arrow-btn {
+    width: 40px; 
+    height: 40px;
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center; 
+    background: $primary;
+    color: $white;
+    border-radius: 50%;
+    transition: $transition;
+    &:hover {
+        background: $secondary;
+    }
+    &.slide-btn-prev {
+        background: $secondary; 
+        &:hover {
+            background: $primary;
+        }
+    }
+}
+
+.header-white-btn {
+    background: $white; 
+    color: $secondary;
+    border: 0;
+    font-size: 15px; 
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: $transition;
+    &::before {
+        content: ''; 
+        position: absolute; 
+        left: -60px; 
+        top: -110px; 
+        width: 200%; 
+        height: 200%;
+        border-radius: 50%;
+        transition: $transition;
+        background: $primary;
+        z-index: -1;
+    }
+    &:hover {
+        color: $white;
+        &::before {
+            top: -30px;
+        }
+    }
+}
+
+.md-primary-btn {
+    background-color: $md-primary-color; 
+    color: $white; 
+    border: 0;
+    &:hover {
+        background-color: $md-secondary-color; 
+        color: $white;
+    }
+}
+
+.el-primary-btn {
+    background-color: $el-primary-color;
+    color: $white;
+    &:hover {
+        background-color: $el-black-color;
+        color: $white;
+    }
+}
+.el-secondary-btn {
+    background-color: $el-black-color;
+    color: $white;
+    &:hover {
+        background-color: $el-primary-color;
+        color: $white;
+    }
+}
+
+.widget-outline-btn {
+    border: 1px solid $md-primary-color;
+    color: $white; 
+    &:hover {
+        background-color: $md-primary-color; 
+        color: $white;
+        border-color: $md-primary-color;
+    }
+}
+.eq-primary-btn {
+    background-color: $eq-primary-color;
+    color: $white;
+    font-weight: 600;
+    &:hover {
+        background-color: $secondary;
+        color: $white;
+        border-color: $secondary;
+    }
+}
+
+.eq-secondary-btn {
+    background-color: $secondary;
+    color: $white;
+    &:hover {
+        background-color: $eq-primary-color;
+        color: $white;
+    }
+    &.btn-secondary {
+        &::before {
+            background-color: $eq-primary-color;
+        }
+        &:hover {
+            background-color: $secondary;
+        }
+    }
+}
+
+.eq-explore-btn {
+    background-color: $eq-primary-color; 
+    color: $white;
+    font-weight: 500;
+    &:hover {
+        background-color: $secondary;
+        color: $white;
+        border: 1px solid $secondary;
+    }
+}
+.eq-white-btn {
+    background-color: $white; 
+    color: $secondary; 
+    font-weight: 600;
+    svg, path, i {
+        transition: $transition;
+    }
+    &:hover {
+        background-color: $secondary; 
+        color: $white;
+        border-color: $secondary;
+        svg, path, i {
+            fill: $white;
+            color: $white;
+        }
+    }
+}
+
+.eq-explore-btn-2 {
+    color: $secondary;
+    transition: $transition;
+    display: inline-block;
+    &:hover {
+        color: $eq-primary-color;
+    }
+}
+
+//scroll top button
+.theme-scrolltop-btn {
+    position: fixed; 
+    bottom: 60px; 
+    right: 40px;
+    width: 45px; 
+    height: 45px;
+    background: $primary;
+    color: $white;
+    border-radius: 4px;
+    display: none;
+    transition: initial;
+    z-index: 60;
+}

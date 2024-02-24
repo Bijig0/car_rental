@@ -1,0 +1,141 @@
+/***************** shop sidebar ***************/
+.shop_sidebar_ct_list {
+    height: 240px;
+    li {
+        font-size: 14px;
+        a {
+            font-size: 14px;
+            font-weight: 500;
+            color: $para-text-2;
+            padding: 8px 12px 8px 0;
+            display: block;
+            transition: $transition;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+.shop-range-widget {
+    .range-filter {
+        input {
+            padding: 4px 0;
+        }
+        .submit-btn {
+            border: 1px solid $border-color;
+            background: rgba($placeholder-color, 0.2);
+            transition: $transition; 
+        }
+    }
+}
+.shop-colors-widget {
+    form {
+        label {
+            position: relative;
+            display: inline-block;
+            margin-right: 6px;
+            input {
+                position: absolute; 
+                left: 0; 
+                top: 0;
+                width: 100%; 
+                height: 100%;
+                opacity: 0;
+                &:checked {
+                    ~ span {
+                        i {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            span {
+                width: 20px; 
+                height: 20px; 
+                display: inline-flex; 
+                align-items: center; 
+                justify-content: center; 
+                font-size: 10px;
+                i {
+                    color: $white;
+                    opacity: 0;
+                }
+            }
+        }
+        .filter-btns {
+            position: relative;
+            &::before {
+                content: ''; 
+                position: absolute; 
+                left: -20px;
+                width: calc(100% + 80px);
+                top: -24px;
+                height: 1px; 
+                background: $border-color;
+
+            }
+            .btn {
+                padding: 8px 22px;
+                border-radius: 1px;
+            }
+            .reset-btn {
+                background: rgba($placeholder-color, 0.2);
+                margin-left: 16px;
+                outline: 0;
+                border: 0;
+                transition: $transition; 
+                &:hover {
+                    background: $secondary; 
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+.shop-products-widget {
+    & > ul {
+        & > li {
+            position: relative;
+            + li {
+                &::before {
+                    content: ''; 
+                    position: absolute; 
+                    left: -20px;
+                    top: -24px;
+                    width: calc(100% + 80px); 
+                    height: 1px;
+                    background: $border-color;
+                }
+            }
+            .feature-thumb {
+                width: 80px;
+            }
+            .rating-box {
+                li {
+                    font-size: 10px;
+                    color: $star-color;
+                    margin-right: 1px;
+                }
+            }
+            .title {
+                margin-top: 4px;
+                font-size: 14px;
+                color: $secondary;
+                font-weight: 700;
+                line-height: 1.3em;
+                display: block;
+                transition: $transition; 
+                &:hover {
+                    color: $primary;
+                }
+            }
+            .price {
+                del, span {
+                    font-size: 12px; 
+                    font-weight: 600;
+                    color: $para-text-2;
+                }
+            }
+        }
+    }
+}
