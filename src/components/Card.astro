@@ -8,8 +8,20 @@ const { listing } = Astro.props;
 
 const listingDetail = listing.data.data;
 
-const { name, drive, seats, doors, fuelUsage, fuelType, year, pricePerDay } =
-  listingDetail;
+const {
+  name,
+  drive,
+  seats,
+  doors,
+  fuelUsage,
+  fuelType,
+  year,
+  pricePerDay,
+  transmission,
+  cc,
+  shortName,
+  shortFuelType,
+} = listingDetail;
 ---
 
 <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 latest">
@@ -33,25 +45,25 @@ const { name, drive, seats, doors, fuelUsage, fuelType, year, pricePerDay } =
         <span class="small-btn-meta">{pricePerDay}/day</span>
       </div>
       <a href="inventory-details.html" class="mt-4 d-block">
-        <h5>{name}</h5>
+        <h5>{shortName ?? name}</h5>
       </a>
       <span class="meta-content"
-        ><strong>Listed by:</strong>
-        <a href="#">Car House</a></span
+        ><strong>Drive Type:</strong>
+        <a href="#">{drive}</a></span
       >
       <hr class="spacer mt-3 mb-3" />
       <div class="card-feature-box d-flex align-items-center mb-4">
         <div class="icon-box d-flex align-items-center text-capitalize">
           <span class="me-2"><i class="flaticon-speedometer"></i></span>
-          120cc
+          {cc}cc
         </div>
         <div class="icon-box d-flex align-items-center text-capitalize">
           <span class="me-2"><i class="flaticon-steering-wheel"></i></span>
-          Manual
+          {transmission}
         </div>
         <div class="icon-box d-flex align-items-center text-capitalize">
           <span class="me-2"><i class="flaticon-petrol"></i></span>
-          {fuelType}
+          {shortFuelType ?? fuelType}
         </div>
       </div>
       <a

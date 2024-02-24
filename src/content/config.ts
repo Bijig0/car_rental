@@ -5,20 +5,25 @@ const inventorySchema = z.object({
     rank: z.number(),
   }),
     data: z.object({
+        transmission: z.enum(["auto", "manual"]),
       year: z.number(),
-    name: z.string(),
+        name: z.string(),
+    shortName: z.string().optional(),
     drive: z.string(),
     seats: z.number(),
     doors: z.number(),
-    fuelUsage: z.string(),
+        fuelUsage: z.string().optional(),
+    shortFuelType: z.string().optional(),
     fuelType: z.string(),
     description: z.string(),
     features: z.array(z.string()),
     safety: z.object({
       childSafetySeat: z.boolean(),
       pricePerDay: z.string().optional(),
-    }),
-    pricePerDay: z.number().transform((price) => `$${price}`)
+    }).optional(),
+    guidelines: z.array(z.object({message: z.string()})).optional(),
+        pricePerDay: z.number().transform((price) => `$${price}`),
+    cc: z.number()
   }),
 });
 
