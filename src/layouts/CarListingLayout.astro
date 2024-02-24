@@ -555,13 +555,12 @@ const {
             <div class="col-xl-8">
               <div class="inventory-details">
                 <div class="product_details widget-padding bg-white rounded">
-                  <span class="btn-meta bg-primary text-white">For Sale</span>
-                  <h3 class="mt-2">Mercedes-Benz E 400 Cabriolet</h3>
+                  <span class="btn-meta bg-primary text-white">Available</span>
+                  <h3 class="mt-2">{name}</h3>
                   <div class="iv-meta">
                     <span
-                      ><i class="fa-solid fa-clock"></i>Listed on: Sat 25, 2022</span
+                      ><i class="fa-solid fa-clock"></i>Listed on: Feb 24 2024</span
                     >
-                    <span><i class="fa-solid fa-eye"></i>Views: 568</span>
                   </div>
                   <div class="iv_double_slider mt-30">
                     <div class="iv_thumb_slider swiper">
@@ -648,7 +647,6 @@ const {
                         >
                           <i class="flaticon-drive"></i>
                         </span>
-                        <div class="info_content">
                           <span class="meta">Body Type</span>
                           <span class="title">Crossover</span>
                         </div>
@@ -676,7 +674,7 @@ const {
                         </span>
                         <div class="info_content">
                           <span class="meta">Transmission</span>
-                          <span class="title">Autometic</span>
+                          <span class="title">{transmission}</span>
                         </div>
                       </div>
                     </div>
@@ -702,7 +700,7 @@ const {
                         </span>
                         <div class="info_content">
                           <span class="meta">Engine Size</span>
-                          <span class="title">1,599 (cc)</span>
+                          <span class="title">{cc} (cc)</span>
                         </div>
                       </div>
                     </div>
@@ -715,7 +713,7 @@ const {
                         </span>
                         <div class="info_content">
                           <span class="meta">Year</span>
-                          <span class="title">2018</span>
+                          <span class="title">{year}</span>
                         </div>
                       </div>
                     </div>
@@ -741,7 +739,7 @@ const {
                         </span>
                         <div class="info_content">
                           <span class="meta">Fuel Type</span>
-                          <span class="title">Diesel</span>
+                          <span class="title">{fuelType}</span>
                         </div>
                       </div>
                     </div>
@@ -766,8 +764,8 @@ const {
                           <i class="flaticon-gas-tank"></i>
                         </span>
                         <div class="info_content">
-                          <span class="meta">Cylinders</span>
-                          <span class="title">06</span>
+                          <span class="meta">Seats</span>
+                          <span class="title">{seats}</span>
                         </div>
                       </div>
                     </div>
@@ -793,7 +791,7 @@ const {
                         </span>
                         <div class="info_content">
                           <span class="meta">Doors</span>
-                          <span class="title">2 Doors</span>
+                          <span class="title">{doors} Doors</span>
                         </div>
                       </div>
                     </div>
