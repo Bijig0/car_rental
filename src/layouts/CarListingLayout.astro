@@ -645,49 +645,17 @@ const {
                         <span
                           class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
                         >
-                          <i class="flaticon-drive"></i>
-                        </span>
-                          <span class="meta">Body Type</span>
-                          <span class="title">Crossover</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-speedometer"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Mileage</span>
-                          <span class="title">70,000 (Mi)</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
                           <i class="flaticon-energy"></i>
                         </span>
                         <div class="info_content">
                           <span class="meta">Transmission</span>
-                          <span class="title">{transmission}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-car-repair"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Condition</span>
-                          <span class="title">Used</span>
+                          <span class="title text-capitalize"
+                            >{
+                              transmission === "auto"
+                                ? "Automatic"
+                                : transmission
+                            }</span
+                          >
                         </div>
                       </div>
                     </div>
@@ -722,24 +690,11 @@ const {
                         <span
                           class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
                         >
-                          <i class="flaticon-steering-wheel-1"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Drivetrian</span>
-                          <span class="title">Front Wheel</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
                           <i class="flaticon-petrol"></i>
                         </span>
                         <div class="info_content">
                           <span class="meta">Fuel Type</span>
-                          <span class="title">{fuelType}</span>
+                          <span class="title text-capitalize">{fuelType}</span>
                         </div>
                       </div>
                     </div>
@@ -766,19 +721,6 @@ const {
                         <div class="info_content">
                           <span class="meta">Seats</span>
                           <span class="title">{seats}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-drive"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">VIN</span>
-                          <span class="title">1C4TJPBA1CD</span>
                         </div>
                       </div>
                     </div>
