@@ -1,0 +1,27 @@
+  {
+    "metadata": {
+      "rank": 3
+    },
+    "data": {
+      "cc": 2300,
+      "transmission": "auto",
+      "year": 2020,
+      "name": "Mercedes-Benz X-Class",
+      "shortName": "Mercedes X-Class",
+      "drive": "X350d EDITION 1 (4MATIC)",
+      "seats":  5,
+      "doors":  4,
+      "fuelType": "Diesel",
+      "fuelUsage": "8.1 L/100km",
+      "description": "Great design, stylish and comfortable , this Mercedes Benz X 350D Ute allows you to travel in style or help you transport your tools or items in the tray with ease. \nHaving a V6 Turbo Diesel producing 190KW and 550NM of torque , this will get going! Experience this unique luxury UTE by Mercedes Benz.",
+      "features": [
+    "Automatic transmission",
+    "All-wheel drive",
+    "Backup camera",
+    "Bluetooth",
+    "Keyless entry",
+    "USB charger"
+],
+    "pricePerDay": 109
+}
+}

@@ -5,9 +5,9 @@
     "data": {
       "cc": 1500,
       "transmission": "auto",
-      "year": 2017,
-      "name": "Mercedes-Benz C-Class 2016",
-      "shortName": "Mercedes C-Class 2016",
+      "year": 2016,
+      "name": "Mercedes-Benz C-Class",
+      "shortName": "Mercedes C-Class",
       "drive": "C63 S AMG",
       "seats":  4,
       "doors":  4,
