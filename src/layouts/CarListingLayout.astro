@@ -1,3 +1,29 @@
+---
+import { type CollectionEntry } from "astro:content";
+interface Props {
+  listing: CollectionEntry<"inventory">;
+}
+
+const { listing } = Astro.props;
+
+const listingDetail = listing.data.data;
+
+const {
+  name,
+  drive,
+  seats,
+  doors,
+  fuelUsage,
+  fuelType,
+  year,
+  pricePerDay,
+  transmission,
+  cc,
+  shortName,
+  shortFuelType,
+} = listingDetail;
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -505,7 +531,7 @@
               <div
                 class="breadcrumb-content-wrapper text-center position-relative z-3"
               >
-                <h1 class="text-white">Mercedes-Benz E 400 cabriolet</h1>
+                <h1 class="text-white">{name}</h1>
                 <ol class="breadcrumb justify-content-center">
                   <li class="breadcrumb-item text-white fw-500">
                     <a href="index.html">Home</a>
@@ -1799,27 +1825,27 @@
     <!--scrolltop button end-->
 
     <!--build:js-->
-    <script src="/js/vendors/jquery.min.js"></script>
-    <script src="/js/vendors/jquery-ui.min.js"></script>
-    <script src="/js/vendors/popper.min.js"></script>
-    <script src="/js/vendors/bootstrap.min.js"></script>
-    <script src="/js/vendors/easing.min.js"></script>
-    <script src="/js/vendors/swiper.min.js"></script>
-    <script src="/js/vendors/massonry.min.js"></script>
-    <script src="/js/vendors/bootstrap-slider.js"></script>
-    <script src="/js/vendors/magnific-popup.js"></script>
-    <script src="/js/vendors/waypoints.js"></script>
-    <script src="/js/vendors/appear.js"></script>
-    <script src="/js/vendors/counterup.js"></script>
-    <script src="/js/vendors/isotop.pkgd.min.js"></script>
-    <script src="/js/vendors/date-picker.min.js"></script>
-    <script src="/js/vendors/progressbar.js"></script>
-    <script src="/js/vendors/slick.js"></script>
-    <script src="/js/vendors/countdown.min.js"></script>
-    <script src="/js/vendors/custom-scrollbar.js"></script>
-    <script src="/js/vendors/price-range.js"></script>
-    <script src="/js/vendors/image-rotate.min.js"></script>
-    <script src="/js/app.js"></script>
+    <script is:inline src="/js/vendors/jquery.min.js"></script>
+    <script is:inline src="/js/vendors/jquery-ui.min.js"></script>
+    <script is:inline src="/js/vendors/popper.min.js"></script>
+    <script is:inline src="/js/vendors/bootstrap.min.js"></script>
+    <script is:inline src="/js/vendors/easing.min.js"></script>
+    <script is:inline src="/js/vendors/swiper.min.js"></script>
+    <script is:inline src="/js/vendors/massonry.min.js"></script>
+    <script is:inline src="/js/vendors/bootstrap-slider.js"></script>
+    <script is:inline src="/js/vendors/magnific-popup.js"></script>
+    <script is:inline src="/js/vendors/waypoints.js"></script>
+    <script is:inline src="/js/vendors/appear.js"></script>
+    <script is:inline src="/js/vendors/counterup.js"></script>
+    <script is:inline src="/js/vendors/isotop.pkgd.min.js"></script>
+    <script is:inline src="/js/vendors/date-picker.min.js"></script>
+    <script is:inline src="/js/vendors/progressbar.js"></script>
+    <script is:inline src="/js/vendors/slick.js"></script>
+    <script is:inline src="/js/vendors/countdown.min.js"></script>
+    <script is:inline src="/js/vendors/custom-scrollbar.js"></script>
+    <script is:inline src="/js/vendors/price-range.js"></script>
+    <script is:inline src="/js/vendors/image-rotate.min.js"></script>
+    <script is:inline src="/js/app.js"></script>
     <!--endbuild-->
   </body>
 </html>
