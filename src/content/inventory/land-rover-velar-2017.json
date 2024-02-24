@@ -1,0 +1,36 @@
+  {
+    "metadata": {
+      "rank": 1
+    },
+    "data": {
+      "year": 2017,
+      "name": "Land Rover Velar 2017",
+      "drive": "D300 STANDARD AWD",
+      "seats":  5,
+      "doors":  4,
+      "fuelUsage": "5.9L/100km",
+      "fuelType": "diesel",
+      "description": "Enjoy this V6 Range Rover Velar D300 for a nice trip with your loved ones and cruise in style. It has a powerful V6 diesel engine that allows you to cruise with ease. This car is equipped with Apple Carplay and Android Auto. Panoramic sliding sunroof makes the car feel so much more spacious. \n There is also plenty of luggage space which makes this Range Rover perfect for roadtrips with the family. \n Please note this car is equipped with a security device that collects driving data. This includes vehicle location, and may include other driving data such as mileage, driving behaviour, and time driven. This information may be shared with third parties for vehicle recovery or insurance purposes. By booking this vehicle you consent to the use of the device.",
+      "features": [
+      "Automatic transmission",
+      "All-wheel drive",
+      "Android Auto",
+      "Apple CarPlay",
+      "Backup camera",
+      "Blind spot warning",
+      "Bluetooth",
+      "GPS",
+      "Heated seats",
+      "Keyless entry",
+      "Long-term car",
+      "Sunroof",
+      "USB charger",
+      "USB input"
+    ],
+    "safety": {
+      "childSafetySeat": true,
+      "pricePerDay": "$20"
+    },
+    "pricePerDay": 160
+}
+}

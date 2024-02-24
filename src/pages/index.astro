@@ -1,3 +1,10 @@
+---
+import Card from "../components/Card.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+const allInventoryListings = await getCollection("inventory");
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,22 +44,17 @@
     <meta name="author" content="ThemeTags" />
 
     <!--favicon icon-->
-    <link
-      rel="icon"
-      href="assets/img/favicon.png"
-      type="image/png"
-      sizes="16x16"
-    />
+    <link rel="icon" href="/img/favicon.png" type="image/png" sizes="16x16" />
 
     <!--title-->
     <title>AutoHive - HTML Template</title>
 
     <!--build:css-->
-    <link rel="stylesheet" href="public/dist/css/main.css" />
+    <link rel="stylesheet" href="/dist/css/main.css" />
     <!-- endbuild -->
 
     <!--custom css-->
-    <link rel="stylesheet" href="public/dist/css/custom.css" />
+    <link rel="stylesheet" href="/dist/css/custom.css" />
   </head>
 
   <body>
@@ -110,8 +112,7 @@
             <div class="row align-items-center">
               <div class="col-6 col-lg-3">
                 <div class="logo-wrapper">
-                  <a href="index.html"
-                    ><img src="assets/img/logo.png" alt="logo" /></a
+                  <a href="index.html"><img src="/img/logo.png" alt="logo" /></a
                   >
                 </div>
               </div>
@@ -315,7 +316,7 @@
         <a
           href="index.html"
           class="logo-wrapper bg-secondary d-block mt-4 p-3 rounded-1 text-center"
-          ><img src="assets/img/logo.png" alt="logo" class="img-fluid" /></a
+          ><img src="/img/logo.png" alt="logo" class="img-fluid" /></a
         >
         <nav class="mobile-menu-wrapper mt-40">
           <ul>
@@ -457,7 +458,7 @@
           ><i class="fa-solid fa-xmark"></i></button
         >
         <a href="#" class="logo-wrapper d-inline-block mb-5"
-          ><img src="assets/img/logo-black.png" alt="logo" /></a
+          ><img src="/img/logo-black.png" alt="logo" /></a
         >
         <div class="offcanvus-content">
           <h4 class="mb-4">About Us</h4>
@@ -497,7 +498,7 @@
             <div class="swiper-slide">
               <div
                 class="dl-hero-single"
-                data-background="assets/img/shapes/texture-bg.png"
+                data-background="/img/shapes/texture-bg.png"
               >
                 <div class="container">
                   <div class="at_hero_slider">
@@ -570,11 +571,7 @@
                         <div
                           class="at-hero-banner position-relative mt-4 mt-sm-0"
                         >
-                          <img
-                            src="assets/img/home1/hero-car-1.png"
-                            alt="car"
-                            class="at_hero_car"
-                          />
+                          <img alt="car" class="at_hero_car" />
                         </div>
                       </div>
                     </div>
@@ -585,7 +582,7 @@
             <div class="swiper-slide">
               <div
                 class="dl-hero-single"
-                data-background="assets/img/shapes/texture-bg.png"
+                data-background="/img/shapes/texture-bg.png"
               >
                 <div class="container">
                   <div class="at_hero_slider">
@@ -659,7 +656,7 @@
                           class="at-hero-banner position-relative mt-4 mt-sm-0"
                         >
                           <img
-                            src="assets/img/home1/hero-car-2.png"
+                            src="/img/home1/hero-car-2.png"
                             alt="car"
                             class="at_hero_car"
                           />
@@ -673,7 +670,7 @@
             <div class="swiper-slide">
               <div
                 class="dl-hero-single"
-                data-background="assets/img/shapes/texture-bg.png"
+                data-background="/img/shapes/texture-bg.png"
               >
                 <div class="container">
                   <div class="at_hero_slider">
@@ -747,7 +744,7 @@
                           class="at-hero-banner position-relative mt-4 mt-sm-0"
                         >
                           <img
-                            src="assets/img/home1/hero-car-3.png"
+                            src="/img/home1/hero-car-3.png"
                             alt="car"
                             class="at_hero_car"
                           />
@@ -833,66 +830,11 @@
           </div>
           <div class="filter-items-wrapper mt-5">
             <div class="row g-4 justify-content-center filter-grid">
-              <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 latest">
-                <div
-                  class="filter-card-item position-relative overflow-hidden rounded bg-white"
-                >
-                  <a href="#" class="icon-btn compare-btn position-absolute"
-                    ><i class="fa-solid fa-compress"></i></a
-                  >
-                  <a href="#" class="icon-btn wish-btn position-absolute"
-                    ><i class="fa-solid fa-heart"></i></a
-                  >
-                  <span class="date position-absolute">2017</span>
-                  <div class="feature-thumb position-relative overflow-hidden">
-                    <a href="inventory-details.html"
-                      ><img
-                        src="assets/img/home1/car-1.jpg"
-                        alt="car"
-                        class="img-fluid"
-                      /></a
-                    >
-                  </div>
-                  <div class="filter-card-content">
-                    <div class="price-btn text-end position-relative">
-                      <span class="small-btn-meta">$174,900</span>
-                    </div>
-                    <a href="inventory-details.html" class="mt-4 d-block">
-                      <h5>Ford Explorer XLT</h5>
-                    </a>
-                    <span class="meta-content"
-                      ><strong>Listed by:</strong>
-                      <a href="#">Car House</a></span
-                    >
-                    <hr class="spacer mt-3 mb-3" />
-                    <div
-                      class="card-feature-box d-flex align-items-center mb-4"
-                    >
-                      <div class="icon-box d-flex align-items-center">
-                        <span class="me-2"
-                          ><i class="flaticon-speedometer"></i></span
-                        >
-                        120cc
-                      </div>
-                      <div class="icon-box d-flex align-items-center">
-                        <span class="me-2"
-                          ><i class="flaticon-steering-wheel"></i></span
-                        >
-                        Manual
-                      </div>
-                      <div class="icon-box d-flex align-items-center">
-                        <span class="me-2"><i class="flaticon-petrol"></i></span
-                        >
-                        Petrol
-                      </div>
-                    </div>
-                    <a
-                      href="inventory-details.html"
-                      class="btn outline-btn btn-sm d-block">View Details</a
-                    >
-                  </div>
-                </div>
-              </div>
+              {
+                allInventoryListings.map((listing) => (
+                  <Card listing={listing} />
+                ))
+              }
               <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 popular latest">
                 <div
                   class="filter-card-item position-relative overflow-hidden rounded bg-white"
@@ -907,7 +849,7 @@
                   <div class="feature-thumb position-relative overflow-hidden">
                     <a href="inventory-details.html"
                       ><img
-                        src="assets/img/home1/car-2.jpg"
+                        src="/img/home1/car-2.jpg"
                         alt="car"
                         class="img-fluid"
                       /></a
@@ -969,7 +911,7 @@
                   <div class="feature-thumb position-relative overflow-hidden">
                     <a href="inventory-details.html"
                       ><img
-                        src="assets/img/home1/car-3.jpg"
+                        src="/img/home1/car-3.jpg"
                         alt="car"
                         class="img-fluid"
                       /></a
@@ -1031,7 +973,7 @@
                   <div class="feature-thumb position-relative overflow-hidden">
                     <a href="inventory-details.html"
                       ><img
-                        src="assets/img/home1/car-4.jpg"
+                        src="/img/home1/car-4.jpg"
                         alt="car"
                         class="img-fluid"
                       /></a
@@ -1091,7 +1033,7 @@
                   <div class="feature-thumb position-relative overflow-hidden">
                     <a href="inventory-details.html"
                       ><img
-                        src="assets/img/home1/car-5.jpg"
+                        src="/img/home1/car-5.jpg"
                         alt="car"
                         class="img-fluid"
                       /></a
@@ -1151,7 +1093,7 @@
                   <div class="feature-thumb position-relative overflow-hidden">
                     <a href="inventory-details.html"
                       ><img
-                        src="assets/img/home1/car-6.jpg"
+                        src="/img/home1/car-6.jpg"
                         alt="car"
                         class="img-fluid"
                       /></a
@@ -1213,7 +1155,7 @@
                   <div class="feature-thumb position-relative overflow-hidden">
                     <a href="inventory-details.html"
                       ><img
-                        src="assets/img/home1/car-7.jpg"
+                        src="/img/home1/car-7.jpg"
                         alt="car"
                         class="img-fluid"
                       /></a
@@ -1275,7 +1217,7 @@
                   <div class="feature-thumb position-relative overflow-hidden">
                     <a href="inventory-details.html"
                       ><img
-                        src="assets/img/home1/car-8.jpg"
+                        src="/img/home1/car-8.jpg"
                         alt="car"
                         class="img-fluid"
                       /></a
@@ -1358,10 +1300,10 @@
       <!--about section start-->
       <section
         class="about-section pt-120 pb-220 bg-primary-light position-relative z-1 overflow-hidden"
-        data-background="assets/img/shapes/about-bg.jpg"
+        data-background="/img/shapes/about-bg.jpg"
       >
         <img
-          src="assets/img/shapes/tire-primary-light.png"
+          src="/img/shapes/tire-primary-light.png"
           alt="tire"
           class="tire-primary-light position-absolute end-0 top-0 z--1"
         />
@@ -1385,11 +1327,7 @@
                     resource maximizing architectures.
                   </p>
                 </div>
-                <img
-                  src="assets/img/home1/car-red.png"
-                  alt="car"
-                  class="img-fluid"
-                />
+                <img src="/img/home1/car-red.png" alt="car" class="img-fluid" />
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
@@ -1445,7 +1383,7 @@
       <!--feedback section start-->
       <section
         class="feedback-section position-relative"
-        data-background="assets/img/home1/video-bg.jpg"
+        data-background="/img/home1/video-bg.jpg"
       >
         <div class="countdown-area">
           <div
@@ -1515,7 +1453,7 @@
               <div class="col-6">
                 <div class="quote-icon">
                   <img
-                    src="assets/img/icons/quote-icon.svg"
+                    src="/img/icons/quote-icon.svg"
                     alt="quote"
                     class="img-fluid"
                   />
@@ -1559,7 +1497,7 @@
                         </p>
                         <div class="author-info d-flex align-items-center">
                           <img
-                            src="assets/img/author/author-1.jpg"
+                            src="/img/author/author-1.jpg"
                             alt="author"
                             class="rounded-circle flex-shrink-0 border border-2"
                           />
@@ -1572,7 +1510,7 @@
                         </div>
                         <span class="quote-icon position-absolute"
                           ><img
-                            src="assets/img/icons/quote-icon-sm.svg"
+                            src="/img/icons/quote-icon-sm.svg"
                             alt="quote icon"
                           /></span
                         >
@@ -1596,7 +1534,7 @@
                         </p>
                         <div class="author-info d-flex align-items-center">
                           <img
-                            src="assets/img/author/author-1.jpg"
+                            src="/img/author/author-1.jpg"
                             alt="author"
                             class="rounded-circle flex-shrink-0 border border-2"
                           />
@@ -1609,7 +1547,7 @@
                         </div>
                         <span class="quote-icon position-absolute"
                           ><img
-                            src="assets/img/icons/quote-icon-sm.svg"
+                            src="/img/icons/quote-icon-sm.svg"
                             alt="quote icon"
                           /></span
                         >
@@ -1637,12 +1575,12 @@
       <!--faq & app section start-->
       <section class="merge-section position-relative z-1 overflow-hidden">
         <img
-          src="assets/img/shapes/net-shape.png"
+          src="/img/shapes/net-shape.png"
           alt="net shape"
           class="position-absolute end-0 top-0 z--1"
         />
         <img
-          src="assets/img/shapes/net-left.png"
+          src="/img/shapes/net-left.png"
           alt="net shape"
           class="position-absolute start-0 bottom-0 z--1"
         />
@@ -2417,7 +2355,7 @@
               class="apps-content-wrapper position-relative z-1 overflow-hidden rounded"
             >
               <img
-                src="assets/img/shapes/apps-bg-shape.png"
+                src="/img/shapes/apps-bg-shape.png"
                 alt="not found"
                 class="position-absolute z--1 end-0 top-0"
               />
@@ -2475,7 +2413,7 @@
                       class="download-countdown d-inline-flex align-items-center rounded bg-white shadow position-absolute"
                     >
                       <img
-                        src="assets/img/home1/author-1.png"
+                        src="/img/home1/author-1.png"
                         alt="author"
                         class="rounded-cricle flex-shrink-0"
                       />
@@ -2485,7 +2423,7 @@
                       </div>
                     </div>
                     <img
-                      src="assets/img/home1/apps-bg.png"
+                      src="/img/home1/apps-bg.png"
                       alt="car"
                       class="img-fluid"
                     />
@@ -2525,7 +2463,7 @@
                   >
                     <a href="#"
                       ><img
-                        src="assets/img/home1/blog-1.jpg"
+                        src="/img/home1/blog-1.jpg"
                         alt="feature image"
                         class="img-fluid"
                       /></a
@@ -2552,7 +2490,7 @@
                       class="blog-card-author d-inline-flex align-items-center"
                     >
                       <img
-                        src="assets/img/author/blog-author-1.jpg"
+                        src="/img/author/blog-author-1.jpg"
                         alt="author"
                         class="flex-shrink-0 rounded-circle"
                       />
@@ -2578,7 +2516,7 @@
                   >
                     <a href="#"
                       ><img
-                        src="assets/img/home1/blog-2.jpg"
+                        src="/img/home1/blog-2.jpg"
                         alt="feature image"
                         class="img-fluid"
                       /></a
@@ -2605,7 +2543,7 @@
                       class="blog-card-author d-inline-flex align-items-center"
                     >
                       <img
-                        src="assets/img/author/blog-author-1.jpg"
+                        src="/img/author/blog-author-1.jpg"
                         alt="author"
                         class="flex-shrink-0 rounded-circle"
                       />
@@ -2631,7 +2569,7 @@
                   >
                     <a href="#"
                       ><img
-                        src="assets/img/home1/blog-3.jpg"
+                        src="/img/home1/blog-3.jpg"
                         alt="feature image"
                         class="img-fluid"
                       /></a
@@ -2658,7 +2596,7 @@
                       class="blog-card-author d-inline-flex align-items-center"
                     >
                       <img
-                        src="assets/img/author/blog-author-1.jpg"
+                        src="/img/author/blog-author-1.jpg"
                         alt="author"
                         class="flex-shrink-0 rounded-circle"
                       />
@@ -2693,7 +2631,7 @@
                   class="footer-banner position-relative bg-primary z-3 rounded"
                 >
                   <img
-                    src="assets/img/shapes/banner-wave.png"
+                    src="/img/shapes/banner-wave.png"
                     alt="wave"
                     class="position-absolute end-0 top-0 z--1"
                   />
@@ -2741,7 +2679,7 @@
                     <div class="col-lg-6 align-self-end">
                       <div class="footer-banner-right">
                         <img
-                          src="assets/img/home1/footer-car-1.png"
+                          src="/img/home1/footer-car-1.png"
                           alt="car"
                           class="img-fluid"
                         />
@@ -2755,7 +2693,7 @@
                   class="footer-banner position-relative banner-gradient z-3 rounded"
                 >
                   <img
-                    src="assets/img/shapes/banner-wave.png"
+                    src="/img/shapes/banner-wave.png"
                     alt="wave"
                     class="opacity-50 position-absolute end-0 top-0 z--1"
                   />
@@ -2802,7 +2740,7 @@
                     <div class="col-lg-6 align-self-end">
                       <div class="footer-banner-right">
                         <img
-                          src="assets/img/home1/footer-car-2.png"
+                          src="/img/home1/footer-car-2.png"
                           alt="car"
                           class="img-fluid"
                         />
@@ -2816,7 +2754,7 @@
         </div>
         <div
           class="footer-wrapper pt-120 position-relative z-1 overflow-hidden has-banner"
-          data-background="assets/img/shapes/texture-bg.png"
+          data-background="/img/shapes/texture-bg.png"
         >
           <div class="container">
             <div class="row justify-content-between">
@@ -2856,7 +2794,7 @@
                   <div class="row align-items-center">
                     <div class="col-6">
                       <a href="index.html" class="footer-logo d-inline-block"
-                        ><img src="assets/img/logo.png" alt="logo" /></a
+                        ><img src="/img/logo.png" alt="logo" /></a
                       >
                     </div>
                     <div class="col-6">
@@ -2982,28 +2920,28 @@
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-1.jpg"
+                          src="/img/home4/pd-1.jpg"
                           alt="feature img"
                           class="img-fluid"
                         />
                       </div>
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-1.jpg"
+                          src="/img/home4/pd-1.jpg"
                           alt="feature img"
                           class="img-fluid"
                         />
                       </div>
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-1.jpg"
+                          src="/img/home4/pd-1.jpg"
                           alt="feature img"
                           class="img-fluid"
                         />
                       </div>
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-1.jpg"
+                          src="/img/home4/pd-1.jpg"
                           alt="feature img"
                           class="img-fluid"
                         />
@@ -3014,28 +2952,28 @@
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-thumb-1.png"
+                          src="/img/home4/pd-thumb-1.png"
                           alt="thumbnail"
                           class="img-fluid"
                         />
                       </div>
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-thumb-1.png"
+                          src="/img/home4/pd-thumb-1.png"
                           alt="thumbnail"
                           class="img-fluid"
                         />
                       </div>
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-thumb-1.png"
+                          src="/img/home4/pd-thumb-1.png"
                           alt="thumbnail"
                           class="img-fluid"
                         />
                       </div>
                       <div class="swiper-slide">
                         <img
-                          src="assets/img/home4/pd-thumb-1.png"
+                          src="/img/home4/pd-thumb-1.png"
                           alt="thumbnail"
                           class="img-fluid"
                         />
@@ -3146,6 +3084,7 @@
     <script src="../../public/js/vendors/price-range.js"></script>
     <script src="../../public/js/vendors/image-rotate.min.js"></script>
     <script src="../../public/js/app.js"></script>
+
     <!--endbuild-->
   </body>
 </html>
