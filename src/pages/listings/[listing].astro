@@ -1,0 +1,28 @@
+---
+import { getEntry } from "astro:content";
+import path from "path";
+
+export async function getStaticPaths() {
+  const allListings = import.meta.glob("../../content/inventory/*.json");
+  const listingPaths = Object.keys(allListings);
+
+  const extractFileName = (filePath: string) =>
+    path.basename(filePath, path.extname(filePath));
+
+  const fileNames = listingPaths.map(extractFileName);
+
+  const asStaticPath = fileNames.map((fileName) => {
+    return {
+      params: { listing: fileName },
+    };
+  });
+
+  return asStaticPath;
+}
+
+const { listing: listingId } = Astro.params;
+
+const listingDetail = await getEntry("inventory", listingId);
+---
+
+<!-- <CarListingLayout /> -->
