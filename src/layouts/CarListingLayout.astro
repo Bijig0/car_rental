@@ -1,4 +1,5 @@
 ---
+import Description from "../components/Description";
 import { type CollectionEntry } from "astro:content";
 interface Props {
   listing: CollectionEntry<"inventory">;
@@ -21,7 +22,8 @@ const {
   cc,
   shortName,
   shortFuelType,
-  features
+  features,
+  description
 } = listingDetail;
 ---
 
@@ -741,33 +743,8 @@ const {
                   </div>
                   <hr class="mt-40 mb-30" />
                   <h4 class="mb-40">About This Listing</h4>
-                  <p>
-                    How the adventure ended will be seen anon. Aouda was
-                    anxious, though she said nothing. As for Passepart out, he
-                    thought Mr. Fogg’s manoeuvre simply glorious. The captain
-                    had said “between eleven and twelve knots,” and the
-                    Henrietta confirmed his prediction.
-                  </p>
-                  <div class="expanded-content">
-                    <p>
-                      How the adventure ended will be seen anon. Aouda was
-                      anxious, though she said nothing. As for Passepart out, he
-                      thought Mr. Fogg’s manoeuvre simply glorious. The captain
-                      had said “between eleven and twelve knots,” and the
-                      Henrietta confirmed his prediction.
-                    </p>
-                    <p>
-                      How the adventure ended will be seen anon. Aouda was
-                      anxious, though she said nothing. As for Passepart out, he
-                      thought Mr. Fogg’s manoeuvre simply glorious. The captain
-                      had said “between eleven and twelve knots,” and the
-                      Henrietta confirmed his prediction.
-                    </p>
-                  </div>
-                  <a href="#" class="iv-expand-btn"
-                    ><span class="me-2"><i class="fa-solid fa-plus"></i></span
-                    >Show More</a
-                  >
+                  <!-- Description -->
+                  <Description client:load description={description} />
                   <hr class="mt-30 mb-30" />
                   <h4 class="mb-30">Car Features</h4>
                   <div class="iv_feature_accordion">
