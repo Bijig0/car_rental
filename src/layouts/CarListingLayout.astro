@@ -1,9 +1,10 @@
 ---
-import MightAlsoLikeCard from "../components/MightAlsoLikeCard.astro";
-import Description from "../components/Description";
-import Features from "../components/Features";
-import EmailForm from "../components/EmailForm";
 import { type CollectionEntry } from "astro:content";
+import Description from "../components/Description";
+import EmailForm from "../components/EmailForm";
+import Features from "../components/Features";
+import MightAlsoLikeCard from "../components/MightAlsoLikeCard.astro";
+import MainLayout from "./MainLayout.astro";
 interface Props {
   listing: CollectionEntry<"inventory">;
 }
@@ -29,959 +30,602 @@ const {
   description,
 } = listingDetail;
 
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 const allInventoryListings = await getCollection("inventory");
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!--required meta tags-->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!--twitter og-->
-    <meta name="twitter:site" content="@themetags" />
-    <meta name="twitter:creator" content="@themetags" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AutoHive - Car Rental HTML Template" />
-    <meta
-      name="twitter:description"
-      content="Car Rental HTML Template, auto parts technology, car dealership & business Bootstrap 5 Html template. It is best and famous car rental company website template."
-    />
-    <meta name="twitter:image" content="#" />
-
-    <!--facebook og-->
-    <meta property="og:url" content="#" />
-    <meta name="twitter:title" content="AutoHive - Car Rental HTML Template" />
-    <meta
-      property="og:description"
-      content="Car Rental HTML Template, auto parts technology, car dealership & business Bootstrap 5 Html template. It is best and famous car rental company website template."
-    />
-    <meta property="og:image" content="#" />
-    <meta property="og:image:secure_url" content="#" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="600" />
-
-    <!--meta-->
-    <meta
-      name="description"
-      content="Car Rental HTML Template, auto parts technology, car dealership & business Bootstrap 5 Html template. It is best and famous car rental company website template."
-    />
-    <meta name="author" content="ThemeTags" />
-
-    <!--favicon icon-->
-    <link rel="icon" href="img/favicon.png" type="image/png" sizes="16x16" />
-
-    <!--title-->
-    <title>AutoHive - Inventory Details - HTML Template</title>
-
-    <!--build:css-->
-    <link rel="stylesheet" href="/dist/css/main.css" />
-    <!-- endbuild -->
-
-    <!--custom css-->
-    <link rel="stylesheet" href="/dist/css/custom.css" />
-  </head>
-
-  <body>
-    <!-- <div class="ring-preloader w-100 h-100 position-fixed start-0 top-0">
-      <div class="lds-dual-ring"></div>
-    </div> -->
-
-    <!--main content wrapper start-->
-    <div class="main-wrapper">
-      <!--header area start-->
-      <header class="header-style-one header-sticky">
-        <div class="at_topbar d-none d-sm-block bg-white">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-xl-4 col-lg-5 col-8">
-                <div class="tp-info">
-                  <p class="mb-0">
-                    Welcome!... Proof of Quality Is On the Autohive
-                  </p>
-                </div>
-              </div>
-              <div class="col-xl-8 col-lg-7 col-4">
-                <div
-                  class="tp-info-wrapper d-flex align-items-center justify-content-end"
-                >
-                  <div
-                    class="d-none tp-info d-xl-inline-flex align-items-center"
-                  >
-                    <span class="icon-wrapper me-2">
-                      <i class="flaticon-location"></i>
-                    </span>
-                    <p class="mb-0">Rock St 14, New york City, USA</p>
-                  </div>
-                  <div class="tp-info d-inline-flex align-items-center">
-                    <span class="icon-wrapper me-2">
-                      <i class="flaticon-phone-call"></i>
-                    </span>
-                    <p class="mb-0">+90 15 46 47 98 487</p>
-                  </div>
-                  <div
-                    class="d-none tp-info d-xl-inline-flex align-items-center"
-                  >
-                    <span class="icon-wrapper me-2">
-                      <i class="flaticon-email"></i>
-                    </span>
-                    <p class="mb-0">autohive@support.com</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="at_header_nav">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-6 col-lg-3">
-                <div class="logo-wrapper">
-                  <a href="index.html"><img src="/img/logo.png" alt="logo" /></a
-                  >
-                </div>
-              </div>
-              <div class="col-6 col-lg-9">
-                <div
-                  class="at_header_right d-flex align-items-center justify-content-end"
-                >
-                  <nav class="at_nav_menu d-none d-lg-block">
-                    <ul>
-                      <li class="">
-                        <a href="/">Home</a>
-                      </li>
-                      <li class="">
-                        <a href="#">Listings</a>
-                      </li>
-                      <li class="">
-                        <a href="/contact">Contact</a>
-                      </li>
-                    </ul>
-                  </nav>
-                  <button
-                    class="ofcanvus-toggle header-toggle-btn ms-4 d-none d-lg-block"
-                  >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button>
-                  <button
-                    class="mobile-menu-toggle header-toggle-btn ms-4 d-lg-none"
-                  >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!--header area end-->
-
-      <!--mobile menu start-->
-      <div class="mobile-menu position-fixed bg-white deep-shadow">
-        <button class="close-menu position-absolute"
-          ><i class="fa-solid fa-xmark"></i></button
-        >
-        <a
-          href="index.html"
-          class="logo-wrapper bg-secondary d-block mt-4 p-3 rounded-1 text-center"
-          ><img src="/img/logo.png" alt="logo" class="img-fluid" /></a
-        >
-        <nav class="mobile-menu-wrapper mt-40">
-          <ul>
-            <li class="has-submenu">
-              <a href="#">Home</a>
-              <ul class="submenu-wrapper">
-                <li><a href="index.html">Car Dealership</a></li>
-                <li><a href="car-dealership-2.html">Car Dealership V2</a></li>
-                <li><a href="index-2.html">Rent Home</a></li>
-                <li><a href="index-3.html">Rent Home v2</a></li>
-                <li><a href="index-4.html">Auto parts Home</a></li>
-                <li><a href="index-5.html">Motor Dealership</a></li>
-                <li>
-                  <a href="index-6.html"
-                    >Electric Car Home <span class="badge bg-primary ms-3"
-                      >New</span
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="index-7.html"
-                    >Equipment Home <span class="badge bg-primary ms-3"
-                      >New</span
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="index-8.html"
-                    >BiCycle Home <span class="badge bg-primary ms-3">New</span
-                    ></a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Listing</a>
-              <ul class="submenu-wrapper">
-                <li><a href="inventory-listing.html">Inventory Listing</a></li>
-                <li>
-                  <a href="inventory-listing-2.html">Inventory Listing v2</a>
-                </li>
-                <li><a href="car-listing.html">Car Listing</a></li>
-                <li><a href="inventory-details.html">Listing Details</a></li>
-                <li>
-                  <a href="bike-listing.html"
-                    >Bike Listing <span class="badge bg-primary ms-3">New</span
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="bike-listing-details.html"
-                    >Bike Listing Details <span class="badge bg-primary ms-3"
-                      >New</span
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="equipment-listing.html"
-                    >Equipment Listing<span class="badge bg-primary ms-3"
-                      >New</span
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="equipment-details.html"
-                    >Equipment Details<span class="badge bg-primary ms-3"
-                      >New</span
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="cycle-listing.html"
-                    >Bicycle Listing<span class="badge bg-primary ms-3"
-                      >New</span
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="cycle-details.html"
-                    >Bicycle Details<span class="badge bg-primary ms-3"
-                      >New</span
-                    ></a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li><a href="services.html">Service</a></li>
-            <li class="has-submenu">
-              <a href="#">Blog</a>
-              <ul class="submenu-wrapper">
-                <li><a href="blog-list.html">Blog List</a></li>
-                <li><a href="blog-grid.html">Blog Grid</a></li>
-                <li><a href="blog-single.html">Blog Details</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Pages</a>
-              <ul class="submenu-wrapper">
-                <li><a href="car-rental.html">Car Rental</a></li>
-                <li><a href="dealers.html">Dealers List</a></li>
-                <li><a href="dealer-single.html">Dealer Single</a></li>
-                <li>
-                  <a href="electric-car-details.html"
-                    >Electric Car Details<span class="badge bg-primary ms-3"
-                    ></span></a
-                  >
-                </li>
-                <li><a href="promotion.html">Promotion</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="shop-grid.html">Shop Grid</a></li>
-                <li><a href="product-details.html">Product Details</a></li>
-                <li><a href="wishlist.html">Wishlist</a></li>
-                <li><a href="cart.html">cart</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Signup</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <div class="contact-info mt-60">
-          <h4 class="mb-20">Contact Info</h4>
-          <p>Chicago 12, Melborne City, USA</p>
-          <p>+88 01682648101</p>
-          <p>info@example.com</p>
-          <div class="social-contact">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-      </div>
-      <!--mobile menu end-->
-
-      <!--ofcanvus menu start-->
-      <div class="at_offcanvus_menu position-fixed">
-        <button class="at-offcanvus-close"
-          ><i class="fa-solid fa-xmark"></i></button
-        >
-        <a href="#" class="logo-wrapper d-inline-block mb-5"
-          ><img src="/img/logo-black.png" alt="logo" /></a
-        >
-        <div class="offcanvus-content">
-          <h4 class="mb-4">About Us</h4>
-          <p>
-            Welcome to Melbourne's premier luxury car rental service, where
-            sophistication meets unparalleled customer service. At Gifleet , we
-            pride ourselves on providing an exquisite selection of high-end
-            vehicles coupled with a dedication to exceeding our customers'
-            expectations at every turn.
-          </p>
-          <p>
-            So why choose us? At Gifleet, we offer the finest luxury vehicles
-            and exceptional service, ensuring complete satisfaction. Experience
-            the fusion of luxury and service with Gifleet, creating
-            unforgettable road moments.
-          </p>
-          <!-- <a href="#" class="btn btn-primary mt-4">About Us</a> -->
-        </div>
-        <div class="offcanvus-contact">
-          <h4 class="mb-4 mt-5">Contact Info</h4>
-          <ul class="at_canvus_address">
-            <li>Chicago 12, Melborne City, USA</li>
-            <li>+8801682648101</li>
-            <li>info@example.com</li>
-          </ul>
-        </div>
-        <div class="at_canvus_social mt-4">
-          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
-      <!--ofcanvus menu end-->
-
-      <!--breadcrumb section start-->
-      <section
-        class="breadcrumb-section position-relative z-2 overflow-hidden mt--75"
-        data-background="img/shapes/texture-bg.png"
-      >
-        <img
-          src="/img/shapes/tire-print-left.png"
-          alt="tire print"
-          class="position-absolute start-0 z-1 tire-print"
-        />
-        <img
-          src="/img/shapes/tire-print-right.png"
-          alt="tire print"
-          class="position-absolute end-0 z-1 tire-print"
-        />
+<MainLayout>
+  <div slot="body-content" class="main-wrapper">
+    <!--header area start-->
+    <header class="header-style-one header-sticky">
+      <div class="at_topbar d-none d-sm-block bg-white">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-12">
+          <div class="row align-items-center">
+            <div class="col-xl-4 col-lg-5 col-8">
+              <div class="tp-info">
+                <p class="mb-0">
+                  Welcome!... Proof of Quality Is On the Autohive
+                </p>
+              </div>
+            </div>
+            <div class="col-xl-8 col-lg-7 col-4">
               <div
-                class="breadcrumb-content-wrapper text-center position-relative z-3"
+                class="tp-info-wrapper d-flex align-items-center justify-content-end"
               >
-                <h1 class="text-white">{name}</h1>
-                <ol class="breadcrumb justify-content-center">
-                  <li class="breadcrumb-item text-white fw-500">
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li class="breadcrumb-item text-white fw-500">Page</li>
-                  <li class="breadcrumb-item text-white fw-500">
-                    Inventory Details
-                  </li>
-                </ol>
+                <div class="d-none tp-info d-xl-inline-flex align-items-center">
+                  <span class="icon-wrapper me-2">
+                    <i class="flaticon-location"></i>
+                  </span>
+                  <p class="mb-0">Rock St 14, New york City, USA</p>
+                </div>
+                <div class="tp-info d-inline-flex align-items-center">
+                  <span class="icon-wrapper me-2">
+                    <i class="flaticon-phone-call"></i>
+                  </span>
+                  <p class="mb-0">+90 15 46 47 98 487</p>
+                </div>
+                <div class="d-none tp-info d-xl-inline-flex align-items-center">
+                  <span class="icon-wrapper me-2">
+                    <i class="flaticon-email"></i>
+                  </span>
+                  <p class="mb-0">autohive@support.com</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <!--breadcrumb section end-->
-
-      <!--inventory details-->
-      <section class="inventory-details-area ptb-120">
+      </div>
+      <div class="at_header_nav">
         <div class="container">
-          <div class="row">
-            <div class="col-xl-8">
-              <div class="inventory-details">
-                <div class="product_details widget-padding bg-white rounded">
-                  <span class="btn-meta bg-primary text-white">Available</span>
-                  <h3 class="mt-2">{name}</h3>
-                  <div class="iv-meta">
-                    <span
-                      ><i class="fa-solid fa-clock"></i>Listed on: Feb 24 2024</span
-                    >
-                  </div>
-                  <div class="iv_double_slider mt-30">
-                    <div class="iv_thumb_slider swiper">
-                      <div class="swiper-wrapper">
-                        <div
-                          class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                        >
-                          <img
-                            src="/img/inventory/car-lg-thumb-1.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div
-                          class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                        >
-                          <img
-                            src="/img/inventory/car-lg-1.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div
-                          class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                        >
-                          <img
-                            src="/img/inventory/car-lg-1.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div
-                          class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                        >
-                          <img
-                            src="/img/inventory/car-lg-1.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
+          <div class="row align-items-center">
+            <div class="col-6 col-lg-3">
+              <div class="logo-wrapper">
+                <a href="index.html"><img src="/img/logo.png" alt="logo" /></a>
+              </div>
+            </div>
+            <div class="col-6 col-lg-9">
+              <div
+                class="at_header_right d-flex align-items-center justify-content-end"
+              >
+                <nav class="at_nav_menu d-none d-lg-block">
+                  <ul>
+                    <li class="">
+                      <a href="/">Home</a>
+                    </li>
+                    <li class="">
+                      <a href="#">Listings</a>
+                    </li>
+                    <li class="">
+                      <a href="/contact">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+                <button
+                  class="ofcanvus-toggle header-toggle-btn ms-4 d-none d-lg-block"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+                <button
+                  class="mobile-menu-toggle header-toggle-btn ms-4 d-lg-none"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--header area end-->
+
+    <!--mobile menu start-->
+    <div class="mobile-menu position-fixed bg-white deep-shadow">
+      <button class="close-menu position-absolute"
+        ><i class="fa-solid fa-xmark"></i></button
+      >
+      <a
+        href="index.html"
+        class="logo-wrapper bg-secondary d-block mt-4 p-3 rounded-1 text-center"
+        ><img src="/img/logo.png" alt="logo" class="img-fluid" /></a
+      >
+      <nav class="mobile-menu-wrapper mt-40">
+        <ul>
+          <li class="has-submenu">
+            <a href="#">Home</a>
+            <ul class="submenu-wrapper">
+              <li><a href="index.html">Car Dealership</a></li>
+              <li><a href="car-dealership-2.html">Car Dealership V2</a></li>
+              <li><a href="index-2.html">Rent Home</a></li>
+              <li><a href="index-3.html">Rent Home v2</a></li>
+              <li><a href="index-4.html">Auto parts Home</a></li>
+              <li><a href="index-5.html">Motor Dealership</a></li>
+              <li>
+                <a href="index-6.html"
+                  >Electric Car Home <span class="badge bg-primary ms-3"
+                    >New</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="index-7.html"
+                  >Equipment Home <span class="badge bg-primary ms-3">New</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="index-8.html"
+                  >BiCycle Home <span class="badge bg-primary ms-3">New</span
+                  ></a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Listing</a>
+            <ul class="submenu-wrapper">
+              <li><a href="inventory-listing.html">Inventory Listing</a></li>
+              <li>
+                <a href="inventory-listing-2.html">Inventory Listing v2</a>
+              </li>
+              <li><a href="car-listing.html">Car Listing</a></li>
+              <li><a href="inventory-details.html">Listing Details</a></li>
+              <li>
+                <a href="bike-listing.html"
+                  >Bike Listing <span class="badge bg-primary ms-3">New</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="bike-listing-details.html"
+                  >Bike Listing Details <span class="badge bg-primary ms-3"
+                    >New</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="equipment-listing.html"
+                  >Equipment Listing<span class="badge bg-primary ms-3"
+                    >New</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="equipment-details.html"
+                  >Equipment Details<span class="badge bg-primary ms-3"
+                    >New</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="cycle-listing.html"
+                  >Bicycle Listing<span class="badge bg-primary ms-3">New</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="cycle-details.html"
+                  >Bicycle Details<span class="badge bg-primary ms-3">New</span
+                  ></a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="services.html">Service</a></li>
+          <li class="has-submenu">
+            <a href="#">Blog</a>
+            <ul class="submenu-wrapper">
+              <li><a href="blog-list.html">Blog List</a></li>
+              <li><a href="blog-grid.html">Blog Grid</a></li>
+              <li><a href="blog-single.html">Blog Details</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Pages</a>
+            <ul class="submenu-wrapper">
+              <li><a href="car-rental.html">Car Rental</a></li>
+              <li><a href="dealers.html">Dealers List</a></li>
+              <li><a href="dealer-single.html">Dealer Single</a></li>
+              <li>
+                <a href="electric-car-details.html"
+                  >Electric Car Details<span class="badge bg-primary ms-3"
+                  ></span></a
+                >
+              </li>
+              <li><a href="promotion.html">Promotion</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="shop-grid.html">Shop Grid</a></li>
+              <li><a href="product-details.html">Product Details</a></li>
+              <li><a href="wishlist.html">Wishlist</a></li>
+              <li><a href="cart.html">cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Signup</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="contact-info mt-60">
+        <h4 class="mb-20">Contact Info</h4>
+        <p>Chicago 12, Melborne City, USA</p>
+        <p>+88 01682648101</p>
+        <p>info@example.com</p>
+        <div class="social-contact">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <!--mobile menu end-->
+
+    <!--ofcanvus menu start-->
+    <div class="at_offcanvus_menu position-fixed">
+      <button class="at-offcanvus-close"
+        ><i class="fa-solid fa-xmark"></i></button
+      >
+      <a href="#" class="logo-wrapper d-inline-block mb-5"
+        ><img src="/img/logo-black.png" alt="logo" /></a
+      >
+      <div class="offcanvus-content">
+        <h4 class="mb-4">About Us</h4>
+        <p>
+          Welcome to Melbourne's premier luxury car rental service, where
+          sophistication meets unparalleled customer service. At Gifleet , we
+          pride ourselves on providing an exquisite selection of high-end
+          vehicles coupled with a dedication to exceeding our customers'
+          expectations at every turn.
+        </p>
+        <p>
+          So why choose us? At Gifleet, we offer the finest luxury vehicles and
+          exceptional service, ensuring complete satisfaction. Experience the
+          fusion of luxury and service with Gifleet, creating unforgettable road
+          moments.
+        </p>
+        <!-- <a href="#" class="btn btn-primary mt-4">About Us</a> -->
+      </div>
+      <div class="offcanvus-contact">
+        <h4 class="mb-4 mt-5">Contact Info</h4>
+        <ul class="at_canvus_address">
+          <li>Chicago 12, Melborne City, USA</li>
+          <li>+8801682648101</li>
+          <li>info@example.com</li>
+        </ul>
+      </div>
+      <div class="at_canvus_social mt-4">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <!--ofcanvus menu end-->
+
+    <!--breadcrumb section start-->
+    <section
+      class="breadcrumb-section position-relative z-2 overflow-hidden mt--75"
+      data-background="img/shapes/texture-bg.png"
+    >
+      <img
+        src="/img/shapes/tire-print-left.png"
+        alt="tire print"
+        class="position-absolute start-0 z-1 tire-print"
+      />
+      <img
+        src="/img/shapes/tire-print-right.png"
+        alt="tire print"
+        class="position-absolute end-0 z-1 tire-print"
+      />
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div
+              class="breadcrumb-content-wrapper text-center position-relative z-3"
+            >
+              <h1 class="text-white">{name}</h1>
+              <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item text-white fw-500">
+                  <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item text-white fw-500">Page</li>
+                <li class="breadcrumb-item text-white fw-500">
+                  Inventory Details
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--breadcrumb section end-->
+
+    <!--inventory details-->
+    <section class="inventory-details-area ptb-120">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8">
+            <div class="inventory-details">
+              <div class="product_details widget-padding bg-white rounded">
+                <span class="btn-meta bg-primary text-white">Available</span>
+                <h3 class="mt-2">{name}</h3>
+                <div class="iv-meta">
+                  <span
+                    ><i class="fa-solid fa-clock"></i>Listed on: Feb 24 2024</span
+                  >
+                </div>
+                <div class="iv_double_slider mt-30">
+                  <div class="iv_thumb_slider swiper">
+                    <div class="swiper-wrapper">
+                      <div
+                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
+                      >
+                        <img
+                          src="/img/inventory/car-lg-thumb-1.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div
+                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
+                      >
+                        <img
+                          src="/img/inventory/car-lg-1.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div
+                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
+                      >
+                        <img
+                          src="/img/inventory/car-lg-1.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div
+                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
+                      >
+                        <img
+                          src="/img/inventory/car-lg-1.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
                       </div>
                     </div>
-                    <div class="iv_thumb_control_slider swiper mt-3 mt-lg-4">
-                      <div class="swiper-wrapper">
-                        <div class="swiper-slide rounded overflow-hidden">
-                          <img
-                            src="/img/inventory/car-sm-thumb-1.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div class="swiper-slide rounded overflow-hidden">
-                          <img
-                            src="/img/inventory/car-2.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div class="swiper-slide rounded overflow-hidden">
-                          <img
-                            src="/img/inventory/car-3.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div class="swiper-slide rounded overflow-hidden">
-                          <img
-                            src="/img/inventory/car-4.jpg"
-                            alt="car"
-                            class="img-fluid"
-                          />
-                        </div>
+                  </div>
+                  <div class="iv_thumb_control_slider swiper mt-3 mt-lg-4">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide rounded overflow-hidden">
+                        <img
+                          src="/img/inventory/car-sm-thumb-1.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div class="swiper-slide rounded overflow-hidden">
+                        <img
+                          src="/img/inventory/car-2.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div class="swiper-slide rounded overflow-hidden">
+                        <img
+                          src="/img/inventory/car-3.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div class="swiper-slide rounded overflow-hidden">
+                        <img
+                          src="/img/inventory/car-4.jpg"
+                          alt="car"
+                          class="img-fluid"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="product_info bg-white rounded widget-padding mt-30">
-                  <h4 class="mb-5">Key Information</h4>
-                  <div class="row g-4">
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+              </div>
+              <div class="product_info bg-white rounded widget-padding mt-30">
+                <h4 class="mb-5">Key Information</h4>
+                <div class="row g-4">
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="iv_info_item d-flex align-items-center">
+                      <span
+                        class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+                      >
+                        <i class="flaticon-energy"></i>
+                      </span>
+                      <div class="info_content">
+                        <span class="meta">Transmission</span>
+                        <span class="title text-capitalize"
+                          >{
+                            transmission === "auto" ? "Automatic" : transmission
+                          }</span
                         >
-                          <i class="flaticon-energy"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Transmission</span>
-                          <span class="title text-capitalize"
-                            >{
-                              transmission === "auto"
-                                ? "Automatic"
-                                : transmission
-                            }</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-engine"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Engine Size</span>
-                          <span class="title">{cc} (cc)</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-new-year"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Year</span>
-                          <span class="title">{year}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-petrol"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Fuel Type</span>
-                          <span class="title text-capitalize">{fuelType}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-drive"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Color</span>
-                          <span class="title">Black</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-gas-tank"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Seats</span>
-                          <span class="title">{seats}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="iv_info_item d-flex align-items-center">
-                        <span
-                          class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
-                        >
-                          <i class="flaticon-car-door"></i>
-                        </span>
-                        <div class="info_content">
-                          <span class="meta">Doors</span>
-                          <span class="title">{doors} Doors</span>
-                        </div>
                       </div>
                     </div>
                   </div>
-                  <hr class="mt-40 mb-30" />
-                  <h4 class="mb-40">About This Listing</h4>
-                  <!-- Description -->
-                  <Description client:load description={description} />
-                  <hr class="mt-30 mb-30" />
-                  <h4 class="mb-30">Car Features</h4>
-                  <div class="iv_feature_accordion">
-                    <div class="accordion" id="iv_ft_accordion">
-                      <div class="accordion-item">
-                        <div class="accordion-header">
-                          <a
-                            href="#features"
-                            class="accordion-button"
-                            data-bs-toggle="collapse">Features</a
-                          >
-                        </div>
-                        <div
-                          class="accordion-collapse collapse show"
-                          id="interior"
-                          data-bs-parent="#iv_ft_accordion"
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="iv_info_item d-flex align-items-center">
+                      <span
+                        class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+                      >
+                        <i class="flaticon-engine"></i>
+                      </span>
+                      <div class="info_content">
+                        <span class="meta">Engine Size</span>
+                        <span class="title">{cc} (cc)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="iv_info_item d-flex align-items-center">
+                      <span
+                        class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+                      >
+                        <i class="flaticon-new-year"></i>
+                      </span>
+                      <div class="info_content">
+                        <span class="meta">Year</span>
+                        <span class="title">{year}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="iv_info_item d-flex align-items-center">
+                      <span
+                        class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+                      >
+                        <i class="flaticon-petrol"></i>
+                      </span>
+                      <div class="info_content">
+                        <span class="meta">Fuel Type</span>
+                        <span class="title text-capitalize">{fuelType}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="iv_info_item d-flex align-items-center">
+                      <span
+                        class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+                      >
+                        <i class="flaticon-drive"></i>
+                      </span>
+                      <div class="info_content">
+                        <span class="meta">Color</span>
+                        <span class="title">Black</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="iv_info_item d-flex align-items-center">
+                      <span
+                        class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+                      >
+                        <i class="flaticon-gas-tank"></i>
+                      </span>
+                      <div class="info_content">
+                        <span class="meta">Seats</span>
+                        <span class="title">{seats}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="iv_info_item d-flex align-items-center">
+                      <span
+                        class="icon-wrapper d-inline-flex align-items-center justify-content-center border rounded flex-shrink-0"
+                      >
+                        <i class="flaticon-car-door"></i>
+                      </span>
+                      <div class="info_content">
+                        <span class="meta">Doors</span>
+                        <span class="title">{doors} Doors</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="mt-40 mb-30" />
+                <h4 class="mb-40">About This Listing</h4>
+                <!-- Description -->
+                <Description client:load description={description} />
+                <hr class="mt-30 mb-30" />
+                <h4 class="mb-30">Car Features</h4>
+                <div class="iv_feature_accordion">
+                  <div class="accordion" id="iv_ft_accordion">
+                    <div class="accordion-item">
+                      <div class="accordion-header">
+                        <a
+                          href="#features"
+                          class="accordion-button"
+                          data-bs-toggle="collapse">Features</a
                         >
-                          <div class="accordion-body">
-                            <div class="row">
-                              <Features features={features} />
-                            </div>
+                      </div>
+                      <div
+                        class="accordion-collapse collapse show"
+                        id="interior"
+                        data-bs-parent="#iv_ft_accordion"
+                      >
+                        <div class="accordion-body">
+                          <div class="row">
+                            <Features features={features} />
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <hr class="mt-30 mb-30" />
                 </div>
+                <hr class="mt-30 mb-30" />
               </div>
             </div>
-            <div class="col-xl-4">
-              <div class="iv_sidebar mt-5 mt-xl-0">
-                <div
-                  class="iv_sidebar_widget iv_pricing_widget widget-padding bg-secondary rounded"
-                >
-                  <h3 class="mb-2 text-white">{pricePerDay}/day</h3>
-                  <div class="widget_meta d-flex align-items-center">
-                    <span class="text-white"
-                      ><i class="fa-solid fa-gauge-high"></i>Melbourne, Vic</span
-                    >
-                    <span class="text-white"
-                      ><i class="fa-solid fa-eye"></i>Australia</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="iv_sidebar_widget iv_seller_widget widget-padding bg-white rounded pt-4"
-                >
-                  <h4 class="mb-0">Create a reservation</h4>
-
-                  <EmailForm client:load />
-                  <a
-                    href="https://turo.com"
-                    class="btn btn-secondary btn-md mt-30">Book now on Turo</a
+          </div>
+          <div class="col-xl-4">
+            <div class="iv_sidebar mt-5 mt-xl-0">
+              <div
+                class="iv_sidebar_widget iv_pricing_widget widget-padding bg-secondary rounded"
+              >
+                <h3 class="mb-2 text-white">{pricePerDay}/day</h3>
+                <div class="widget_meta d-flex align-items-center">
+                  <span class="text-white"
+                    ><i class="fa-solid fa-gauge-high"></i>Melbourne, Vic</span
+                  >
+                  <span class="text-white"
+                    ><i class="fa-solid fa-eye"></i>Australia</span
                   >
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <!--inventory details end-->
+              <div
+                class="iv_sidebar_widget iv_seller_widget widget-padding bg-white rounded pt-4"
+              >
+                <h4 class="mb-0">Create a reservation</h4>
 
-    <!--inventory slider start-->
-    <section class="inventory-slider">
-      <div class="container overflow-hidden">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="section-title">
-              <h2 class="h1">You May be Interested in</h2>
+                <EmailForm client:load />
+                <a
+                  href="https://turo.com"
+                  class="btn btn-secondary btn-md mt-30">Book now on Turo</a
+                >
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="inventroy-slider swiper mt-40 pb-120 overflow-visible">
-          <div class="swiper-wrapper">
-            {
-              allInventoryListings.map((listing) => {
-                return <MightAlsoLikeCard listing={listing} />;
-              })
-            }
-          </div>
-          <div class="slider-btn-prev swiper-btn">
-            <i class="fa-solid fa-arrow-left"></i>
-          </div>
-          <div class="slider-btn-next swiper-btn">
-            <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
       </div>
     </section>
-    <!--inventory slider end-->
+  </div>
+  <!--inventory details end-->
 
-    <!--footer section start-->
-    <footer class="footer-section">
-      <div
-        class="footer-wrapper pt-120 position-relative z-1 overflow-hidden"
-        data-background="img/shapes/texture-bg.png"
-      >
-        <div class="container">
-          <div class="row justify-content-between">
-            <div class="col-xl-5 col-lg-5">
-              <div class="footer-widget widget-basic">
-                <h3 class="widget-title-large mb-4 text-white">
-                  Have a Question? Don't hesitate to ask
-                </h3>
-                <p class="mb-40">
-                  Available Monday-Saturday 10am-8pm
-                  Available Sundays 11am - 8pm
-                </p>
-                <div class="phone-box d-flex align-items-center">
-                  <span
-                    class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white"
-                    ><i class="flaticon-phone-call"></i></span
-                  >
-                  <h4 class="text-white ms-3 mb-0">Whatsapp : +61 423 771 678</h4>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-6 col-lg-7">
-              <div class="ms-lg-5 ms-xl-0 mt-5 mt-lg-0">
-                <div class="row align-items-center">
-                  <div class="col-6">
-                    <a href="index.html" class="footer-logo d-inline-block"
-                      ><img src="img/logo.png" alt="logo" /></a
-                    >
-                  </div>
-                </div>
-                <div class="row mt-30">
-                  <div class="col-sm-4">
-                    <div class="footer-widget footer-nav-widget mb-5 mb-sm-0">
-                      <h6 class="widget-title text-white mb-3">
-                        About Company
-                      </h6>
-                      <ul class="footer-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Listings</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="footer-widget footer-nav-widget mb-5 mb-sm-0">
-                      <h6 class="widget-title text-white mb-3">
-                        Terms and Privacy
-                      </h6>
-                      <ul class="footer-nav">
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="footer-widget footer-nav-widget mb-5 mb-sm-0">
-                      <h6 class="widget-title text-white mb-3">
-                        Connect With Us
-                      </h6>
-                      <ul class="footer-nav">
-                        <li
-                          class="w-75 d-flex justify-content-between align-items-center"
-                        >
-                          <a href="#">Facebook</a>
-                          <i class="fab fa-facebook-f"></i>
-                        </li>
-                        <li
-                          class="w-75 d-flex justify-content-between align-items-center"
-                        >
-                          <a href="#">Instagram</a>
-                          <i class="fab fa-linkedin"></i>
-                        </li>
-                        <li
-                          class="w-75 d-flex justify-content-between align-items-center"
-                        >
-                          <a href="#">Turo</a>
-                          <i class="fab fa-twitter"></i>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-sm-7">
-                  <div class="copyright-text">
-                    <p class="mb-0">
-                      &copy; All rights reserved. Made by <a href="index.html"
-                        >ThemeTags</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <!--inventory slider start-->
+  <section class="inventory-slider">
+    <div class="container overflow-hidden">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="section-title">
+            <h2 class="h1">You May be Interested in</h2>
           </div>
         </div>
       </div>
-      <!--footer section end-->
-    </footer>
-    <!-- main content wrapper ends -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="at_product_view">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content product_modal shadow">
-          <div class="close-btn-wrapper text-end">
-            <button class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="at_product_view">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <div class="product_view_slider">
-                  <div class="product_feature_img_slider swiper">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        / src="/img/home4/pd-1.jpg" alt="feature img"
-                        class="img-fluid" />
-                      </div>
-                      <div class="swiper-slide">
-                        <img
-                          src="/img/home4/pd-1.jpg"
-                          alt="feature img"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide">
-                        <img
-                          src="/img/home4/pd-1.jpg"
-                          alt="feature img"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide">
-                        <img
-                          src="/img/home4/pd-1.jpg"
-                          alt="feature img"
-                          class="img-fluid"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="product_thumb_slider swiper mt-3">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <img
-                          src="/img/home4/pd-thumb-1.png"
-                          alt="thumbnail"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide">
-                        <img
-                          src="/img/home4/pd-thumb-1.png"
-                          alt="thumbnail"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide">
-                        <img
-                          src="/img/home4/pd-thumb-1.png"
-                          alt="thumbnail"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide">
-                        <img
-                          src="/img/home4/pd-thumb-1.png"
-                          alt="thumbnail"
-                          class="img-fluid"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="product_view_right mt-4 mt-md-0">
-                  <ul class="product_review d-flex align-items-center">
-                    <li><i class="fa-solid fa-star"></i></li>
-                    <li><i class="fa-solid fa-star"></i></li>
-                    <li><i class="fa-solid fa-star"></i></li>
-                    <li><i class="fa-solid fa-star"></i></li>
-                    <li><i class="fa-solid fa-star"></i></li>
-                    <li class="review-total ms-2 text-primary fw-semibold">
-                      <a href="#">( 95 Reviews )</a>
-                    </li>
-                  </ul>
-                  <h5 class="product_title mt-3">
-                    Aluminium Wheel AR-19 <br /> Tire Parts
-                  </h5>
-                  <p>
-                    Monotonectally simplify frictionless communities via
-                    clicks-and-mortar Interactively disseminate relationships.
-                  </p>
-                  <ul class="key_features">
-                    <li>Speed: 750 RPM</li>
-                    <li>Power Source: Cordless-Electric</li>
-                    <li>Battery Cell Type: Lithium</li>
-                    <li>Voltage: 20 Volts</li>
-                    <li>Battery Capacity: 2 Ah</li>
-                  </ul>
-                  <div class="product_color_select mt-3">
-                    <span class="title text-secondary fw-semibold">Color</span>
-                    <ul class="d-flex align-items-center">
-                      <li>
-                        <input type="radio" name="color" />
-                        <span class="color_circle bg-white border border-1"
-                        ></span>
-                      </li>
-                      <li>
-                        <input type="radio" name="color" />
-                        <span class="color_circle black-color bg-secondary"
-                        ></span>
-                      </li>
-                      <li>
-                        <input type="radio" name="color" />
-                        <span class="color_circle red-color bg-primary"></span>
-                      </li>
-                      <li>
-                        <input type="radio" name="color" />
-                        <span class="color_circle bg-warning"></span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="product_price mt-4">
-                    <del class="fw-semibold">$59.00</del>
-                    <span class="text-primary fw-semibold ms-2">$29.00</span>
-                  </div>
-                  <div
-                    class="add_to_cart_product d-flex align-items-center mb-4 mt-3"
-                  >
-                    <form class="d-inline-flex align-items-center">
-                      <button type="button" class="decrement btn-sm">-</button>
-                      <input type="text" value="01" />
-                      <button type="button" class="increment btn-sm">+</button>
-                    </form>
-                    <a href="#" class="btn btn-secondary btn-sm"
-                      ><span class="me-1"
-                        ><i class="fa-solid fa-cart-plus"></i></span
-                      >Add To Cart</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="inventroy-slider swiper mt-40 pb-120 overflow-visible">
+        <div class="swiper-wrapper">
+          {
+            allInventoryListings.map((listing) => {
+              return <MightAlsoLikeCard listing={listing} />;
+            })
+          }
+        </div>
+        <div class="slider-btn-prev swiper-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <div class="slider-btn-next swiper-btn">
+          <i class="fa-solid fa-arrow-right"></i>
         </div>
       </div>
     </div>
-    <!--scrolltop button-->
-    <button class="theme-scrolltop-btn"
-      ><i class="fa-regular fa-hand-pointer"></i></button
-    >
-    <!--scrolltop button end-->
-
-    <!--build:js-->
-    <script is:inline src="/js/vendors/jquery.min.js"></script>
-    <script is:inline src="/js/vendors/jquery-ui.min.js"></script>
-    <script is:inline src="/js/vendors/popper.min.js"></script>
-    <script is:inline src="/js/vendors/bootstrap.min.js"></script>
-    <script is:inline src="/js/vendors/easing.min.js"></script>
-    <script is:inline src="/js/vendors/swiper.min.js"></script>
-    <script is:inline src="/js/vendors/massonry.min.js"></script>
-    <script is:inline src="/js/vendors/bootstrap-slider.js"></script>
-    <script is:inline src="/js/vendors/magnific-popup.js"></script>
-    <script is:inline src="/js/vendors/waypoints.js"></script>
-    <script is:inline src="/js/vendors/appear.js"></script>
-    <script is:inline src="/js/vendors/counterup.js"></script>
-    <script is:inline src="/js/vendors/isotop.pkgd.min.js"></script>
-    <script is:inline src="/js/vendors/date-picker.min.js"></script>
-    <script is:inline src="/js/vendors/progressbar.js"></script>
-    <script is:inline src="/js/vendors/slick.js"></script>
-    <script is:inline src="/js/vendors/countdown.min.js"></script>
-    <script is:inline src="/js/vendors/custom-scrollbar.js"></script>
-    <script is:inline src="/js/vendors/price-range.js"></script>
-    <script is:inline src="/js/vendors/image-rotate.min.js"></script>
-    <script is:inline src="/js/app.js"></script>
-    <!--endbuild-->
-  </body>
-</html>
+  </section>
+  <!--inventory slider end-->
+</MainLayout>
