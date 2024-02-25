@@ -1,0 +1,71 @@
+---
+import { type CollectionEntry } from "astro:content";
+interface Props {
+  listing: CollectionEntry<"inventory">;
+}
+
+const { listing } = Astro.props;
+
+const listingDetail = listing.data.data;
+
+const {
+  name,
+  drive,
+  seats,
+  doors,
+  fuelUsage,
+  fuelType,
+  year,
+  pricePerDay,
+  transmission,
+  cc,
+  shortName,
+  shortFuelType,
+} = listingDetail;
+---
+
+<div
+  class="filter-card-item position-relative overflow-hidden rounded bg-white swiper-slide"
+>
+  <a href="#" class="icon-btn compare-btn position-absolute"
+    ><i class="fa-solid fa-compress"></i></a
+  >
+  <a href="#" class="icon-btn wish-btn position-absolute"
+    ><i class="fa-solid fa-heart"></i></a
+  >
+  <span class="date position-absolute">{year}</span>
+  <div class="feature-thumb position-relative overflow-hidden">
+    <a href="car-rental.html"
+      ><img src="img/home1/car-2.jpg" alt="car" class="img-fluid" /></a
+    >
+  </div>
+  <div class="filter-card-content">
+    <div class="price-btn text-end position-relative">
+      <span class="small-btn-meta">{pricePerDay}/day</span>
+    </div>
+    <a href="car-rental.html" class="mt-4 d-block">
+      <h5>{shortName ?? name} {year}</h5>
+    </a>
+    <span class="meta-content"
+      ><strong>Drive Type:</strong>
+      <a href="#">{drive}</a></span
+    >
+    <div class="card-feature-box d-flex align-items-center mb-4">
+      <div class="icon-box d-flex align-items-center text-capitalize">
+        <span class="me-2"><i class="flaticon-speedometer"></i></span>
+        {cc}cc
+      </div>
+      <div class="icon-box d-flex align-items-center text-capitalize">
+        <span class="me-2"><i class="flaticon-steering-wheel"></i></span>
+        {transmission}
+      </div>
+      <div class="icon-box d-flex align-items-center text-capitalize">
+        <span class="me-2"><i class="flaticon-petrol"></i></span>
+        {shortFuelType ?? fuelType}
+      </div>
+    </div>
+    <a href={`/listings/${listing.id}`} class="btn outline-btn btn-sm d-block"
+      >View Details</a
+    >
+  </div>
+</div>
