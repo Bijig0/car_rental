@@ -22,6 +22,8 @@ const {
   shortName,
   shortFuelType,
 } = listingDetail;
+
+const listingUrl = `/listings/${listing.id}`;
 ---
 
 <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 latest">
@@ -36,7 +38,7 @@ const {
     >
     <span class="date position-absolute">{year}</span>
     <div class="feature-thumb position-relative overflow-hidden">
-      <a href="inventory-details.html"
+      <a href={listingUrl}
         ><img src="/img/home1/car-1.jpg" alt="car" class="img-fluid" /></a
       >
     </div>
@@ -44,7 +46,7 @@ const {
       <div class="price-btn text-end position-relative">
         <span class="small-btn-meta">{pricePerDay}/day</span>
       </div>
-      <a href="inventory-details.html" class="mt-4 d-block">
+      <a href={listingUrl} class="mt-4 d-block">
         <h5>{shortName ?? name} {year}</h5>
       </a>
       <span class="meta-content"
@@ -66,7 +68,7 @@ const {
           {shortFuelType ?? fuelType}
         </div>
       </div>
-      <a href={`/listings/${listing.id}`} class="btn outline-btn btn-sm d-block"
+      <a href={listingUrl} class="btn outline-btn btn-sm d-block"
         >View Details</a
       >
     </div>

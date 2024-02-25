@@ -2,6 +2,7 @@
 import MightAlsoLikeCard from "../components/MightAlsoLikeCard.astro";
 import Description from "../components/Description";
 import Features from "../components/Features";
+import EmailForm from "../components/EmailForm";
 import { type CollectionEntry } from "astro:content";
 interface Props {
   listing: CollectionEntry<"inventory">;
@@ -800,43 +801,11 @@ const allInventoryListings = await getCollection("inventory");
                 >
                   <h4 class="mb-0">Create a reservation</h4>
 
-                  <form action="#" class="seller_offer_form mt-40">
-                    <div class="row g-3">
-                      <div class="col-6">
-                        <div class="input-field">
-                          <label>Name</label>
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <div class="input-field">
-                          <label>Email</label>
-                          <input type="email" />
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <div class="input-field">
-                          <label>Phone</label>
-                          <input type="tel" />
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <div class="input-field">
-                          <label>Trade Price</label>
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <div class="input-field">
-                          <label>Message</label>
-                          <textarea></textarea>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-md mt-30"
-                      >Submit Offer</button
-                    >
-                  </form>
+                  <EmailForm client:only="react" />
+                  <a
+                    href="https://turo.com"
+                    class="btn btn-secondary btn-md mt-30">Book now on Turo</a
+                  >
                 </div>
               </div>
             </div>
