@@ -1,5 +1,6 @@
 ---
 import Description from "../components/Description";
+import Features from "../components/Features";
 import { type CollectionEntry } from "astro:content";
 interface Props {
   listing: CollectionEntry<"inventory">;
@@ -23,7 +24,7 @@ const {
   shortName,
   shortFuelType,
   features,
-  description
+  description,
 } = listingDetail;
 ---
 
@@ -764,6 +765,7 @@ const {
                         >
                           <div class="accordion-body">
                             <div class="row">
+                              <Features features={features} />
                               <div class="col-sm-4">
                                 <ul class="iv_ft_list">
                                   <li>
