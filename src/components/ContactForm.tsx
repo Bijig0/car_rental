@@ -32,7 +32,7 @@ const ErrorText = (props: ErrorTextProps) => {
 
 type Inputs = z.infer<typeof schema>;
 
-const EmailForm = () => {
+const ContactForm = () => {
   const {
     register,
     handleSubmit,
@@ -65,81 +65,79 @@ const EmailForm = () => {
     if (e === undefined) throw new Error("Form event is undefined");
     sendEmailMutate(e as React.FormEvent<HTMLFormElement>);
   };
-
   return (
     <>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="seller_offer_form mt-40"
-      >
-        <div className="row g-3">
-          <div className="col-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="ct-form-wrapper">
+        <div className="row g-4">
+          <div className="col-sm-6">
             <div className="input-field">
-              <label>First Name</label>
+              <label className="fw-semibold text-secondary mb-1">
+                First Name
+              </label>
               <input
-                required
-                className="color-secondary"
-                {...register("firstName", { required: true })}
                 type="text"
+                placeholder="Full Name"
+                className="border w-100 rounded"
+                {...register("firstName")}
               />
-              {errors.firstName && (
-                <ErrorText>First name is required</ErrorText>
-              )}
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-sm-6">
             <div className="input-field">
-              <label>Last Name</label>
+              <label className="fw-semibold text-secondary mb-1">
+                Last Name
+              </label>
               <input
-                required
-                className="color-secondary"
-                {...register("lastName", { required: true })}
                 type="text"
+                placeholder="Full Name"
+                className="border w-100 rounded"
+                {...register("lastName")}
               />
-              {errors.lastName && <ErrorText>Last name is required</ErrorText>}
             </div>
           </div>
-          <div className="col-6">
+
+          <div className="col-sm-6">
             <div className="input-field">
-              <label>Email</label>
+              <label className="fw-semibold text-secondary mb-1">Email</label>
               <input
-                className="color-secondary"
-                {...register("email", { required: true })}
                 type="email"
+                placeholder="Email"
+                className="border w-100 rounded"
+                {...register("email")}
               />
-              {errors.email && <ErrorText>Email is required</ErrorText>}
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-sm-6">
             <div className="input-field">
-              <label>Phone</label>
+              <label className="fw-semibold text-secondary mb-1">Phone</label>
               <input
-                className="color-secondary"
-                {...register("phoneNumber", { required: true })}
                 type="tel"
+                placeholder="Full Name"
+                className="border w-100 rounded"
+                {...register("phoneNumber")}
               />
-              {errors.phoneNumber && (
-                <ErrorText>Phone Number is required</ErrorText>
-              )}
             </div>
           </div>
-          <div className="col-12">
+          <div className="col-sm-12">
             <div className="input-field">
-              <label>Message</label>
+              <label className="fw-semibold text-secondary mb-1">Message</label>
               <textarea
-                className="color-secondary"
+                placeholder="Message"
+                className="border w-100 rounded"
+                rows={5}
                 {...register("message")}
               ></textarea>
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary btn-md mt-30">
+
+        <button className="btn btn-primary btn-md mt-4" type="submit">
           {isPending ? (
             <div className="spinner-border text-light" role="status">
               <span className="sr-only">Loading...</span>
             </div>
           ) : (
-            "Request a quote"
+            "Get in touch"
           )}
         </button>
       </form>
@@ -169,7 +167,7 @@ const Main = () => {
   const queryClient = useMemo(() => new QueryClient(), []);
   return (
     <QueryClientProvider client={queryClient}>
-      <EmailForm />
+      <ContactForm />
     </QueryClientProvider>
   );
 };
