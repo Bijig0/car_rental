@@ -3,6 +3,10 @@ import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 const allInventoryListings = await getCollection("inventory");
+
+const featuredListings = allInventoryListings.filter(
+  (listing) => [1,2,3].includes(listing.data.metadata.rank)
+);
 ---
 
 <MainLayout>
