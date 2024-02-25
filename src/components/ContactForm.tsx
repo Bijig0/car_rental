@@ -5,7 +5,6 @@ import {
   QueryClientProvider,
   useMutation,
 } from "@tanstack/react-query";
-import { useMemo } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import validator from "validator";
 import { z } from "zod";
@@ -76,11 +75,14 @@ const ContactForm = () => {
               </label>
               <input
                 type="text"
-                placeholder="Full Name"
-                className="border w-100 rounded"
+                placeholder="First Name"
+                className="border w-100 rounded color-secondary"
                 {...register("firstName")}
               />
             </div>
+            {errors.firstName ? (
+              <ErrorText>{errors.firstName.message}</ErrorText>
+            ) : null}
           </div>
           <div className="col-sm-6">
             <div className="input-field">
@@ -89,11 +91,14 @@ const ContactForm = () => {
               </label>
               <input
                 type="text"
-                placeholder="Full Name"
-                className="border w-100 rounded"
+                placeholder="Last Name"
+                className="border w-100 rounded color-secondary"
                 {...register("lastName")}
               />
             </div>
+            {errors.lastName ? (
+              <ErrorText>{errors.lastName.message}</ErrorText>
+            ) : null}
           </div>
 
           <div className="col-sm-6">
@@ -102,10 +107,13 @@ const ContactForm = () => {
               <input
                 type="email"
                 placeholder="Email"
-                className="border w-100 rounded"
+                className="border w-100 rounded color-secondary"
                 {...register("email")}
               />
             </div>
+            {errors.email ? (
+              <ErrorText>{errors.email.message}</ErrorText>
+            ) : null}
           </div>
           <div className="col-sm-6">
             <div className="input-field">
@@ -113,20 +121,26 @@ const ContactForm = () => {
               <input
                 type="tel"
                 placeholder="Full Name"
-                className="border w-100 rounded"
+                className="border w-100 rounded color-secondary"
                 {...register("phoneNumber")}
               />
             </div>
+            {errors.phoneNumber ? (
+              <ErrorText>{errors.phoneNumber.message}</ErrorText>
+            ) : null}
           </div>
           <div className="col-sm-12">
             <div className="input-field">
               <label className="fw-semibold text-secondary mb-1">Message</label>
               <textarea
                 placeholder="Message"
-                className="border w-100 rounded"
+                className="border w-100 rounded color-secondary"
                 rows={5}
                 {...register("message")}
               ></textarea>
+              {errors.message ? (
+                <ErrorText>{errors.message.message}</ErrorText>
+              ) : null}
             </div>
           </div>
         </div>
@@ -163,8 +177,9 @@ const ErrorToast = () => {
   );
 };
 
+const queryClient = new QueryClient();
+
 const Main = () => {
-  const queryClient = useMemo(() => new QueryClient(), []);
   return (
     <QueryClientProvider client={queryClient}>
       <ContactForm />

@@ -5,7 +5,6 @@ import {
   QueryClientProvider,
   useMutation,
 } from "@tanstack/react-query";
-import { useMemo } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import validator from "validator";
 import { z } from "zod";
@@ -165,8 +164,9 @@ const ErrorToast = () => {
   );
 };
 
+const queryClient = new QueryClient();
+
 const Main = () => {
-  const queryClient = useMemo(() => new QueryClient(), []);
   return (
     <QueryClientProvider client={queryClient}>
       <EmailForm />
