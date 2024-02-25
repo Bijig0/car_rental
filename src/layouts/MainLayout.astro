@@ -1,3 +1,13 @@
+---
+import { assert } from "console";
+
+const metadata = await Astro.glob("../metadata.json");
+assert(metadata.length === 1);
+const phoneNumber = metadata[0]["phoneNumber"];
+const email = metadata[0]["email"];
+const address = metadata[0]["address"];
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -71,19 +81,19 @@
                   <span class="icon-wrapper me-2">
                     <i class="flaticon-location"></i>
                   </span>
-                  <p class="mb-0">Rock St 14, New york City, USA</p>
+                  <p class="mb-0">{address}</p>
                 </div>
                 <div class="tp-info d-inline-flex align-items-center">
                   <span class="icon-wrapper me-2">
                     <i class="flaticon-phone-call"></i>
                   </span>
-                  <p class="mb-0">+90 15 46 47 98 487</p>
+                  <p class="mb-0">{phoneNumber}</p>
                 </div>
                 <div class="d-none tp-info d-xl-inline-flex align-items-center">
                   <span class="icon-wrapper me-2">
                     <i class="flaticon-email"></i>
                   </span>
-                  <p class="mb-0">autohive@support.com</p>
+                  <p class="mb-0">{email}</p>
                 </div>
               </div>
             </div>
@@ -267,9 +277,9 @@
       </nav>
       <div class="contact-info mt-60">
         <h4 class="mb-20">Contact Info</h4>
-        <p>Chicago 12, Melborne City, USA</p>
-        <p>+88 01682648101</p>
-        <p>info@example.com</p>
+        <p>{address}</p>
+        <p>{phoneNumber}</p>
+        <p>{email}</p>
         <div class="social-contact">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
@@ -308,9 +318,9 @@
       <div class="offcanvus-contact">
         <h4 class="mb-4 mt-5">Contact Info</h4>
         <ul class="at_canvus_address">
-          <li>Chicago 12, Melborne City, USA</li>
-          <li>+8801682648101</li>
-          <li>info@example.com</li>
+          <li>{address}</li>
+          <li>{phoneNumber}</li>
+          <li>{email}</li>
         </ul>
       </div>
       <div class="at_canvus_social mt-4">
@@ -347,7 +357,7 @@
                     ><i class="flaticon-phone-call"></i></span
                   >
                   <h4 class="text-white ms-3 mb-0">
-                    Whatsapp : +61 423 771 678
+                    Whatsapp : {phoneNumber}
                   </h4>
                 </div>
               </div>
