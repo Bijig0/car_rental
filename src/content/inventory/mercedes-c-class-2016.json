@@ -1,6 +1,6 @@
   {
     "metadata": {
-      "rank": 2
+      "rank": 5
     },
     "data": {
       "cc": 1500,
@@ -39,6 +39,8 @@
           "message": "No smoking allowed"
         }
       ],
-      "pricePerDay": 225
+      "pricePerDay": 225,
+      "heroImageUrl": "/img/car/mercedes-c-class-2016.png"
+
     }
   }

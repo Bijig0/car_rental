@@ -12,6 +12,8 @@ const featuredListings = allInventoryListings.filter((listing) =>
 const metadataList = await Astro.glob("../metadata.json");
 assert(metadataList.length === 1);
 const metadata = metadataList[0];
+const turoReviewUrl =
+  "https://turo.com/au/en/drivers/29391881#:~:text=4.96,(90%20reviews)";
 ---
 
 <MainLayout>
@@ -39,11 +41,34 @@ const metadata = metadataList[0];
                 shortFuelType,
                 description,
                 features,
+                heroImageUrl,
               } = listingDetail;
 
               const listingUrl = `/listings/${listing.id}`;
 
               const threeFeatures = features.slice(0, 3);
+
+              const toyotaLandcruiserInset = {
+                bottom: "-65px",
+                right: "-165px",
+              } satisfies Inset;
+
+              const rangeRoverSportInset = {
+                right: "-250px",
+                bottom: "-75px",
+              } satisfies Inset;
+
+              type Inset = {
+                right: string;
+                bottom: string;
+              };
+
+              type ListingIds = typeof listing.id;
+
+              const customInset = {
+                "land-rover-sport-2018": rangeRoverSportInset,
+                "toyota-landcruiser-2022": toyotaLandcruiserInset,
+              };
 
               return (
                 <div class="swiper-slide">
@@ -107,8 +132,17 @@ const metadata = metadataList[0];
                             </div>
                           </div>
                           <div class="col-xl-5">
-                            <div class="at-hero-banner position-relative mt-4 mt-sm-0">
-                              <img alt="car" class="at_hero_car" />
+                            <div class="at-hero-banner position-relative mt-4 mt-sm-0 right-5">
+                              <img
+                                src={heroImageUrl}
+                                alt="car"
+                                class="at_hero_car"
+                                style={
+                                  listing.id in customInset
+                                    ? customInset[listing.id]
+                                    : null
+                                }
+                              />
                             </div>
                           </div>
                         </div>
@@ -379,76 +413,107 @@ const metadata = metadataList[0];
                       <div
                         class="swiper-slide feedback-single bg-white position-relative rounded"
                       >
-                        <div class="rating-box position-absolute rounded-1">
-                          <span class="me-1"
-                            ><i class="fa-solid fa-star"></i></span
-                          >4.5
-                        </div>
-                        <h4 class="mb-3">Amazing Support!</h4>
-                        <p class="mb-4">
-                          Authoritatively grow accurate products rather than
-                          collaborative conterpocras tinate enterprise strategic
-                          theme areas before functionalized in Phosfluoresc
-                          based technology whereas low-risk high-yield vortals.
-                          whereas effective functionalities. Holisticly pursue
-                          cooperative.
-                        </p>
-                        <div class="author-info d-flex align-items-center">
-                          <img
-                            src="/img/author/author-1.jpg"
-                            alt="author"
-                            class="rounded-circle flex-shrink-0 border border-2"
-                          />
-                          <div class="author-info-content ms-3">
-                            <h6 class="mb-1 text-secondary">
-                              Chris Hoang Siama
-                            </h6>
-                            <span>Managing Director</span>
+                        <a href={turoReviewUrl} class="color-secondary">
+                          <div class="rating-box position-absolute rounded-1">
+                            <span class="me-1"
+                              ><i class="fa-solid fa-star"></i></span
+                            >5.0
                           </div>
-                        </div>
-                        <span class="quote-icon position-absolute"
-                          ><img
-                            src="/img/icons/quote-icon-sm.svg"
-                            alt="quote icon"
-                          /></span
-                        >
+                          <h4 class="mb-3">Another Awesome Experience!</h4>
+                          <p class="mb-4">
+                            Another awesome experience with Gifleet! The car is
+                            absolutely beautiful. Had a blast and thoroughly
+                            enjoyed the car. Hand over and pick up was stress
+                            free and easy, communication was on point at all
+                            times. Very professional! Thanks again !
+                          </p>
+                          <div class="author-info d-flex align-items-center">
+                            <img
+                              src="/img/author/author-1.jpg"
+                              alt="author"
+                              class="rounded-circle flex-shrink-0 border border-2"
+                            />
+                            <div class="author-info-content ms-3">
+                              <h6 class="mb-1 text-secondary">Thomas H</h6>
+                              <span>15 January 2024</span>
+                            </div>
+                          </div>
+                          <span class="quote-icon position-absolute"
+                            ><img
+                              src="/img/icons/quote-icon-sm.svg"
+                              alt="quote icon"
+                            /></span
+                          >
+                        </a>
                       </div>
                       <div
                         class="swiper-slide feedback-single bg-white position-relative rounded"
                       >
-                        <div class="rating-box position-absolute rounded-1">
-                          <span class="me-1"
-                            ><i class="fa-solid fa-star"></i></span
-                          >4.5
-                        </div>
-                        <h4 class="mb-3">Amazing Support!</h4>
-                        <p class="mb-4">
-                          Authoritatively grow accurate products rather than
-                          collaborative conterpocras tinate enterprise strategic
-                          theme areas before functionalized in Phosfluoresc
-                          based technology whereas low-risk high-yield vortals.
-                          whereas effective functionalities. Holisticly pursue
-                          cooperative.
-                        </p>
-                        <div class="author-info d-flex align-items-center">
-                          <img
-                            src="/img/author/author-1.jpg"
-                            alt="author"
-                            class="rounded-circle flex-shrink-0 border border-2"
-                          />
-                          <div class="author-info-content ms-3">
-                            <h6 class="mb-1 text-secondary">
-                              Chris Hoang Siama
-                            </h6>
-                            <span>Managing Director</span>
+                        <a href={turoReviewUrl} class="color-secondary">
+                          <div class="rating-box position-absolute rounded-1">
+                            <span class="me-1"
+                              ><i class="fa-solid fa-star"></i></span
+                            >5.0
                           </div>
-                        </div>
-                        <span class="quote-icon position-absolute"
-                          ><img
-                            src="/img/icons/quote-icon-sm.svg"
-                            alt="quote icon"
-                          /></span
-                        >
+                          <h4 class="mb-3">Great Experience!</h4>
+                          <p class="mb-4">
+                            I had a great experience renting this car. Dealing
+                            with the owner was easy, and the car was in good
+                            condition. Highly recommended!
+                          </p>
+                          <div class="author-info d-flex align-items-center">
+                            <img
+                              src="/img/author/author-3.jpg"
+                              alt="author"
+                              class="rounded-circle flex-shrink-0 border border-2"
+                            />
+                            <div class="author-info-content ms-3">
+                              <h6 class="mb-1 text-secondary">Imesh A</h6>
+                              <span>23 September 2023</span>
+                            </div>
+                          </div>
+                          <span class="quote-icon position-absolute"
+                            ><img
+                              src="/img/icons/quote-icon-sm.svg"
+                              alt="quote icon"
+                            /></span
+                          >
+                        </a>
+                      </div>
+                      <div
+                        class="swiper-slide feedback-single bg-white position-relative rounded"
+                      >
+                        <a href={turoReviewUrl} class="color-secondary">
+                          <div class="rating-box position-absolute rounded-1">
+                            <span class="me-1"
+                              ><i class="fa-solid fa-star"></i></span
+                            >5.0
+                          </div>
+                          <h4 class="mb-3">Great Car!</h4>
+                          <p class="mb-4">
+                            Great car, really enjoyed it. For a 2013 Porsche it
+                            presented very well, close to new. The modified
+                            exhaust is amazing, the sound really enhanced the
+                            unique Porsche sound. Would hire again!!
+                          </p>
+                          <div class="author-info d-flex align-items-center">
+                            <img
+                              src="/img/author/author-2.jpg"
+                              alt="author"
+                              class="rounded-circle flex-shrink-0 border border-2"
+                            />
+                            <div class="author-info-content ms-3">
+                              <h6 class="mb-1 text-secondary">Sam K</h6>
+                              <span>18 December 2023</span>
+                            </div>
+                          </div>
+                          <span class="quote-icon position-absolute"
+                            ><img
+                              src="/img/icons/quote-icon-sm.svg"
+                              alt="quote icon"
+                            /></span
+                          >
+                        </a>
                       </div>
                     </div>
                     <div
