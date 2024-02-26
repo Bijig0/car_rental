@@ -23,6 +23,7 @@
         "USB charger"
       ],
       "pricePerDay": 109,
-      "heroImageUrl": "/img/car/mercedes-x-class-2020.png"
+      "heroImageUrl": "/img/car/mercedes-x-class-2020.png",
+      "cardImageUrl": "/img/car-cards/mercedes-x-class-2020.png"
     }
   }

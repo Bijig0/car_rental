@@ -24,7 +24,8 @@ const inventorySchema = z.object({
     guidelines: z.array(z.object({ message: z.string() })).optional(),
     pricePerDay: z.number().transform((price) => `$${price}`),
     cc: z.number(),
-    heroImageUrl: z.string().optional()
+    heroImageUrl: z.string().optional(),
+    cardImageUrl: z.string().optional()
   }),
 });
 
