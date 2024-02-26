@@ -19,10 +19,10 @@ const Description = (props: Props) => {
       <section {...getCollapseProps()}>
         {remainingParagraphs.map((paragraph) => {
           return (
-            <>
+            <div key={paragraph}>
               <p>{paragraph}</p>
               <br />
-            </>
+            </div>
           );
         })}
       </section>
