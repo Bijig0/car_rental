@@ -162,7 +162,7 @@ export const dev = series(parallel(compileJS, compileSCSS), watchFiles);
 // PRODUCTION VERSION
 export const build = series(
   parallel(compileSCSS, compileJS),
-  parallel(minifyScripts, minifyCss),
-  renameSources,
-  browserSyncInit
+  // parallel(minifyScripts, minifyCss),
+  // renameSources,
+  // browserSyncInit
 );

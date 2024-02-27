@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev & gulp dev & npx astro sync",
-    "start": "astro dev",
+    "start": "gulp dev & astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
