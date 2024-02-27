@@ -43,7 +43,7 @@ import { getCollection } from "astro:content";
 const allInventoryListings = await getCollection("inventory");
 
 const cardImages = import.meta.glob<{ default: ImageMetadata }>(
-  `../images/listing/**/*.jpg`,
+  `../images/listing/**/*.{webp,jpg}`,
 );
 
 // console.log(cardImages);
