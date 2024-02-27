@@ -3,6 +3,8 @@ import { getEntry } from "astro:content";
 import path from "path";
 import CarListingLayout from "../../layouts/CarListingLayout.astro";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const allListings = import.meta.glob("../../content/inventory/*.json");
   const listingPaths = Object.keys(allListings);

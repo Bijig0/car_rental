@@ -26,11 +26,11 @@ const Features = (props: Props) => {
       {[0, 1, 2].map((chunkIndex) => {
         const selectedChunk = featureChunks[chunkIndex];
         return (
-          <div className="col-sm-4">
+          <div key={chunkIndex} className="col-sm-4">
             <ul className="iv_ft_list">
               {selectedChunk.map((feature) => {
                 return (
-                  <li>
+                  <li key={feature}>
                     <span className="me-2">
                       <i className="fa-solid fa-check"></i>
                         </span>
