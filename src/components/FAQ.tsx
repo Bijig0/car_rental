@@ -1,15 +1,53 @@
 import {
-    Accordion,
-    AccordionItem,
-    AccordionItemButton,
-    AccordionItemHeading,
-    AccordionItemPanel
+  Accordion,
+  AccordionItem,
+  AccordionItemButton,
+  AccordionItemHeading,
+  AccordionItemPanel
 } from 'react-accessible-accordion';
 
+import { useState } from 'react';
 import faqList from './faqList';
 
+type SingleAccordionProps = {
+  title: string,
+  text: string,
+  isExpanded: boolean
+}
+
+const createUUID = (title: string):string => title.replaceAll(" ","")
+
+const SingleAccordion = (props: SingleAccordionProps) => {
+  const { title, text, isExpanded } = props
+  const uuid = createUUID(title)
+  console.log({uuid, isExpanded})
+  return (
+<AccordionItem uuid={uuid} key={title} className="accordion-item">
+                              <AccordionItemHeading className={`accordion-header`}>
+                                <AccordionItemButton
+                                  className={`accordion-button ${isExpanded ? undefined : "collapsed"}`}
+                                  >{title}</AccordionItemButton>
+                              </AccordionItemHeading>
+                              <AccordionItemPanel
+                                className="accordion-collapse collapse show"
+                                id="ac_1"
+                                data-bs-parent="#accordion_1"
+                              >
+                                <div className="accordion-body">
+                                  <p>
+                                    {text}
+                                  </p>
+                                </div>
+                              </AccordionItemPanel>
+                            </AccordionItem>
+  )
+}
+
 const FAQ = () => {
-    console.log(faqList)
+  const faqFirstHalf = faqList.slice(0, 3)
+  const faqSecondHalf = faqList.slice(3)
+  const [expandedTitles, setExpandedTitles] = useState<string[]>([])
+  console.log({ expandedTitles })
     return (
          <div className="faq-section pt-120 pb-120">
           <div className="container">
@@ -29,90 +67,42 @@ const FAQ = () => {
                   <div className="tab-content mt-60">
                     <div className="tab-pane fade show active" id="general">
                       <div className="row g-4">
-                                        <div className="col-xl-6">
-                          <Accordion
+                        <div className="col-xl-6">
+                        <Accordion allowZeroExpanded
+                          onChange={(expanded: string[]) => {
+                            const expandedAsUUID = expanded.map((each) => createUUID(each))
+                            setExpandedTitles(expandedAsUUID)
+                          }}
                             className="accordion theme-accordion"
                             id="accordion_1"
                                             >
                         {
-                        faqList.map(({title, text}) => {
-                            return (
-                            <AccordionItem className="accordion-item">
-                              <AccordionItemHeading className="accordion-header">
-                                <AccordionItemButton
-                                  className="accordion-button"
-                                  >{title}</AccordionItemButton>
-                              </AccordionItemHeading>
-                              <AccordionItemPanel
-                                className="accordion-collapse collapse show"
-                                id="ac_1"
-                                data-bs-parent="#accordion_1"
-                              >
-                                <div className="accordion-body">
-                                  <p>
-                                    {text}
-                                  </p>
-                                </div>
-                              </AccordionItemPanel>
-                            </AccordionItem>
-                                                        )
-                                                    })
+                            faqFirstHalf.map(({ title, text }) => {
+                              console.log({ title, text })
+                              const isExpanded = expandedTitles.includes(createUUID(title))
+                          return (<SingleAccordion isExpanded={isExpanded} title={title} text={text} />)
+                            })
                                                 }
                           </Accordion>
                         </div>
                         <div className="col-xl-6">
-                          <div
+                        <Accordion allowZeroExpanded
+                             onChange={(expanded: string[]) => {
+                            const expandedAsUUID = expanded.map((each) => createUUID(each))
+                            setExpandedTitles(expandedAsUUID)
+                          }}
                             className="accordion theme-accordion"
-                            id="accordion_2"
-                          >
-                            <div className="accordion-item">
-                              <div className="accordion-header">
-                                <a
-                                  href="#acc_1"
-                                  className="accordion-button"
-                                  data-bs-toggle="collapse"
-                                  >05 What happens if I have an accident?</a>
-                              </div>
-                              <div
-                                className="accordion-collapse collapse"
-                                id="acc_1"
-                                data-bs-parent="#accordion_2"
-                              >
-                                <div className="accordion-body">
-                                  <p>
-                                    If there’s an emergency or an issue with the
-                                    car, call our emergency roadside assistance
-                                    provider, available 24/7. We’ll make sure
-                                    you’re safe, then help you get back on your
-                                    way.
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="accordion-item">
-                              <div className="accordion-header">
-                                <a
-                                  href="#acc_2"
-                                  className="accordion-button collapsed"
-                                  data-bs-toggle="collapse"
-                                  >06 Can I get my car delivered to me?</a>
-                              </div>
-                              <div
-                                className="accordion-collapse collapse"
-                                id="acc_2"
-                                data-bs-parent="#accordion_2"
-                              >
-                                <div className="accordion-body">
-                                  <p>
-                                    Cars are available for delivery depending on
-                                    location and availability. Please let us
-                                    know when and where the car needs to be
-                                    delivered for further clarification
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                            id="accordion_1"
+                                            >
+                        {
+                            faqSecondHalf.map(({ title, text }) => {
+                              const isExpanded = expandedTitles.includes(createUUID(title))
+                            return (
+                              <SingleAccordion isExpanded={isExpanded} title={title} text={text} />
+                                                        )
+                                                    })
+                                                }
+                          </Accordion>
                         </div>
                       </div>
                     </div>
