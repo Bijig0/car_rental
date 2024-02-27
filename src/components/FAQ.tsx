@@ -1,4 +1,15 @@
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemButton,
+    AccordionItemHeading,
+    AccordionItemPanel
+} from 'react-accessible-accordion';
+
+import faqList from './faqList';
+
 const FAQ = () => {
+    console.log(faqList)
     return (
          <div className="faq-section pt-120 pb-120">
           <div className="container">
@@ -18,138 +29,36 @@ const FAQ = () => {
                   <div className="tab-content mt-60">
                     <div className="tab-pane fade show active" id="general">
                       <div className="row g-4">
-                        <div className="col-xl-6">
-                          <div
+                                        <div className="col-xl-6">
+                          <Accordion
                             className="accordion theme-accordion"
                             id="accordion_1"
-                          >
-                            <div className="accordion-item">
-                              <div className="accordion-header">
-                                <a
-                                  href="#ac_1"
+                                            >
+                        {
+                        faqList.map(({title, text}) => {
+                            return (
+                            <AccordionItem className="accordion-item">
+                              <AccordionItemHeading className="accordion-header">
+                                <AccordionItemButton
                                   className="accordion-button"
-                                  data-bs-toggle="collapse"
-                                  >01 What do I need to book a car with Gifleet</a>
-                              </div>
-                              <div
+                                  >{title}</AccordionItemButton>
+                              </AccordionItemHeading>
+                              <AccordionItemPanel
                                 className="accordion-collapse collapse show"
                                 id="ac_1"
                                 data-bs-parent="#accordion_1"
                               >
                                 <div className="accordion-body">
                                   <p>
-                                    What do I need to book a car with Gifleet?
-                                    To book a car with Gifleet, you simple need
-                                    to be 21 years or older with a valid
-                                    Australian driver's licence. When booking
-                                    your first trip, we will go through a quick
-                                    approval process by entering some personal
-                                    details. Once approved, you'll be all set!
+                                    {text}
                                   </p>
                                 </div>
-                              </div>
-                            </div>
-                            <div className="accordion-item">
-                              <div className="accordion-header">
-                                <a
-                                  href="#ac_2"
-                                  className="accordion-button collapsed"
-                                  data-bs-toggle="collapse"
-                                  >02 Do I need my own insurance?</a>
-                              </div>
-                              <div
-                                className="accordion-collapse collapse"
-                                id="ac_2"
-                                data-bs-parent="#accordion_1"
-                              >
-                                <div className="accordion-body">
-                                  <p>
-                                    No, you don’t need personal insurance
-                                    coverage to book a car with Gifleet. When
-                                    booking a car in Australia, you’ll choose
-                                    between the Premier (if available),
-                                    Standard, and Minimum protection plans. Each
-                                    plan includes varying limits on financial
-                                    responsibility for damage to a host’s
-                                    vehicle. All trips include $20,000,000 in
-                                    legal liability protection for damage to
-                                    other people’s property. All protection is
-                                    provided by Gifleet's insurance policy.*
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="accordion-item">
-                              <div className="accordion-header">
-                                <a
-                                  href="#ac_3"
-                                  className="accordion-button collapsed"
-                                  data-bs-toggle="collapse"
-                                  >03 Can other people drive a car that I
-                                  booked?</a>
-                              </div>
-                              <div
-                                className="accordion-collapse collapse"
-                                id="ac_3"
-                                data-bs-parent="#accordion_1"
-                              >
-                                <div className="accordion-body">
-                                  <p>
-                                    Yes, multiple guests can drive the car you
-                                    booked with Gifleet, as long as they are all
-                                    approved to drive. The primary driver
-                                    (whoever booked the car) can add additional
-                                    drivers with no fees or additional charges.
-                                    Only the primary driver can request to add
-                                    drivers; Turo hosts cannot do it for you. We
-                                    encourage you to request to add additional
-                                    drivers before your trip starts, though you
-                                    can request to add a driver while a trip is
-                                    in progress. To speed up the process, have
-                                    your additional driver create a Turo account
-                                    and get approved to drive before you request
-                                    to add them. All drivers must have a valid
-                                    driver’s licence and meet the age
-                                    requirements for the car you’ve booked.
-                                    Please let a representative know of any
-                                    further enquiries
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="accordion-item">
-                              <div className="accordion-header">
-                                <a
-                                  href="#ac_4"
-                                  className="accordion-button collapsed"
-                                  data-bs-toggle="collapse"
-                                  >04 What is the cancellation policy?</a>
-                              </div>
-                              <div
-                                className="accordion-collapse collapse"
-                                id="ac_4"
-                                data-bs-parent="#accordion_1"
-                              >
-                                <div className="accordion-body">
-                                  <p>
-                                    You can cancel and get a full refund up to
-                                    24 hours before your trip starts. If you
-                                    book a trip with less than 24 hours’ notice,
-                                    you have one hour after booking to cancel
-                                    free of charge. If you cancel after the free
-                                    cancellation period ends, you will be
-                                    charged a small cancellation fee. In the
-                                    rare event a host cancels, you’ll be
-                                    notified immediately so you can book another
-                                    car, or we’ll help you find one. Your refund
-                                    can be temporarily held to expedite
-                                    rebooking, or the funds can be returned to
-                                    your bank account — your choice.
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                              </AccordionItemPanel>
+                            </AccordionItem>
+                                                        )
+                                                    })
+                                                }
+                          </Accordion>
                         </div>
                         <div className="col-xl-6">
                           <div
