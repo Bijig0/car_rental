@@ -8,6 +8,12 @@
 
 
 //Configuration
+@media screen and (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
 @import 'abstract/variable';
 @import 'abstract/mixin';
 
