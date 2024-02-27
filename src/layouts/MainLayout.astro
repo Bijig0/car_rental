@@ -1,6 +1,7 @@
 ---
 import { assert } from "console";
-
+import DesktopToggleMenu from "../components/DesktopToggleMenu.astro";
+import MobileToggleMenu from "../components/MobileToggleMenu.astro";
 const metadata = await Astro.glob("../metadata.json");
 assert(metadata.length === 1);
 const phoneNumber = metadata[0]["phoneNumber"];
@@ -116,20 +117,8 @@ const address = metadata[0]["address"];
                     </li>
                   </ul>
                 </nav>
-                <button
-                  class="ofcanvus-toggle header-toggle-btn ms-4 d-none d-lg-block"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </button>
-                <button
-                  class="mobile-menu-toggle header-toggle-btn ms-4 d-lg-none"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </button>
+                <DesktopToggleMenu />
+                <MobileToggleMenu />
               </div>
             </div>
           </div>

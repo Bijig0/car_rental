@@ -1,0 +1,20 @@
+---
+export interface Props {
+    label?: string;
+    class?: string;
+}
+
+const {
+    label = "Toggle Menu",
+    class: className = "toggle-menu-button ofcanvus-toggle d-none d-lg-flex",
+} = Astro.props;
+---
+
+<button class={className} aria-label={label} data-aw-toggle-menu>
+    <span class="sr-only">{label}</span>
+    <slot>
+        <span aria-hidden="true" class="toggle-menu-line"></span>
+        <span aria-hidden="true" class="toggle-menu-line"></span>
+        <span aria-hidden="true" class="toggle-menu-line"></span>
+    </slot>
+</button>
