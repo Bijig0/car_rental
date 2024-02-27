@@ -29,6 +29,10 @@
       ],
       "pricePerDay": 259,
       "heroImageUrl": "/img/car/land-rover-sport-2018.png",
-      "cardImageUrl": "/img/car-cards/land-rover-sport-2018.png"
+      "cardImageUrl": "/img/car-cards/land-rover-sport-2018.png",
+      "listingImages": {
+        "mainImage": "/img/listing/land-rover-sport-2018/main.jpg",
+        "subImagesCount": 7
+      }
     }
   }

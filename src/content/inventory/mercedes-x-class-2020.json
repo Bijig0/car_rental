@@ -24,6 +24,10 @@
       ],
       "pricePerDay": 109,
       "heroImageUrl": "/img/car/mercedes-x-class-2020.png",
-      "cardImageUrl": "/img/car-cards/mercedes-x-class-2020.png"
+      "cardImageUrl": "/img/car-cards/mercedes-x-class-2020.png",
+      "listingImages": {
+        "mainImage": "/img/listing/mercedes-x-class-2020/main.jpg",
+        "subImagesCount": 7
+      }
     }
   }

@@ -23,6 +23,11 @@
       ],
       "pricePerDay": 499,
       "heroImageUrl": "/img/car/porsche-911-2013.png",
-      "cardImageUrl": "/img/car-cards/porsche-911-2013.png"
+      "cardImageUrl": "/img/car-cards/porsche-911-2013.png",
+      "listingImagesDir": "/img/listing/porsche-911-2013",
+      "listingImages": {
+        "mainImage": "/img/listing/porsche-911-2013/main.jpg",
+        "subImagesCount": 7
+      }
     }
   }

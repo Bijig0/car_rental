@@ -34,6 +34,10 @@
         "pricePerDay": "$20"
       },
       "pricePerDay": 160,
-      "cardImageUrl": "/img/car-cards/land-rover-velar-2017.png"
+      "cardImageUrl": "/img/car-cards/land-rover-velar-2017.png",
+      "listingImages": {
+        "mainImage": "/img/listing/land-rover-velar-2017/main.jpg",
+        "subImagesCount": 7
+      }
     }
   }

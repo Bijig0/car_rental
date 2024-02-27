@@ -32,6 +32,11 @@
       ],
       "pricePerDay": 229,
       "heroImageUrl": "/img/car/toyota-landcruiser-2022.png",
-      "cardImageUrl": "/img/car-cards/toyota-landcruiser-2022.png"
+      "cardImageUrl": "/img/car-cards/toyota-landcruiser-2022.png",
+      "listingImagesDir": "/img/listing/toyota-landcruiser-2022",
+      "listingImages": {
+        "mainImage": "/img/listing/toyota-landcruiser-2022/main.jpg",
+        "subImagesCount": 7
+      }
     }
   }

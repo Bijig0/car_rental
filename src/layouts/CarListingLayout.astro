@@ -5,6 +5,13 @@ import EmailForm from "../components/EmailForm";
 import Features from "../components/Features";
 import MightAlsoLikeCard from "../components/MightAlsoLikeCard.astro";
 import MainLayout from "./MainLayout.astro";
+function range(start: number, end: number) {
+  var ans = [];
+  for (let i = start; i <= end; i++) {
+    ans.push(i);
+  }
+  return ans;
+}
 interface Props {
   listing: CollectionEntry<"inventory">;
 }
@@ -28,10 +35,15 @@ const {
   shortFuelType,
   features,
   description,
+  listingImages,
 } = listingDetail;
+
+const { mainImage, subImagesCount } = listingImages;
 
 import { getCollection } from "astro:content";
 const allInventoryListings = await getCollection("inventory");
+
+console.log({ mainImage });
 ---
 
 <MainLayout>
@@ -94,71 +106,46 @@ const allInventoryListings = await getCollection("inventory");
                       <div
                         class="swiper-slide thumb-wrapper rounded overflow-hidden"
                       >
-                        <img
-                          src="/img/inventory/car-lg-thumb-1.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
+                        <img src={mainImage} alt="car" class="img-fluid" />
                       </div>
-                      <div
-                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                      >
-                        <img
-                          src="/img/inventory/car-lg-1.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div
-                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                      >
-                        <img
-                          src="/img/inventory/car-lg-1.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div
-                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                      >
-                        <img
-                          src="/img/inventory/car-lg-1.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
-                      </div>
+                      {
+                        range(1, subImagesCount).map((index) => {
+                          const createSubImageUrl = (index: number) => {
+                            return `/img/listing/${listing.id}/${index}.jpg`;
+                          };
+                          const subImageUrl = createSubImageUrl(index);
+                          return (
+                            <div class="swiper-slide thumb-wrapper rounded overflow-hidden">
+                              <img
+                                src={subImageUrl}
+                                alt="car"
+                                class="img-fluid"
+                              />
+                            </div>
+                          );
+                        })
+                      }
                     </div>
                   </div>
                   <div class="iv_thumb_control_slider swiper mt-3 mt-lg-4">
                     <div class="swiper-wrapper">
-                      <div class="swiper-slide rounded overflow-hidden">
-                        <img
-                          src="/img/inventory/car-sm-thumb-1.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide rounded overflow-hidden">
-                        <img
-                          src="/img/inventory/car-2.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide rounded overflow-hidden">
-                        <img
-                          src="/img/inventory/car-3.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
-                      </div>
-                      <div class="swiper-slide rounded overflow-hidden">
-                        <img
-                          src="/img/inventory/car-4.jpg"
-                          alt="car"
-                          class="img-fluid"
-                        />
-                      </div>
+                      {
+                        range(1, subImagesCount).map((index) => {
+                          const createSubImageUrl = (index: number) => {
+                            return `/img/listing/${listing.id}/${index}.jpg`;
+                          };
+                          const subImageUrl = createSubImageUrl(index);
+                          return (
+                            <div class="swiper-slide rounded overflow-hidden">
+                              <img
+                                src={subImageUrl}
+                                alt="car"
+                                class="img-fluid"
+                              />
+                            </div>
+                          );
+                        })
+                      }
                     </div>
                   </div>
                 </div>
@@ -285,7 +272,7 @@ const allInventoryListings = await getCollection("inventory");
                       >
                         <div class="accordion-body">
                           <div class="row">
-                            <Features features={features} />
+                            <Features client:load features={features} />
                           </div>
                         </div>
                       </div>

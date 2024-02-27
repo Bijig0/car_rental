@@ -41,7 +41,10 @@
       ],
       "pricePerDay": 225,
       "heroImageUrl": "/img/car/mercedes-c-class-2016.png",
-      "cardImageUrl": "/img/car-cards/mercedes-c-class-2016.png"
-
+      "cardImageUrl": "/img/car-cards/mercedes-c-class-2016.png",
+      "listingImages": {
+        "mainImage": "/img/listing/mercedes-c-class-2016/main.jpg",
+        "subImagesCount": 7
+      }
     }
   }
