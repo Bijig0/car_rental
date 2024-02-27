@@ -5,6 +5,8 @@ import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import FAQ from "../components/FAQ";
 import WhyChooseUsImage from "../images/car-red.png";
+import NetLeft from "../images/net-left.png";
+import NetShape from "../images/net-shape.png";
 import MainLayout from "../layouts/MainLayout.astro";
 
 import filterObjectByKeysContaining from "../utils/filterObjectByKeysContaining";
@@ -210,7 +212,6 @@ const turoReviewUrl =
       <!--about section start-->
       <section
         class="about-section pt-120 pb-220 bg-primary-light position-relative z-1 overflow-hidden"
-        data-background="/img/shapes/about-bg.jpg"
       >
         <img
           src="/img/shapes/tire-primary-light.png"
@@ -529,13 +530,15 @@ const turoReviewUrl =
 
       <!--faq & app section start-->
       <section class="merge-section position-relative z-1 overflow-hidden">
-        <img
-          src="/img/shapes/net-shape.png"
+        <Picture
+          formats={["avif", "webp"]}
+          src={NetShape}
           alt="net shape"
           class="position-absolute end-0 top-0 z--1"
         />
-        <img
-          src="/img/shapes/net-left.png"
+        <Picture
+          formats={["avif", "webp"]}
+          src={NetLeft}
           alt="net shape"
           class="position-absolute start-0 bottom-0 z--1"
         />
