@@ -1,12 +1,6 @@
-@media only screen and (min-device-width: 480px) {
+@media (max-width: 768px) {
     .hide-on-mobile {
         display: none
-    }
-}
-
-@media only screen and (min-device-width: 768px) {
-    .flex-on-tablet-above {
-        display: flex
     }
 }
 
