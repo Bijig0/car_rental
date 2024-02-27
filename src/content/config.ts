@@ -39,4 +39,5 @@ const inventoryCollection = defineCollection({
   schema: inventorySchema
 });
 
+
 export const collections = { inventory: inventoryCollection };
