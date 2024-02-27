@@ -96,29 +96,28 @@ function browserSyncInit(done) {
 function minifyScripts() {
   console.log("---------------MINIFY SCRIPTS---------------");
   return (
-    src("dist/assets/js/app.js")
+    src("public/dist/js/app.js")
       // .pipe(removeLog())
       .pipe(
         removeCode({
           production: true,
         })
       )
-      .pipe(uglify().on("error", console.error))
       .pipe(rename("app.min.js"))
-      .pipe(dest("dist/assets/js"))
+      .pipe(dest("public/dist/js"))
   );
 }
 
 // MINIFY CSS
 function minifyCss() {
   console.log("---------------MINIFY CSS---------------");
-  return src(["src/assets/vendor/css/**/*", "dist/assets/css/main.css"])
+  return src(["src/assets/vendor/css/**/*", "public/dist/css/main.css"])
     .pipe(sourcemaps.init())
     .pipe(concat("main.css"))
     .pipe(sourcemaps.write("./"))
     .pipe(cssmin())
     .pipe(rename("main.min.css"))
-    .pipe(dest("dist/assets/css"));
+    .pipe(dest("public/dist/css"));
 }
 
 // CHANGE TO MINIFIED VERSIONS OF JS AND CSS
@@ -162,7 +161,7 @@ export const dev = series(parallel(compileJS, compileSCSS), watchFiles);
 // PRODUCTION VERSION
 export const build = series(
   parallel(compileSCSS, compileJS),
-  // parallel(minifyScripts, minifyCss),
+  parallel(minifyScripts, minifyCss),
   // renameSources,
   // browserSyncInit
 );
