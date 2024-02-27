@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { type CollectionEntry } from "astro:content";
 interface Props {
   listing: CollectionEntry<"inventory">;
@@ -21,10 +22,19 @@ const {
   cc,
   shortName,
   shortFuelType,
-  cardImageUrl,
 } = listingDetail;
 
 const listingUrl = `/listings/${listing.id}`;
+
+const cardImagesDir = "../images/car-cards";
+
+const cardImages = import.meta.glob<{ default: ImageMetadata }>(
+  `../images/car-cards/*.png`,
+);
+
+const cardImageUrl = `${cardImagesDir}/${listing.id}.png`;
+
+const cardImage = cardImages[cardImageUrl];
 ---
 
 <div
@@ -39,7 +49,7 @@ const listingUrl = `/listings/${listing.id}`;
   <span class="date position-absolute">{year}</span>
   <div class="feature-thumb position-relative overflow-hidden">
     <a href={listingUrl}
-      ><img src={cardImageUrl} alt="car" class="img-fluid" /></a
+      ><Image src={cardImage()} alt="car" class="img-fluid" /></a
     >
   </div>
   <div class="filter-card-content">
