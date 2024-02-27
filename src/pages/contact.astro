@@ -1,6 +1,9 @@
 ---
 import assert from "assert";
+import Picture from "astro/components/Picture.astro";
 import ContactForm from "../components/ContactForm";
+import TirePrintLeft from "../images/tire-print-left.png";
+import TirePrintRight from "../images/tire-print-right.png";
 import MainLayout from "../layouts/MainLayout.astro";
 
 const metadataList = await Astro.glob("../metadata.json");
@@ -17,15 +20,16 @@ const phoneNumber = metadata["phoneNumber"];
     <!--breadcrumb section start-->
     <section
       class="breadcrumb-section position-relative z-2 overflow-hidden mt--75"
-      data-background="assets/img/shapes/texture-bg.png"
     >
-      <img
-        src="/img/shapes/tire-print-left.png"
+      <Picture
+        formats={["avif", "webp"]}
+        src={TirePrintLeft}
         alt="tire print"
         class="position-absolute start-0 z-1 tire-print"
       />
-      <img
-        src="/img/shapes/tire-print-right.png"
+      <Picture
+        formats={["avif", "webp"]}
+        src={TirePrintRight}
         alt="tire print"
         class="position-absolute end-0 z-1 tire-print"
       />
