@@ -224,23 +224,23 @@
         right: 0;
 
         .at-offcanvus-close {
-            animation: 1s fadeInRight;
+            animation: 0.5s fadeInRight;
         }
 
         .logo-wrapper {
-            animation: 1s theme_fadeInUp;
+            animation: 0.5s theme_fadeInUp;
         }
 
         .offcanvus-content {
-            animation: 1.2s theme_fadeInUp;
+            animation: 0.5s theme_fadeInUp;
         }
 
         .offcanvus-contact {
-            animation: 1.3s theme_fadeInUp;
+            animation: 0.75s theme_fadeInUp;
         }
 
         .at_canvus_social {
-            animation: 1.5s theme_fadeInUp;
+            animation: 0.8s theme_fadeInUp;
         }
     }
 }
