@@ -1,0 +1,42 @@
+const metadata = {
+	rank: 1
+};
+const data = {
+	cc: 3000,
+	transmission: "auto",
+	year: 2018,
+	name: "Land Rover Sport",
+	drive: "SPORT SD4 SE (177kW)",
+	seats: 5,
+	doors: 4,
+	fuelUsage: "5.9L/100km",
+	fuelType: "diesel",
+	description: "Enjoy This Range Rover Sport is a luxurious and elegant all wheel drive cruiser. It has the latest Apple car play and Android Auto , Heated front and rear seats. The car is perfect to take the family out for road trips or even urban city driving. It is extremely comfortable and fits 5 with plenty of luggage space. The Panoramic sliding sunroof makes the car feel so much more spacious. \n“Please note: This car is equipped with a security device that collects driving data. This includes vehicle location, and may include other driving data such as mileage, driving behaviour, and time driven. This information may be shared with third parties for vehicle recovery or insurance purposes. By booking this vehicle you consent to the use of the device.” \nThere is also plenty of luggage space which makes this Range Rover perfect for roadtrips with the family.",
+	features: [
+		"Automatic transmission",
+		"All-wheel drive",
+		"Android Auto",
+		"Apple CarPlay",
+		"AUX input",
+		"Backup camera",
+		"Bluetooth",
+		"GPS",
+		"Long-term car",
+		"Sunroof",
+		"USB charger",
+		"USB input"
+	],
+	pricePerDay: 259,
+	heroImageUrl: "/img/car/land-rover-sport-2018.png",
+	cardImageUrl: "/img/car-cards/land-rover-sport-2018.png",
+	listingImages: {
+		mainImage: "/img/listing/land-rover-sport-2018/main.jpg",
+		subImagesCount: 7
+	}
+};
+const landRoverSport2018 = {
+	metadata: metadata,
+	data: data
+};
+
+export { data, landRoverSport2018 as default, metadata };

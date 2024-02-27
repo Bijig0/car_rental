@@ -1,0 +1,361 @@
+import { c as createAstro, d as createComponent, r as renderTemplate, m as maybeRenderHead, l as addAttribute, k as renderComponent } from '../astro_lQ-cMOEa.mjs';
+import 'kleur/colors';
+import assert from 'assert';
+import { g as getCollection, $ as $$MainLayout } from './_listing__CgDGsg5F.mjs';
+import 'clsx';
+
+const $$Astro$1 = createAstro();
+const $$Card = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
+  Astro2.self = $$Card;
+  const { listing } = Astro2.props;
+  const listingDetail = listing.data.data;
+  const {
+    name,
+    drive,
+    seats,
+    doors,
+    fuelUsage,
+    fuelType,
+    year,
+    pricePerDay,
+    transmission,
+    cc,
+    shortName,
+    shortFuelType,
+    cardImageUrl
+  } = listingDetail;
+  const listingUrl = `/listings/${listing.id}`;
+  return renderTemplate`${maybeRenderHead()}<div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 latest"> <div class="filter-card-item position-relative overflow-hidden rounded bg-white"> <a href="#" class="icon-btn compare-btn position-absolute"><i class="fa-solid fa-compress"></i></a> <a href="#" class="icon-btn wish-btn position-absolute"><i class="fa-solid fa-heart"></i></a> <span class="date position-absolute">${year}</span> <div class="feature-thumb position-relative overflow-hidden"> <a${addAttribute(listingUrl, "href")}><img${addAttribute(cardImageUrl, "src")} alt="car" class="img-fluid"></a> </div> <div class="filter-card-content"> <div class="price-btn text-end position-relative"> <span class="small-btn-meta">${pricePerDay}/day</span> </div> <a${addAttribute(listingUrl, "href")} class="mt-4 d-block"> <h5>${shortName ?? name} ${year}</h5> </a> <span class="meta-content"><strong>Drive Type:</strong> <a href="#">${drive}</a></span> <hr class="spacer mt-3 mb-3"> <div class="card-feature-box d-flex align-items-center mb-4"> <div class="icon-box d-flex align-items-center text-capitalize"> <span class="me-2"><i class="flaticon-speedometer"></i></span> ${cc}cc
+</div> <div class="icon-box d-flex align-items-center text-capitalize"> <span class="me-2"><i class="flaticon-steering-wheel"></i></span> ${transmission} </div> <div class="icon-box d-flex align-items-center text-capitalize"> <span class="me-2"><i class="flaticon-petrol"></i></span> ${shortFuelType ?? fuelType} </div> </div> <a${addAttribute(listingUrl, "href")} class="btn outline-btn btn-sm d-block">View Details</a> </div> </div> </div>`;
+}, "/Users/a61403/Desktop/car_rental/src/components/Card.astro", void 0);
+
+const $$Astro = createAstro();
+const $$Index = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Index;
+  const allInventoryListings = await getCollection("inventory");
+  const featuredListings = allInventoryListings.filter(
+    (listing) => [1, 2, 3].includes(listing.data.metadata.rank)
+  );
+  const metadataList = await Astro2.glob(/* #__PURE__ */ Object.assign({"../metadata.json": () => import('../metadata_BbPXXa3r.mjs')}), () => "../metadata.json");
+  assert(metadataList.length === 1);
+  const metadata = metadataList[0];
+  const turoReviewUrl = "https://turo.com/au/en/drivers/29391881#:~:text=4.96,(90%20reviews)";
+  return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, {}, { "body-content": ($$result2) => renderTemplate`${maybeRenderHead()}<div class="main-wrapper"> <!--hero section start--> <section class="dealership-hero position-relative overflow-hidden"> <div class="swiper at-hero-slider-wrapper" data-speed="900"> <div class="swiper-wrapper"> ${featuredListings.map((listing) => {
+    const listingDetail = listing.data.data;
+    const {
+      name,
+      drive,
+      seats,
+      doors,
+      fuelUsage,
+      fuelType,
+      year,
+      pricePerDay,
+      transmission,
+      cc,
+      shortName,
+      shortFuelType,
+      description,
+      features,
+      heroImageUrl
+    } = listingDetail;
+    const listingUrl = `/listings/${listing.id}`;
+    const threeFeatures = features.slice(0, 3);
+    const toyotaLandcruiserInset = {
+      bottom: "-65px",
+      right: "-165px"
+    };
+    const rangeRoverSportInset = {
+      right: "-250px",
+      bottom: "-75px"
+    };
+    const customInset = {
+      "land-rover-sport-2018": rangeRoverSportInset,
+      "toyota-landcruiser-2022": toyotaLandcruiserInset
+    };
+    return renderTemplate`<div class="swiper-slide"> <div class="dl-hero-single" data-background="/img/shapes/texture-bg.png"> <div class="container"> <div class="at_hero_slider"> <div class="row"> <div class="col-xl-7"> <div class="at-hero-title"> <span class="at-subtitle text-primary position-relative fw-bold"> ${metadata["shortBusinessName"]} </span> <h1 class="text-white mb-4 mt-3 display-4"> ${name} </h1> <p class="mb-30">${description.split("\n")[0]}</p> <ul class="car-info mt-3 mb-30 fs-md fw-500"> ${threeFeatures.map((feature) => {
+      return renderTemplate`<li class="pt-1"> <span class="me-2"> <i class="fa-regular fa-circle-check"></i> </span> ${feature} </li>`;
+    })} </ul> <a${addAttribute(`${listingUrl}`, "href")} class="at-explore-btn"> <span class="me-2"> <svg width="49" height="28" viewBox="0 0 49 28" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M42.5 9L47.715 14.1189M47.715 14.1189L42.5 19.3339M47.715 14.1189H19.5" stroke="#FC0012" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <rect x="1" y="1" width="32" height="26" rx="13" stroke="#FC0012" stroke-width="2"></rect> </svg> </span>
+Explore More
+</a> </div> </div> <div class="col-xl-5"> <div class="at-hero-banner position-relative mt-4 mt-sm-0 right-5"> <img${addAttribute(heroImageUrl, "src")} alt="car" class="at_hero_car"${addAttribute(
+      listing.id in customInset ? customInset[listing.id] : null,
+      "style"
+    )}> </div> </div> </div> </div> </div> </div> </div>`;
+  })} <div class="swiper-pagination"></div> </div> <!--hero section end--> <!--latest collection start--> <section class="latest-collection pb-120"> <div class="container"> <div class="row align-items-center justify-content-between"> <div class="col-lg-6"> <div class="at-section-title text-center text-lg-start"> <span class="at-subtitle position-relative lead text-primary">Luxury Car Rentals</span> <h2 class="h1 mt-2 mb-0">Select from our finest choices</h2> </div> </div> <div class="col-lg-6 align-self-end"> <div class="collection-filter-controls d-flex align-items-center justify-content-center justify-content-lg-end flex-wrap mt-5 mt-lg-0"> <button class="at-filter-btn active" data-filter="*">Our Fleet</button> <!-- <button class="at-filter-btn" data-filter=".featured"
+                >Featured</button
+              >
+              <button class="at-filter-btn" data-filter=".popular"
+                >Popular</button
+              > --> </div> </div> </div> <div class="filter-items-wrapper mt-5"> <div class="row g-4 justify-content-center filter-grid"> ${allInventoryListings.map((listing) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "listing": listing })}`)} </div> </div> </div> <!-- <div class="text-center mt-5">
+        <a href="/listings" class="at-explore-btn color-secondary"
+          ><span class="me-2">
+            <svg
+              width="39"
+              height="26"
+              viewBox="0 0 39 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M32.7143 7.85706L37.5142 12.9999M37.5142 12.9999L32.7143 18.1428M37.5142 12.9999H18.1428"
+                stroke="#FC0012"
+                stroke-width="1.71429"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <circle
+                cx="13"
+                cy="13"
+                r="12"
+                stroke="#FC0012"
+                stroke-width="1.71429"></circle>
+            </svg>
+          </span>View More
+        </a>
+      </div> --> </section> </div> <!--latest collection end--> <!--about section start--> <section class="about-section pt-120 pb-220 bg-primary-light position-relative z-1 overflow-hidden" data-background="/img/shapes/about-bg.jpg"> <img src="/img/shapes/tire-primary-light.png" alt="tire" class="tire-primary-light position-absolute end-0 top-0 z--1"> <span class="small-circle-shape position-absolute z--1"></span> <div class="container"> <div class="row align-items-center"> <div class="col-xl-6 col-lg-6"> <div class="about-left position-relative z-1"> <span class="circle-large position-absolute z--1"></span> <div class="at-section-title mb-20"> <span class="at-subtitle position-relative lead text-primary">Why Choose Us</span> <h2 class="h1 mt-2 mb-4">
+Renting Luxury Cars <br> Without The Hassle
+</h2> <p>
+We specialize in luxury car rentals all around the Melbourne
+                    Victoria area for all purposes from photoshoots to tours
+                    down the Mt Dandenong range. Select a car from our selective
+                    range and enjoy your drive!
+</p> </div> <img src="/img/home1/car-red.png" alt="car" class="img-fluid"> </div> </div> <div class="col-xl-6 col-lg-6"> <div class="about-right mt-5 mt-lg-0"> <div class="about-icon-box bg-white shadow rounded"> <div class="ab-icon-box-top d-flex align-items-center mb-3"> <span class="icon-wrapper d-flex align-items-center justify-content-center rounded"><i class="flaticon-shield"></i></span> <h5 class="mb-0 ms-3">3+ years of car rental experience</h5> </div> <p class="mb-0"> ${metadata["shortBusinessName"]} has been proudly serving satisfied
+                    renters for 3+ years all around Melbourne, Victoria.
+</p> </div> <div class="about-icon-box bg-white shadow rounded mt-20 ms-md-5"> <div class="ab-icon-box-top d-flex align-items-center mb-3"> <span class="icon-wrapper d-flex align-items-center justify-content-center rounded"><i class="flaticon-shield"></i></span> <h5 class="mb-0 ms-3">Customer service that cares</h5> </div> <p class="mb-0">
+Our highly trained staff are available throughout our
+                    business hours to answer any enquiries or support you in any
+                    emergencies
+</p> </div> <div class="about-icon-box bg-white shadow rounded mt-20"> <div class="ab-icon-box-top d-flex align-items-center mb-3"> <span class="icon-wrapper d-flex align-items-center justify-content-center rounded"><i class="flaticon-price-tag"></i></span> <h5 class="mb-0 ms-3">Rent at reasonable Prices</h5> </div> <p class="mb-0">
+We here at Gifleet believe in fair pricing. Our prices are
+                    competitive and amongst the lowest in the Melbourne,
+                    Victoria area.
+</p> </div> </div> </div> </div> </div> </section> <!--about section end--> <!--feedback section start--> <section class="feedback-section position-relative" data-background="/img/home1/video-bg.jpg"> <div class="countdown-area"> <div class="main-countdown-wrapper d-inline-flex align-items-center bg-white"> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-heart"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="counter">500</span><span>+</span> </h3> <span class="subtitle">Happy Customers</span> </div> </div> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-car-repair"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="counter">7</span><span>+</span> </h3> <span class="subtitle">Cars Available</span> </div> </div> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-speedometer-1"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="counter">4.95</span><span> ★</span> </h3> <a> <span class="subtitle">Average Rating (Turo)</span> </a> </div> </div> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-drive"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="">24/7</span><span></span> </h3> <span class="subtitle">Emergency Support</span> </div> </div> </div> </div> <div class="container"> <div class="video-content-wrapper"> <div class="row align-items-center"> <div class="col-6"> <div class="quote-icon"> <img src="/img/icons/quote-icon.svg" alt="quote" class="img-fluid"> </div> </div> <div class="col-6"> <div class="video-content text-center"> <a href="https://www.youtube.com/watch?v=6WZOxnYi4Cs" class="video-popup-btn bg-primary text-white"><i class="fa-solid fa-play"></i></a> </div> </div> </div> </div> </div> <div class="feedback-slider-area mt-5"> <div class="container"> <div class="row"> <div class="col-lg-12"> <div class="feedback-slider position-relative"> <div class="swiper at_feedback_slider"> <div class="swiper-wrapper"> <div class="swiper-slide feedback-single bg-white position-relative rounded"> <a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="rating-box position-absolute rounded-1"> <span class="me-1"><i class="fa-solid fa-star"></i></span>5.0
+</div> <h4 class="mb-3">Another Awesome Experience!</h4> <p class="mb-4">
+Another awesome experience with Gifleet! The car is
+                            absolutely beautiful. Had a blast and thoroughly
+                            enjoyed the car. Hand over and pick up was stress
+                            free and easy, communication was on point at all
+                            times. Very professional! Thanks again !
+</p> </a><div class="d-flex justify-content-between"><a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="author-info d-flex align-items-center"> <img src="/img/author/author-1.jpg" alt="author" class="rounded-circle flex-shrink-0 border border-2"> <div class="author-info-content ms-3"> <h6 class="mb-1 text-secondary">Thomas H</h6> <span>15 January 2024</span> </div> </div> </a><a href="https://turo.com/au/en/drivers/29391881#:~:text=4.96-,(90%20reviews),-Deborah%20L." class="btn btn-primary mt-50">View more reviews
+</a> </div> </div> <div class="swiper-slide feedback-single bg-white position-relative rounded"> <a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="rating-box position-absolute rounded-1"> <span class="me-1"><i class="fa-solid fa-star"></i></span>5.0
+</div> <h4 class="mb-3">Great Experience!</h4> <p class="mb-4">
+I had a great experience renting this car. Dealing
+                            with the owner was easy, and the car was in good
+                            condition. Highly recommended!
+</p> </a><div class="d-flex justify-content-between"><a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="author-info d-flex align-items-center"> <img src="/img/author/author-3.jpg" alt="author" class="rounded-circle flex-shrink-0 border border-2"> <div class="author-info-content ms-3"> <h6 class="mb-1 text-secondary">Imesh A</h6> <span>23 September 2023</span> </div> </div> </a><a href="https://turo.com/au/en/drivers/29391881#:~:text=4.96-,(90%20reviews),-Deborah%20L." class="btn btn-primary mt-50">View more reviews
+</a> </div> </div> <div class="swiper-slide feedback-single bg-white position-relative rounded"> <a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="rating-box position-absolute rounded-1"> <span class="me-1"><i class="fa-solid fa-star"></i></span>5.0
+</div> <h4 class="mb-3">Great Car!</h4> <p class="mb-4">
+Great car, really enjoyed it. For a 2013 Porsche it
+                            presented very well, close to new. The modified
+                            exhaust is amazing, the sound really enhanced the
+                            unique Porsche sound. Would hire again!!
+</p> </a><div class="d-flex justify-content-between"><a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="author-info d-flex align-items-center"> <img src="/img/author/author-2.jpg" alt="author" class="rounded-circle flex-shrink-0 border border-2"> <div class="author-info-content ms-3"> <h6 class="mb-1 text-secondary">Sam K</h6> <span>18 December 2023</span> </div> </div> </a><a href="https://turo.com/au/en/drivers/29391881#:~:text=4.96-,(90%20reviews),-Deborah%20L." class="btn btn-primary mt-50">View more reviews
+</a> </div> </div> </div> <div class="slide-arrow-btn position-absolute slide-btn-next"> <i class="fa-solid fa-arrow-right"></i> </div> <div class="slide-arrow-btn position-absolute slide-btn-prev"> <i class="fa-solid fa-arrow-left"></i> </div> </div> </div> </div> </div> </div> </div> </section> <!--feedback section end--> <!--faq & app section start--> <section class="merge-section position-relative z-1 overflow-hidden"> <img src="/img/shapes/net-shape.png" alt="net shape" class="position-absolute end-0 top-0 z--1"> <img src="/img/shapes/net-left.png" alt="net shape" class="position-absolute start-0 bottom-0 z--1"> <div class="faq-section pt-120 pb-120"> <div class="container"> <div class="row justify-content-center"> <div class="col-xl-7 col-lg-8"> <div class="at-section-title text-center"> <span class="at-subtitle position-relative text-primary lead">FAQs</span> <h2 class="h1 mb-0 mt-2">Frequently Asked Questions</h2> </div> </div> </div> <div class="row justify-content-center"> <div class="col-xl-10"> <div class="faq-tabs mt-5 brands-filter"> <div class="tab-content mt-60"> <div class="tab-pane fade show active" id="general"> <div class="row g-4"> <div class="col-xl-6"> <div class="accordion theme-accordion" id="accordion_1"> <div class="accordion-item"> <div class="accordion-header"> <a href="#ac_1" class="accordion-button" data-bs-toggle="collapse">01 What do I need to book a car with Gifleet</a> </div> <div class="accordion-collapse collapse show" id="ac_1" data-bs-parent="#accordion_1"> <div class="accordion-body"> <p>
+What do I need to book a car with Gifleet?
+                                    To book a car with Gifleet, you simple need
+                                    to be 21 years or older with a valid
+                                    Australian driver's licence. When booking
+                                    your first trip, we will go through a quick
+                                    approval process by entering some personal
+                                    details. Once approved, you'll be all set!
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#ac_2" class="accordion-button collapsed" data-bs-toggle="collapse">02 Do I need my own insurance?</a> </div> <div class="accordion-collapse collapse" id="ac_2" data-bs-parent="#accordion_1"> <div class="accordion-body"> <p>
+No, you don’t need personal insurance
+                                    coverage to book a car with Gifleet. When
+                                    booking a car in Australia, you’ll choose
+                                    between the Premier (if available),
+                                    Standard, and Minimum protection plans. Each
+                                    plan includes varying limits on financial
+                                    responsibility for damage to a host’s
+                                    vehicle. All trips include $20,000,000 in
+                                    legal liability protection for damage to
+                                    other people’s property. All protection is
+                                    provided by Gifleet's insurance policy.*
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#ac_3" class="accordion-button collapsed" data-bs-toggle="collapse">03 Can other people drive a car that I
+                                  booked?</a> </div> <div class="accordion-collapse collapse" id="ac_3" data-bs-parent="#accordion_1"> <div class="accordion-body"> <p>
+Yes, multiple guests can drive the car you
+                                    booked with Gifleet, as long as they are all
+                                    approved to drive. The primary driver
+                                    (whoever booked the car) can add additional
+                                    drivers with no fees or additional charges.
+                                    Only the primary driver can request to add
+                                    drivers; Turo hosts cannot do it for you. We
+                                    encourage you to request to add additional
+                                    drivers before your trip starts, though you
+                                    can request to add a driver while a trip is
+                                    in progress. To speed up the process, have
+                                    your additional driver create a Turo account
+                                    and get approved to drive before you request
+                                    to add them. All drivers must have a valid
+                                    driver’s licence and meet the age
+                                    requirements for the car you’ve booked.
+                                    Please let a representative know of any
+                                    further enquiries
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#ac_4" class="accordion-button collapsed" data-bs-toggle="collapse">04 What is the cancellation policy?</a> </div> <div class="accordion-collapse collapse" id="ac_4" data-bs-parent="#accordion_1"> <div class="accordion-body"> <p>
+You can cancel and get a full refund up to
+                                    24 hours before your trip starts. If you
+                                    book a trip with less than 24 hours’ notice,
+                                    you have one hour after booking to cancel
+                                    free of charge. If you cancel after the free
+                                    cancellation period ends, you will be
+                                    charged a small cancellation fee. In the
+                                    rare event a host cancels, you’ll be
+                                    notified immediately so you can book another
+                                    car, or we’ll help you find one. Your refund
+                                    can be temporarily held to expedite
+                                    rebooking, or the funds can be returned to
+                                    your bank account — your choice.
+</p> </div> </div> </div> </div> </div> <div class="col-xl-6"> <div class="accordion theme-accordion" id="accordion_2"> <div class="accordion-item"> <div class="accordion-header"> <a href="#acc_1" class="accordion-button" data-bs-toggle="collapse">05 What happens if I have an accident?</a> </div> <div class="accordion-collapse collapse" id="acc_1" data-bs-parent="#accordion_2"> <div class="accordion-body"> <p>
+If there’s an emergency or an issue with the
+                                    car, call our emergency roadside assistance
+                                    provider, available 24/7. We’ll make sure
+                                    you’re safe, then help you get back on your
+                                    way.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#acc_2" class="accordion-button collapsed" data-bs-toggle="collapse">06 Can I get my car delivered to me?</a> </div> <div class="accordion-collapse collapse" id="acc_2" data-bs-parent="#accordion_2"> <div class="accordion-body"> <p>
+Cars are available for delivery depending on
+                                    location and availability. Please let us
+                                    know when and where the car needs to be
+                                    delivered for further clarification
+</p> </div> </div> </div> </div> </div> </div> </div> <div class="tab-pane fade" id="features"> <div class="row g-4"> <div class="col-xl-6"> <div class="accordion theme-accordion" id="accordion_3"> <div class="accordion-item"> <div class="accordion-header"> <a href="#accc_1" class="accordion-button" data-bs-toggle="collapse">01 How long does it take to inspect your car?</a> </div> <div class="accordion-collapse collapse show" id="accc_1" data-bs-parent="#accordion_3"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#accc_2" class="accordion-button collapsed" data-bs-toggle="collapse">02 Will dealers let you take car mechanic?</a> </div> <div class="accordion-collapse collapse" id="accc_2" data-bs-parent="#accordion_3"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#accc_3" class="accordion-button collapsed" data-bs-toggle="collapse">03 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="accc_3" data-bs-parent="#accordion_3"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#accc_4" class="accordion-button collapsed" data-bs-toggle="collapse">04 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="accc_4" data-bs-parent="#accordion_3"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> </div> </div> <div class="col-xl-6"> <div class="accordion theme-accordion" id="accordion_4"> <div class="accordion-item"> <div class="accordion-header"> <a href="#a4_1" class="accordion-button" data-bs-toggle="collapse">01 How long does it take to inspect your car?</a> </div> <div class="accordion-collapse collapse show" id="a4_1" data-bs-parent="#accordion_4"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a4_2" class="accordion-button collapsed" data-bs-toggle="collapse">02 Will dealers let you take car mechanic?</a> </div> <div class="accordion-collapse collapse" id="a4_2" data-bs-parent="#accordion_4"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a4_3" class="accordion-button collapsed" data-bs-toggle="collapse">03 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="a4_3" data-bs-parent="#accordion_4"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a4_4" class="accordion-button collapsed" data-bs-toggle="collapse">04 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="a4_4" data-bs-parent="#accordion_4"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> </div> </div> </div> </div> <div class="tab-pane fade" id="technical"> <div class="row g-4"> <div class="col-xl-6"> <div class="accordion theme-accordion" id="accordion_5"> <div class="accordion-item"> <div class="accordion-header"> <a href="#a5_1" class="accordion-button" data-bs-toggle="collapse">01 How long does it take to inspect your car?</a> </div> <div class="accordion-collapse collapse show" id="a5_1" data-bs-parent="#accordion_5"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a5_2" class="accordion-button collapsed" data-bs-toggle="collapse">02 Will dealers let you take car mechanic?</a> </div> <div class="accordion-collapse collapse" id="a5_2" data-bs-parent="#accordion_5"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a5_3" class="accordion-button collapsed" data-bs-toggle="collapse">03 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="a5_3" data-bs-parent="#accordion_5"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a5_4" class="accordion-button collapsed" data-bs-toggle="collapse">04 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="a5_4" data-bs-parent="#accordion_5"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> </div> </div> <div class="col-xl-6"> <div class="accordion theme-accordion" id="accordion_6"> <div class="accordion-item"> <div class="accordion-header"> <a href="#a6_1" class="accordion-button" data-bs-toggle="collapse">01 How long does it take to inspect your car?</a> </div> <div class="accordion-collapse collapse show" id="a6_1" data-bs-parent="#accordion_6"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a6_2" class="accordion-button collapsed" data-bs-toggle="collapse">02 Will dealers let you take car mechanic?</a> </div> <div class="accordion-collapse collapse" id="a6_2" data-bs-parent="#accordion_6"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a6_3" class="accordion-button collapsed" data-bs-toggle="collapse">03 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="a6_3" data-bs-parent="#accordion_6"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> <div class="accordion-item"> <div class="accordion-header"> <a href="#a6_4" class="accordion-button collapsed" data-bs-toggle="collapse">04 How long does it take a mechanic to
+                                  inspect a used car?</a> </div> <div class="accordion-collapse collapse" id="a6_4" data-bs-parent="#accordion_6"> <div class="accordion-body"> <p>
+Dynamically reintermediate virtual
+                                    functionalities for bandwidth. Uniquely
+                                    expedite cooperative strategic theme areas
+                                    and sticky e-markets. Holisticly synergize
+                                    alternative metrics for multifunctional
+                                    outsourcing without ubiquitous total
+                                    linkage.
+</p> </div> </div> </div> </div> </div> </div> </div> </div> <div class="text-center mt-5"> <a href="/contact" class="btn btn-secondary"><span class="me-2"><i class="flaticon-chat"></i></span>Have an unanswered question?</a> </div> </div> </div> </div> </div> </div> <!-- main content wrapper ends --> </section> </section> </div>` })}`;
+}, "/Users/a61403/Desktop/car_rental/src/pages/index.astro", void 0);
+
+const $$file = "/Users/a61403/Desktop/car_rental/src/pages/index.astro";
+const $$url = "";
+
+export { $$Index as default, $$file as file, $$url as url };
