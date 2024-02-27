@@ -37,7 +37,7 @@ const {
   listingImages,
 } = listingDetail;
 
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { getCollection } from "astro:content";
 
 const allInventoryListings = await getCollection("inventory");
@@ -123,7 +123,8 @@ const cleanedCardImages = inProperOrder;
                           console.log(image);
                           return (
                             <div class="swiper-slide thumb-wrapper rounded overflow-hidden">
-                              <Image
+                              <Picture
+                                formats={["avif", "webp"]}
                                 src={image()}
                                 alt="car"
                                 class="img-fluid"
@@ -140,7 +141,8 @@ const cleanedCardImages = inProperOrder;
                         cleanedCardImages.map((image) => {
                           return (
                             <div class="swiper-slide rounded overflow-hidden">
-                              <Image
+                              <Picture
+                                formats={["avif", "webp"]}
                                 src={image()}
                                 alt="car"
                                 class="img-fluid"
