@@ -1,0 +1,128 @@
+/*********** breadcrumb section ***********/ 
+.breadcrumb-section {
+    padding: 180px 0 90px 0;
+    &.mt--75 {
+        margin-top: -75px;
+    }
+    &.mt--50 {
+        margin-top: -50px;
+    }
+    .tire-print {
+        bottom: 30px;
+    }
+    &::before {
+        content: ''; 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        height: 100%;
+        background: $black-gradient;
+        z-index: -1;
+    }
+    ol {
+        li {
+            a {
+                color: $white; 
+                transition: $transition;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+.el-breadcrumb-nav {
+    gap: 16px;
+    border-bottom: 1px solid $el-border-color;
+    padding-bottom: 6px;
+    li {
+        position: relative; 
+        font-size: 14px;
+        color: $md-text-color;
+        a {
+            color: $md-text-color;
+        }
+        + li {
+            &::before {
+                content: '\f054'; 
+                font-family: 'FontAwesome'; 
+                position: absolute;
+                left: -12px;
+                top: 50%; 
+                transform: translateY(-50%);
+                font-size: 12px;
+            }
+        }
+        &::after {
+            content: ''; 
+            position: absolute;
+            left: 0; 
+            bottom: -7px;
+            width: calc(100% + 17px);
+            height: 2px;
+            background-color: $el-primary-color;
+        }
+        &:last-child {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/********************* breadcrumb style 2 ******************/
+.breadcrumb-style-2 {
+    padding: 175px 0 90px;
+    margin-top: -90px;
+    .texture-shape {
+        width: 670px;
+        height: 100%;
+        clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0% 100%);
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: 0; 
+            top: 0; 
+            width: 100%;
+            height: 100%;
+            background: $black-gradient;
+        }
+    }
+    .text-shape {
+        font-size: 190px;
+        font-weight: 700;
+        right: 100px;
+        top: 45px;
+        z-index: 2;
+        color: rgba($bg-icon, 20%);
+        text-transform: uppercase;
+    }
+    .breadcrumb-item {
+        + .breadcrumb-item {
+            &::before {
+                content: '\f105';
+                font-family: 'FontAwesome';
+            }
+        }
+    }
+    @include screen-1400 {
+        .texture-shape {
+            width: 355px;
+        }
+        .text-shape {
+            right: 30px;
+            top: 35%;
+            font-size: 100px;
+        }
+    }
+    @include small-screen {
+        .texture-shape {
+            display: none;
+        }
+        .text-shape {
+            display: none;
+        }
+    }
+}

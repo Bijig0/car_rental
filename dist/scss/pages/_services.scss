@@ -1,0 +1,250 @@
+/*************** feedback section start *********/ 
+.sr-feedback-single {
+    padding: 0 24px 40px;
+    transition: $transition;
+    .sr-feedback-top {
+        .client-thumb {
+            margin-top: -40px;
+        }
+        span {
+            font-size: 14px;
+        }
+    }
+    .sr-feedback-quote {
+        .quote {
+            width: 30px; 
+            height: 30px; 
+            position: relative;
+            &::before {
+                content: ''; 
+                position: absolute; 
+                left: -10px; 
+                top: -10px; 
+                width: 50px; 
+                height: 50px;
+                border: 1px dashed $primary;
+                border-radius: 50%;
+            }
+        }
+        .hr-line {
+            width: 100%; 
+            height: 1px; 
+            background: $border-color;
+            display: block;
+        }
+    }
+    &:hover {
+        box-shadow: $box-shadow;
+    }
+}
+
+.deals-list-info {
+    li {
+        .icon-wrapper {
+            width: 60px; 
+            height: 60px;
+            font-size: 24px;
+        }
+    }
+}
+
+/*************** service section start ***************/ 
+.sr-section-title {
+    h2 {
+        .shape-primary {
+            position: relative;
+            &::after {
+                content: "";
+                width: 252px;
+                height: 125px;
+                border: 3px solid #FC0012;
+                position: absolute;
+                bottom: -120px;
+                right: -25px;
+                border-radius: 50%;
+                clip-path: circle(45.4% at 50% 0);
+                transform: rotate(-5deg);
+            }
+        }
+    }
+}
+
+.sr-service-single {
+    .feature-img {
+        position: relative;
+        z-index: 1;
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: 0; 
+            bottom: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.7) 5.11%, rgba(0, 0, 0, 0.532) 46.65%, rgba(0, 0, 0, 0) 100%);
+            z-index: 1; 
+            opacity: 0;
+            transition: $transition;
+        }
+        img {
+            transform: scale(1.03);
+            transition: $transition; 
+        }
+    }
+    .icon-wrapper {
+        width: 88px; 
+        height: 88px;
+        box-shadow: $icon-shadow-lg;
+        top: -65px;
+        left: 0;
+        border-radius: 0 1px 0 0;
+        z-index: 2;
+        img {
+            width: 40px;
+        }
+        &::before {
+            content: ''; 
+            position: absolute;
+            left: 0; 
+            top: -6px;
+            width: calc(100% + 6px); 
+            height: 6px;
+            background: $primary;
+            border-radius: 0 4px 0 0;
+        }
+        &::after {
+            content: ''; 
+            position: absolute;
+            right: -6px;
+            top: -6px; 
+            width: 6px;
+            height: 70px;
+            background: $primary;
+            border-radius: 0 4px 0 0;
+        }
+    }
+    h4 {
+        transition: $transition; 
+        &:hover {
+            color: $primary;
+        }
+    }
+    .btn-secondary {
+        overflow: hidden;
+        span {
+            position: relative; 
+            z-index: 3;
+            i {
+                margin-left: 8px;
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            border-radius: 0;
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(269.21deg, rgba(39, 38, 38, 0) 4.94%, #111010 41.79%, #111010 92.59%);
+            z-index: 1;
+        }
+        &::after {
+            content: '';
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%;
+            background-image: linear-gradient(269.21deg, rgba(252, 0, 18, 0) 4.94%, rgba(252, 0, 18, 0.87) 41.79%, #FC0012 92.59%);
+            z-index: 2;
+            opacity: 0;
+            transition: $transition;
+        }
+        .tire-shape-black {
+            opacity: 1;
+            transition: $transition;
+        }
+        .tire-shape-white {
+            opacity: 0; 
+            transition: $transition;
+        }
+        &:hover {
+            background-color: $primary;
+            border-color: $primary;
+            &::before {
+                opacity: 0;
+            }
+            &::after {
+                opacity: 1;
+            }
+            .tire-shape-black {
+                opacity: 0;
+            }
+            .tire-shape-white {
+                opacity: 1;
+            }
+        }
+    }
+    &:hover {
+        .feature-img {
+            img {
+                transform: scale(1.001);
+            }
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+/****************** feature section start *****************/
+.sr-feature-section {
+    .primary-blur {
+        width: 550px; 
+        height: 550px; 
+        background: rgba($primary, 0.1);
+        filter: blur(200px);
+    }
+    .yellow-blur {
+        width: 550px; 
+        height: 550px; 
+        background: rgba($star-color, 0.1);
+        filter: blur(200px);
+    }
+
+}
+
+.sr-ft-list {
+    li {
+        position: relative;
+        + li {
+            margin-top: 24px;
+        }
+        .sr-ft-list-content {
+            padding: 32px 50px 32px 24px;
+            margin-right: 25px;
+            box-shadow: $icon-btn-shadow;
+            &.icon-left {
+                padding: 32px 24px 32px 50px;
+                margin-right: auto; 
+                margin-left: 25px;
+            }
+        }
+        .icon-wrapper {
+            width: 56px; 
+            height: 56px;
+            box-shadow: $icon-shadow-lg;
+            color: $primary;
+            flex-shrink: 0;
+            font-size: 24px;
+            position: absolute;
+            right: 0; 
+            top: 50%;
+            transform: translateY(-50%);
+            &.icon-left {
+                right: auto; 
+                left: 0;
+            }
+        }
+    }
+}

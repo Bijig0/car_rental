@@ -1,0 +1,64 @@
+.promotion-section {
+    .bg-primary-shape {
+        width: 500px; 
+        height: 500px;
+        background-color: rgba($primary, 0.1);
+        filter: blur(200px);
+    }
+}
+.promotion-title-top {
+    .section-desc {
+        border-left: 2px solid $primary;
+        padding-left: 24px;
+        margin-left: -24px;
+    }
+    @include medium-screen {
+        .section-desc {
+            margin-left: 0; 
+            border-left: 0;
+        }
+    }
+}
+.promotion-pricing-plan {
+    .bg-circle-shape {
+        width: 250px; 
+        height: 250px; 
+        background: rgba($star-color, 0.2);
+        filter: blur(200px);
+        right: -100px; 
+        bottom: -100px;
+    }
+}
+.promotion-price-single {
+    padding: 40px 32px;
+    .pr-icon {
+        position: absolute;
+        right: 40px; 
+        top: 40px;
+        z-index: -1;
+    }
+    h2 {
+        font-weight: 800;
+        font-size: 48px;
+        span {
+            font-weight: 600;
+            font-size: 16px;
+            color: $para-text-2;
+        }
+    }
+    .spacer {
+        width: calc(100% + 70px); 
+        height: 1px;
+        margin-left: -35px;
+        background: linear-gradient(360deg, #E9E9E9 19.79%, #E9E9E9 76.56%, rgba(255, 255, 255, 0) 100%);
+        display: block;
+    }
+    ul {
+        li {
+            font-size: 14px;
+            + li {
+                margin-top: 12px;
+            } 
+        }
+    }
+}

@@ -1,0 +1,65 @@
+/*================
+ Template Name: AutoHive - Car Dealer HTML Template
+ Template URL: https://autohive.themetags.com/
+ Description: Multipurpose HTML Template
+ Version: 2.5.0
+ Author: https://themeforest.net/user/themetags
+=======================*/
+
+
+//Configuration
+@import 'abstract/variable';
+@import 'abstract/mixin';
+
+//Vendors.
+@import "vendors/vendors";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+//Base Stuff
+@import 'base/spacing';
+@import 'base/typography';
+@import "base/custom-font";
+
+//Component
+@import 'component/button';
+@import 'component/accordion';
+
+// Layout
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/breadcrumb';
+
+// Pages
+@import 'pages/home-1';
+@import 'pages/home-2';
+@import 'pages/home-3';
+@import 'pages/home-4';
+@import 'pages/blog';
+@import 'pages/car-listing';
+@import 'pages/inventory';
+@import 'pages/dealers';
+@import 'pages/shop';
+@import 'pages/product-details';
+@import 'pages/contact';
+@import 'pages/login';
+@import 'pages/promotion';
+@import 'pages/checkout';
+@import 'pages/cart';
+@import 'pages/wishlist';
+@import 'pages/car-rental';
+@import 'pages/services';
+@import 'pages/dealership-2';
+@import 'pages/moto-rent';
+@import 'pages/electric-car';
+@import 'pages/elctric-details';
+@import 'pages/bike-listing';
+@import 'pages/equipment-home';
+@import 'pages/equipment-listing';
+@import 'pages/equipment-details';
+@import 'pages/bicycle';
+
+//Themes 
+@import 'theme/theme-class';
+@import 'theme/theme-default';
+@import 'theme/animations';
+@import 'theme/preloader';

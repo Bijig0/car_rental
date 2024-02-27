@@ -1,0 +1,104 @@
+.cr-hero-banner {
+
+}
+.car-info-box {
+    padding: 40px;
+    margin-top: -60px;
+    .location {
+        font-weight: 500;
+        i {
+            margin-right: 6px;
+        }
+    }
+    .pricing {
+        font-size: 30px;
+        span {
+            font-size: 18px;
+        }
+    }
+    .right-btns {
+        gap: 16px;
+        a {
+            width: 56px;
+            height: 56px;
+            background: $bg-color;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            color: $para-text-2;
+            transition: $transition;
+            &:hover {
+                color: $white; 
+                background: $secondary;
+            }
+        }
+    }
+    @include portrait-phone {
+        padding: 32px 24px;
+    }
+}
+
+
+
+/***************** car rental sidebar *************/
+.advisor-widget {
+    .author-info {
+        .rating-star {
+            li {
+                font-size: 14px;
+                font-weight: 500;
+                i {
+                    color: $star-color;
+                }
+            }
+        }
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+
+.rental-feature-box {
+    padding: 60px 24px 48px;
+    h6 {
+        span {
+            width: 10px; 
+            height: 10px;
+            background: $dark;
+            display: inline-block;
+            border-radius: 50%;
+        }
+    }
+}
+.rating-field {
+    li { 
+        font-size: 14px;
+        font-weight: 500;
+        margin-right: 1px;
+        i {
+            color: $star-color;
+        }
+    }
+}
+.rental-review-box {
+    padding: 32px 32px 48px;
+    .review-star {
+        gap: 16px;
+        ul {
+            li {
+                font-size: 14px; 
+                font-weight: 500;
+                i {
+                    color: $star-color;
+                }
+            }
+        }
+    }
+}
+
+.users_review {
+    .gap-24 {
+        gap: 24px;
+    }   
+}

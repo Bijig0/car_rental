@@ -1,0 +1,415 @@
+/**************** dealership2 hero ****************/ 
+.dl2-hero-section {
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: top center;
+    padding: 120px 0 480px 0;
+    .at-header-social {
+        top: calc(50% - 260px);
+    }
+    .btn-scroll-down {
+        right: -40px;
+        bottom: 100px;
+        transform: rotate(90deg);
+        z-index: 1;
+    }
+    @include portrait-phone {
+        padding: 65px 0 150px 0;
+    }
+}
+.dl2-search-car {
+    .border-left-linear {
+        left: -16px; 
+        bottom: -16px;
+    }
+    .border-right-linear {
+        right: -16px; 
+        top: 25px;
+    }
+    .nav {
+        li {
+            a {
+                color: $white;
+                padding: 4px 20px;
+                font-weight: 500;
+                border-radius: 4px;
+                position: relative; 
+                transition: $transition;
+                &::before {
+                    content: ''; 
+                    position: absolute; 
+                    left: 50%; 
+                    bottom: -8px;
+                    transform: translateX(-50%); 
+                    width: 20px;
+                    height: 10px;
+                    background: $white;
+                    clip-path: polygon(50% 99%, 0 0, 100% 0);
+                    transition: $transition; 
+                    opacity: 0;
+                }
+                &.active {
+                    background: $white;
+                    color: $primary;
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+.dl2-search-form {
+    gap: 10px;
+    .submit-btn {
+        width: 43px; 
+        height: 43px;
+        background: $primary; 
+        color: $white;
+        flex-shrink: 0;
+        border-radius: 4px;
+        transition: $transition; 
+        &:hover {
+            color: $secondary;
+        }
+    }
+}
+
+/************* dealership about section **************/ 
+.ds-about-info {
+    .dots-wide {
+        left: -150px; 
+        bottom: -120px;
+    }
+}
+.about-info-box {
+    padding: 40px 32px 40px;
+    transition: $transition;
+    .icon-wrapper {
+        width: 56px; 
+        height: 56px;
+        background: rgba($primary, 0.05);
+        color: $primary; 
+        font-size: 24px;
+    }
+    &:hover {
+        box-shadow: $box-hover-shadow;
+    }
+}
+
+.bs-brands {
+    padding: 60px 40px;
+    .title-top {
+        gap: 16px;
+    }
+    .bs-brand-wrapper {
+        transition: $transition; 
+        border: 1px solid $border-color;
+        height: 140px;
+        padding: 24px;
+        &:hover {
+            box-shadow: $box-hover-shadow;
+            border-color: transparent;
+        }
+    }
+    @include screen-480 {
+        padding: 40px 24px;
+        .bs-brand-wrapper {
+            padding: 16px;
+            height: 130px;
+        }
+    }
+}
+.explore-link {
+    transition: $transition; 
+    color: $primary; 
+    &:hover {
+        color: $secondary;
+    }
+}
+.dl2-banner-slider {
+    .swiper-pagination {
+        width: auto; 
+        bottom: 6px; 
+        left: 24px;
+    }
+}
+.dl2-banner-single {
+    padding: 40px 24px;
+    .banner-subtitle {
+        position: relative; 
+        display: inline-block;
+        color: $primary;
+        font-weight: 700;
+        &::after {
+            content: ''; 
+            position: absolute;
+            left: calc(100% + 5px);
+            bottom: 8px;
+            width: 60px; 
+            height: 2px; 
+            background: $primary; 
+        }
+    }
+    .dots-shape {
+        right: 30px; 
+        bottom: 30px;
+    }
+    .tire-circle {
+        left: 30px;
+        bottom: 190px;
+    }
+}
+
+/**************** dealership call to action ***************/ 
+.ds-call-to-action {
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: right center;  
+}
+.gradient-overlay {
+    background: $dark-light-gradient;
+}
+.cta-btns-wrapper {
+    gap: 32px;
+    @include portrait-phone {
+        gap: 16px;
+    }
+}
+
+
+/************** featured listing **************/ 
+.listing-ft-controls {
+    gap: 16px;
+    button {
+        padding: 10px 30px;
+        background: $white;
+        font-weight: 600;
+        color: $secondary;
+        border-radius: 4px;
+        transition: $transition; 
+        &.active {
+            background: $primary; 
+            color: $white;
+        }
+    }
+}
+.filter-card-lg {
+    .feature-img {
+        overflow: hidden;
+        img {
+            transition: $transition; 
+            transform: scale(1.03);
+            &:hover {
+                transform: scale(1.01);
+            }
+        }
+    }
+    .content-wrapper {
+        padding: 32px;
+        span {
+            i {
+                margin-right: 4px;
+            }
+        }
+    }
+}
+
+/*************** dealership counter ***************/ 
+.dl2-counterup-area {
+    padding: 80px 48px;
+}
+.dl2-couter-box {
+    .icon-wrapper {
+        width: 72px; 
+        height: 72px;
+        font-size: 30px;
+    }
+    &.right-line {
+        &::before {
+            content: ''; 
+            position: absolute;
+            right: 6px;
+            top: 50%; 
+            transform: translateY(-50%);
+            width: 1px; 
+            height: 60px;
+            background: rgba($white, 0.1);
+            @include screen-1400 {
+                display: none;
+            }
+        }
+    }
+}
+
+.dl2-feature-list {
+    li {
+        + li {
+            margin-top: 60px;
+        }
+        .icon-wrapper {
+            width: 80px; 
+            height: 80px;
+            flex-shrink: 0;
+            font-size: 32px;
+        }
+    }
+}
+
+
+/*************** dealer section start ****************/ 
+.dl2-dealers {
+    padding-bottom: 290px;
+}
+.dl2-dealer-card {
+    transition: $transition; 
+    .dl_social {
+        a {
+            border: 0; 
+            box-shadow: $box-shadow;
+            &:hover {
+                color: $white; 
+                background: $secondary;
+            }
+        }
+    }
+    &:hover {
+        box-shadow: $box-hover-shadow;
+    }
+}
+
+/****************** car body types *******************/ 
+.car-sorting-box {
+    background-size: cover;
+    background-repeat: no-repeat; 
+    padding: 60px 42px;
+    &.mt--250 {
+        margin-top: -250px;
+    }
+    @include portrait-phone {
+        padding: 40px 24px;
+    }
+}
+
+.dl2-car-brands {
+    gap: 16px;
+}
+.dl2-car-brand-item {
+    background: $dark-box;
+    height: 120px;
+    width: calc(20% - 14px);
+    transition: $transition; 
+    &:hover {
+        background: rgba($primary, 0.9);
+    }
+    @include medium-screen {
+        width: calc(25% - 12px);
+    }
+    @include small-screen {
+        width: calc(33% - 10px);
+    }
+    @include portrait-phone {
+        width: calc(50% - 10px);
+    }
+}
+
+/******************* dealership apps section ***************/ 
+.dl2-apps-content {
+    .bg-circle-shape {
+        opacity: 0.15;
+    }
+    .search-btn {
+        left: 130px; 
+        top: 50px;
+        transform: rotate(-15deg);
+    }
+}
+
+/***************** dl2 blog card ***************/ 
+.dl2-blog-card {
+    .dl2-blog-card-content {
+        position: absolute; 
+        z-index: 2;
+        left: 0; 
+        bottom: 0;
+        padding: 0 55px 40px 30px;
+        .dl2-blog-meta {
+            span {
+                color: $white;
+                font-size: 12px;
+                i {
+                    margin-right: 6px;
+                }
+            }
+        }
+        .blog-title {
+            color: $white;
+            transition: $transition; 
+            font-size: 30px;
+            &:hover {
+                color: $primary;
+            }
+        }
+        .dl2-blog-explore {
+            color: $white; 
+            transition: $transition; 
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+    @include portrait-phone {
+        background: $secondary;
+        .gradient-overlay {
+            display: none;
+        }
+        .dl2-blog-card-content {
+            position: relative;
+            .blog-title {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+.dl2-blog-card2 {
+    padding: 24px;
+    transition: $transition;
+    .feature-img {
+        max-width: 210px;
+    }
+    .blog-meta {
+        span {
+            font-size: 12px;
+            i {
+                margin-right: 6px;
+            }
+        }
+    }
+    .blog-title {
+        font-size: 22px;
+        transition: $transition; 
+        &:hover {
+            color: $primary;
+        }
+    }
+    .dl2-blog-explore {
+        transition: $transition; 
+        color: $secondary; 
+        &:hover {
+            color: $primary;
+        }
+    }
+    &:hover {
+        box-shadow: $box-hover-shadow;
+    }
+    @include small-screen {
+        .feature-img {
+            max-width: 100%;
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
