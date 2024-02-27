@@ -58,6 +58,27 @@
 @import 'pages/equipment-details';
 @import 'pages/bicycle';
 
+.at_hero_car {
+    margin-top: 1rem;
+    width: 800px;
+    height: 235px;
+    object-fit: contain;
+
+    @media (min-width: 600px) {
+        margin-top: 4rem;
+        object-fit: cover;
+        width: 650px;
+    }
+
+    @media (min-width: 801px) {
+        margin-top: 0;
+        object-fit: cover;
+        width: 800px;
+        height: 416px
+    }
+
+}
+
 //Themes 
 @import 'theme/theme-class';
 @import 'theme/theme-default';

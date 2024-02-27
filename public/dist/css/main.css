@@ -45402,6 +45402,31 @@ ul.el-features-list li p {
   }
 }
 
+.at_hero_car {
+  margin-top: 1rem;
+  width: 800px;
+  height: 235px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (min-width: 600px) {
+  .at_hero_car {
+    margin-top: 4rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 650px;
+  }
+}
+@media (min-width: 801px) {
+  .at_hero_car {
+    margin-top: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 800px;
+    height: 416px;
+  }
+}
+
 @media (max-width: 768px) {
   .hide-on-mobile {
     display: none;
