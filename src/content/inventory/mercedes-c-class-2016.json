@@ -1,6 +1,6 @@
   {
     "metadata": {
-      "rank": 2
+      "rank": 5
     },
     "data": {
       "cc": 1500,
@@ -9,36 +9,42 @@
       "name": "Mercedes-Benz C-Class",
       "shortName": "Mercedes C-Class",
       "drive": "C63 S AMG",
-      "seats":  4,
-      "doors":  4,
+      "seats": 4,
+      "doors": 4,
       "fuelType": "Gas (Premium)",
       "shortFuelType": "Gas",
       "description": "Experience this V8 C63 S AMG with the roof down in the enjoyable streets of Melbourne. \n Wanting to impress a client or just want to enjoy driving this beauty along the coast ? It is a perfect car to take out any day of the week with its great daily driving capability.  Visiting places will become more enjoyable while driving this car, it surely will not disappoint.\nPlease note: this car is equipped with a security device that collects driving data. This includes vehicle location, and may include other driving data such as mileage, driving behaviour, and time driven. This information may be shared with third parties for vehicle recovery or insurance purposes. By booking this vehicle you consent to the use of the device.",
       "features": [
-    "Must be  25+ to book",
-    "Automatic transmission",
-    "Backup camera",
-    "Blind spot warning",
-    "Bluetooth",
-    "Convertible",
-    "GPS",
-    "Heated seats",
-    "Keyless entry",
-    "Long-term car",
-    "USB charger",
-    "USB input"
-],
-    "guidelines": [
+        "Automatic transmission",
+        "Backup camera",
+        "Blind spot warning",
+        "Bluetooth",
+        "Convertible",
+        "GPS",
+        "Heated seats",
+        "Keyless entry",
+        "Long-term car",
+        "USB charger",
+        "USB input",
+        "Must be  25+ to book"
+      ],
+      "guidelines": [
         {
-            "message": "No aggressive driving"
+          "message": "No aggressive driving"
         },
         {
-            "message": "No excessive speed"
+          "message": "No excessive speed"
         },
         {
-            "message": "No smoking allowed"
+          "message": "No smoking allowed"
         }
-    ],
-    "pricePerDay": 225
-}
-}
+      ],
+      "pricePerDay": 225,
+      "heroImageUrl": "/img/car/mercedes-c-class-2016.png",
+      "cardImageUrl": "/img/car-cards/mercedes-c-class-2016.png",
+      "listingImages": {
+        "mainImage": "/img/listing/mercedes-c-class-2016/main.jpg",
+        "subImagesCount": 7
+      }
+    }
+  }

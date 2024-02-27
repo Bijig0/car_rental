@@ -124,6 +124,10 @@ $primary:               #FC0012 !default;
 }
 $accent:                #077765 !default;
 $secondary:             #111010 !default;
+.color-secondary {
+        color: $secondary !important;
+
+}
 $info:		            #50b5ff !default;
 $success:               #5cc9a7 !default;
 $warning:               #ffb116 !default;

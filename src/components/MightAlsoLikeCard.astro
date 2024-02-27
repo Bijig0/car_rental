@@ -21,7 +21,10 @@ const {
   cc,
   shortName,
   shortFuelType,
+  cardImageUrl,
 } = listingDetail;
+
+const listingUrl = `/listings/${listing.id}`;
 ---
 
 <div
@@ -35,21 +38,22 @@ const {
   >
   <span class="date position-absolute">{year}</span>
   <div class="feature-thumb position-relative overflow-hidden">
-    <a href="car-rental.html"
-      ><img src="img/home1/car-2.jpg" alt="car" class="img-fluid" /></a
+    <a href={listingUrl}
+      ><img src={cardImageUrl} alt="car" class="img-fluid" /></a
     >
   </div>
   <div class="filter-card-content">
     <div class="price-btn text-end position-relative">
       <span class="small-btn-meta">{pricePerDay}/day</span>
     </div>
-    <a href="car-rental.html" class="mt-4 d-block">
+    <a href={listingUrl} class="mt-4 d-block">
       <h5>{shortName ?? name} {year}</h5>
     </a>
     <span class="meta-content"
       ><strong>Drive Type:</strong>
       <a href="#">{drive}</a></span
     >
+    <div class="mt-2"></div>
     <div class="card-feature-box d-flex align-items-center mb-4">
       <div class="icon-box d-flex align-items-center text-capitalize">
         <span class="me-2"><i class="flaticon-speedometer"></i></span>
@@ -64,8 +68,6 @@ const {
         {shortFuelType ?? fuelType}
       </div>
     </div>
-    <a href={`/listings/${listing.id}`} class="btn outline-btn btn-sm d-block"
-      >View Details</a
-    >
+    <a href={listingUrl} class="btn outline-btn btn-sm d-block">View Details</a>
   </div>
 </div>

@@ -12,8 +12,6 @@ const Description = (props: Props) => {
   const firstParagraph = paragraphs[0];
   const remainingParagraphs = paragraphs.slice(1);
 
-  console.log(remainingParagraphs);
-
   return (
     <>
       <section>{firstParagraph}</section>
@@ -21,10 +19,10 @@ const Description = (props: Props) => {
       <section {...getCollapseProps()}>
         {remainingParagraphs.map((paragraph) => {
           return (
-            <>
+            <div key={paragraph}>
               <p>{paragraph}</p>
               <br />
-            </>
+            </div>
           );
         })}
       </section>

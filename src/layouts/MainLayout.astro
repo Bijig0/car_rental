@@ -1,0 +1,361 @@
+---
+import { assert } from "console";
+
+const metadata = await Astro.glob("../metadata.json");
+assert(metadata.length === 1);
+const phoneNumber = metadata[0]["phoneNumber"];
+const email = metadata[0]["email"];
+const address = metadata[0]["address"];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--required meta tags-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--twitter og-->
+    <meta name="twitter:site" content="@gifleet" />
+    <meta name="twitter:creator" content="@gifleet" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gifleet Melbourne Car Rental" />
+    <meta name="twitter:description" content="Gifleet Melbourne Car Rental" />
+    <meta name="twitter:image" content="#" />
+
+    <!--facebook og-->
+    <meta property="og:url" content="#" />
+    <meta name="twitter:title" content="Gifleet Melbourne Car Rental" />
+    <meta property="og:description" content="Gifleet Melbourne Car Rental" />
+    <meta property="og:image" content="#" />
+    <meta property="og:image:secure_url" content="#" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="600" />
+
+    <!--meta-->
+    <meta name="description" content="Gifleet Melbourne Car Rental" />
+    <meta name="author" content="Gifleet" />
+
+    <!--favicon icon-->
+    <link rel="icon" href="img/favicon.png" type="image/png" sizes="16x16" />
+
+    <!--title-->
+    <title>Gifleet Melbourne Car Rental</title>
+
+    <!--build:css-->
+    <link rel="stylesheet" href="/dist/css/main.css" />
+    <!-- endbuild -->
+
+    <!--custom css-->
+    <link rel="stylesheet" href="/dist/css/custom.css" />
+  </head>
+
+  <body>
+    <!--header area start-->
+    <header class="header-style-one header-sticky">
+      <div class="at_topbar d-none d-sm-block bg-white">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-4 col-lg-5 col-8">
+              <div class="tp-info">
+                <p class="mb-0">Welcome... Melbourne's Prime Car Rental Shop</p>
+              </div>
+            </div>
+            <div class="col-xl-8 col-lg-7 col-4">
+              <div
+                class="tp-info-wrapper d-flex align-items-center justify-content-end"
+              >
+                <div class="d-none tp-info d-xl-inline-flex align-items-center">
+                  <span class="icon-wrapper me-2">
+                    <i class="flaticon-location"></i>
+                  </span>
+                  <p class="mb-0">{address}</p>
+                </div>
+                <div class="tp-info d-inline-flex align-items-center">
+                  <span class="icon-wrapper me-2">
+                    <i class="flaticon-phone-call"></i>
+                  </span>
+                  <p class="mb-0">Whatsapp: {phoneNumber}</p>
+                </div>
+                <div class="d-none tp-info d-xl-inline-flex align-items-center">
+                  <span class="icon-wrapper me-2">
+                    <i class="flaticon-email"></i>
+                  </span>
+                  <p class="mb-0">{email}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="at_header_nav">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-6 col-lg-3">
+              <div class="logo-wrapper">
+                <a href="/"><img src="/img/logo.png" alt="logo" /></a>
+              </div>
+            </div>
+            <div class="col-6 col-lg-9">
+              <div
+                class="at_header_right d-flex align-items-center justify-content-end"
+              >
+                <nav class="at_nav_menu d-none d-lg-block">
+                  <ul>
+                    <li class="">
+                      <a href="/">Home</a>
+                    </li>
+                    <li>
+                      <a href="/#:~:text=Land%20Rover%20Sport%202018"
+                        >Listings</a
+                      >
+                    </li>
+                    <li class="">
+                      <a href="/contact">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+                <button
+                  class="ofcanvus-toggle header-toggle-btn ms-4 d-none d-lg-block"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+                <button
+                  class="mobile-menu-toggle header-toggle-btn ms-4 d-lg-none"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--header area end-->
+
+    <!--mobile menu start-->
+    <div class="mobile-menu position-fixed bg-white deep-shadow">
+      <button class="close-menu position-absolute"
+        ><i class="fa-solid fa-xmark"></i></button
+      >
+      <a
+        href="index.html"
+        class="logo-wrapper bg-secondary d-block mt-4 p-3 rounded-1 text-center"
+        ><img src="/img/logo.png" alt="logo" class="img-fluid" /></a
+      >
+      <nav class="mobile-menu-wrapper mt-40">
+        <ul>
+          <li class="">
+            <a href="/">Home</a>
+          </li>
+          <li class="has-submenu">
+            <a href="/#:~:text=Land%20Rover%20Sport%202018">Listing</a>
+          </li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="contact-info mt-60">
+        <h4 class="mb-20">Contact Info</h4>
+        <p>{address}</p>
+        <p>Whatsapp: {phoneNumber}</p>
+        <p>{email}</p>
+        <div class="social-contact">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <!--mobile menu end-->
+
+    <!--ofcanvus menu start-->
+    <div class="at_offcanvus_menu position-fixed">
+      <button class="at-offcanvus-close"
+        ><i class="fa-solid fa-xmark"></i></button
+      >
+      <a href="#" class="logo-wrapper d-inline-block mb-5"
+        ><img src="/img/logo.png" alt="logo" /></a
+      >
+      <div class="offcanvus-content">
+        <h4 class="mb-4">About Us</h4>
+        <p>
+          Welcome to Melbourne's premier luxury car rental service, where
+          sophistication meets unparalleled customer service. At Gifleet , we
+          pride ourselves on providing an exquisite selection of high-end
+          vehicles coupled with a dedication to exceeding our customers'
+          expectations at every turn.
+        </p>
+        <p>
+          So why choose us? At Gifleet, we offer the finest luxury vehicles and
+          exceptional service, ensuring complete satisfaction. Experience the
+          fusion of luxury and service with Gifleet, creating unforgettable road
+          moments.
+        </p>
+        <!-- <a href="#" class="btn btn-primary mt-4">About Us</a> -->
+      </div>
+      <div class="offcanvus-contact">
+        <h4 class="mb-4 mt-5">Contact Info</h4>
+        <ul class="at_canvus_address">
+          <li>{address}</li>
+          <li>Whatsapp: {phoneNumber}</li>
+          <li>{email}</li>
+        </ul>
+      </div>
+      <div class="at_canvus_social mt-4">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <!--ofcanvus menu end-->
+
+    <slot name="body-content" />
+
+    <footer class="footer-section">
+      <div
+        class="footer-wrapper pt-120 position-relative z-1 overflow-hidden"
+        data-background="img/shapes/texture-bg.png"
+      >
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-xl-5 col-lg-5">
+              <div class="footer-widget widget-basic">
+                <h3 class="widget-title-large mb-4 text-white">
+                  Have a Question? Don't hesitate to ask
+                </h3>
+                <section class="mb-40">
+                  <p>Available Monday-Saturday: 10am-8pm</p>
+                  <p>Available Sundays: 11am - 8pm</p>
+                </section>
+                <div class="phone-box d-flex align-items-center">
+                  <span
+                    class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white"
+                    ><i class="flaticon-phone-call"></i></span
+                  >
+                  <h4 class="text-white ms-3 mb-0">
+                    Whatsapp : {phoneNumber}
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+              <div class="ms-lg-5 ms-xl-0 mt-5 mt-lg-0">
+                <div class="row align-items-center">
+                  <div class="col-6">
+                    <a href="/" class="footer-logo d-inline-block"
+                      ><img src="/img/logo.png" alt="logo" /></a
+                    >
+                  </div>
+                </div>
+                <div class="row mt-30">
+                  <div class="col-sm-4">
+                    <div class="footer-widget footer-nav-widget mb-5 mb-sm-0">
+                      <h6 class="widget-title text-white mb-3">
+                        About Company
+                      </h6>
+                      <ul class="footer-nav">
+                        <li><a href="/">Home</a></li>
+                        <li>
+                          <a href="/#:~:text=Land%20Rover%20Sport%202018"
+                            >Listings</a
+                          >
+                        </li>
+                        <li><a href="/contact">Contact Us</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="footer-widget footer-nav-widget mb-5 mb-sm-0">
+                      <h6 class="widget-title text-white mb-3">
+                        Terms and Privacy
+                      </h6>
+                      <ul class="footer-nav">
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="footer-widget footer-nav-widget mb-5 mb-sm-0">
+                      <h6 class="widget-title text-white mb-3">
+                        Connect With Us
+                      </h6>
+                      <ul class="footer-nav">
+                        <li
+                          class="w-75 d-flex justify-content-between align-items-center"
+                        >
+                          <a href="#">Facebook</a>
+                          <i class="fab fa-facebook-f"></i>
+                        </li>
+                        <li
+                          class="w-75 d-flex justify-content-between align-items-center"
+                        >
+                          <a href="#">Instagram</a>
+                          <i class="fab fa-linkedin"></i>
+                        </li>
+                        <li
+                          class="w-75 d-flex justify-content-between align-items-center"
+                        >
+                          <a href="#">Turo</a>
+                          <i class="fab fa-twitter"></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright pb-5">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-sm-7">
+                  <div class="copyright-text">
+                    <p class="mb-0">
+                      &copy; All rights reserved. Made by <a href="index.html"
+                        >Gifleet</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--footer section end-->
+    </footer>
+
+    <!--build:js-->
+    <script is:inline src="/js/vendors/jquery.min.js"></script>
+    <script is:inline src="/js/vendors/jquery-ui.min.js"></script>
+    <script is:inline src="/js/vendors/popper.min.js"></script>
+    <script is:inline src="/js/vendors/bootstrap.min.js"></script>
+    <script is:inline src="/js/vendors/easing.min.js"></script>
+    <script is:inline src="/js/vendors/swiper.min.js"></script>
+    <script is:inline src="/js/vendors/massonry.min.js"></script>
+    <script is:inline src="/js/vendors/bootstrap-slider.js"></script>
+    <script is:inline src="/js/vendors/magnific-popup.js"></script>
+    <script is:inline src="/js/vendors/waypoints.js"></script>
+    <script is:inline src="/js/vendors/appear.js"></script>
+    <script is:inline src="/js/vendors/counterup.js"></script>
+    <script is:inline src="/js/vendors/isotop.pkgd.min.js"></script>
+    <script is:inline src="/js/vendors/date-picker.min.js"></script>
+    <script is:inline src="/js/vendors/progressbar.js"></script>
+    <script is:inline src="/js/vendors/slick.js"></script>
+    <script is:inline src="/js/vendors/countdown.min.js"></script>
+    <script is:inline src="/js/vendors/custom-scrollbar.js"></script>
+    <script is:inline src="/js/vendors/price-range.js"></script>
+    <script is:inline src="/js/vendors/image-rotate.min.js"></script>
+    <script is:inline src="/js/app.js"></script>
+    <!--endbuild-->
+  </body>
+</html>
