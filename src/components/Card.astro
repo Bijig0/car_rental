@@ -54,6 +54,7 @@ const cardImage = cardImages[cardImageUrl];
     <div class="feature-thumb position-relative overflow-hidden">
       <a href={listingUrl}
         ><Picture
+          loading="eager"
           src={cardImage()}
           formats={["avif", "webp"]}
           alt="car"

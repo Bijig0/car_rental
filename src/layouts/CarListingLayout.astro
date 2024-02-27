@@ -43,7 +43,7 @@ import { getCollection } from "astro:content";
 const allInventoryListings = await getCollection("inventory");
 
 const cardImages = import.meta.glob<{ default: ImageMetadata }>(
-  `../images/listing/**/*.{webp,jpg}`,
+  `../images/listing/**/*.{webp,jpg}`
 );
 
 // console.log(cardImages);
@@ -124,6 +124,7 @@ const cleanedCardImages = inProperOrder;
                           return (
                             <div class="swiper-slide thumb-wrapper rounded overflow-hidden">
                               <Picture
+                                loading="eager"
                                 formats={["avif", "webp"]}
                                 src={image()}
                                 alt="car"
@@ -142,6 +143,7 @@ const cleanedCardImages = inProperOrder;
                           return (
                             <div class="swiper-slide rounded overflow-hidden">
                               <Picture
+                                loading="eager"
                                 formats={["avif", "webp"]}
                                 src={image()}
                                 alt="car"

@@ -29,7 +29,7 @@ const listingUrl = `/listings/${listing.id}`;
 const cardImagesDir = "../images/car-cards";
 
 const cardImages = import.meta.glob<{ default: ImageMetadata }>(
-  `../images/car-cards/*.png`,
+  `../images/car-cards/*.png`
 );
 
 const cardImageUrl = `${cardImagesDir}/${listing.id}.png`;
@@ -50,6 +50,7 @@ const cardImage = cardImages[cardImageUrl];
   <div class="feature-thumb position-relative overflow-hidden">
     <a href={listingUrl}
       ><Picture
+        loading="eager"
         formats={["avif", "webp"]}
         src={cardImage()}
         alt="car"
