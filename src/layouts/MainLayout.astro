@@ -2,6 +2,7 @@
 import { assert } from "console";
 import DesktopToggleMenu from "../components/DesktopToggleMenu.astro";
 import MobileToggleMenu from "../components/MobileToggleMenu.astro";
+import "./scss/main.scss";
 const metadata = await Astro.glob("../metadata.json");
 assert(metadata.length === 1);
 const phoneNumber = metadata[0]["phoneNumber"];
@@ -43,13 +44,6 @@ const address = metadata[0]["address"];
 
     <!--title-->
     <title>Gifleet Melbourne Car Rental</title>
-
-    <!--build:css-->
-    <link rel="stylesheet" href="/dist/css/main.css" />
-    <!-- endbuild -->
-
-    <!--custom css-->
-    <link rel="stylesheet" href="/dist/css/custom.css" />
   </head>
 
   <body>
