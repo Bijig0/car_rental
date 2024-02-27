@@ -6,6 +6,7 @@ import {
   AccordionItemPanel
 } from 'react-accessible-accordion';
 
+import * as React from 'react'
 import { useState } from 'react';
 import faqList from './faqList';
 
