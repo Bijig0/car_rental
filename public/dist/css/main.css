@@ -36007,6 +36007,11 @@ a.social-btn:hover {
   z-index: 1;
   padding: 245px 0 210px 0;
 }
+@media (max-width: 768px) {
+  .dl-hero-single {
+    padding: 175px 0 210px 0;
+  }
+}
 .dl-hero-single::before {
   content: "";
   position: absolute;
