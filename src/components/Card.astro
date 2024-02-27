@@ -1,6 +1,6 @@
 ---
 import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { type CollectionEntry } from "astro:content";
 
 interface Props {
@@ -53,7 +53,12 @@ const cardImage = cardImages[cardImageUrl];
     <span class="date position-absolute">{year}</span>
     <div class="feature-thumb position-relative overflow-hidden">
       <a href={listingUrl}
-        ><Image src={cardImage()} alt="car" class="img-fluid" /></a
+        ><Picture
+          src={cardImage()}
+          formats={["avif", "webp"]}
+          alt="car"
+          class="img-fluid"
+        /></a
       >
     </div>
     <div class="filter-card-content">

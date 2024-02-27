@@ -1,6 +1,6 @@
 ---
 import assert from "assert";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import FAQ from "../components/FAQ";
@@ -121,9 +121,10 @@ const turoReviewUrl =
                           </div>
                           <div class="col-xl-5">
                             <div class="at-hero-banner position-relative mt-4 mt-sm-0 right-5">
-                              <Image
+                              <Picture
                                 src={featuredCardImages[featuredCardImageUrl]()}
                                 alt="car"
+                                formats={["avif", "webp"]}
                                 class="at_hero_car"
                               />
                             </div>
@@ -238,7 +239,12 @@ const turoReviewUrl =
                     range and enjoy your drive!
                   </p>
                 </div>
-                <Image src={WhyChooseUsImage} alt="car" class="img-fluid" />
+                <Picture
+                  formats={["avif", "webp"]}
+                  src={WhyChooseUsImage}
+                  alt="car"
+                  class="img-fluid"
+                />
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">
