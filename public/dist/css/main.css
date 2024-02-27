@@ -8,11 +8,6 @@
 =======================*/
 @import url("https://fonts.googleapis.com/css2?family=Sail&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
-@media screen and (max-width: 767px) {
-  .hide-on-mobile {
-    display: none;
-  }
-}
 .color-primary {
   color: #FC0012 !important;
 }
@@ -45402,6 +45397,18 @@ ul.el-features-list li p {
   }
 }
 
+@media only screen and (min-device-width: 480px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+@media only screen and (min-device-width: 768px) {
+  .flex-on-tablet-above {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
 body {
   background: #F8F8F8;
 }
