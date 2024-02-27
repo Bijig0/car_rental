@@ -1,14 +1,35 @@
 ---
 import assert from "assert";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 import FAQ from "../components/FAQ";
+import WhyChooseUsImage from "../images/car-red.png";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import filterObjectByKeysContaining from "../utils/filterObjectByKeysContaining";
 const allInventoryListings = await getCollection("inventory");
 
 const featuredListings = allInventoryListings.filter((listing) =>
   [1, 2, 3].includes(listing.data.metadata.rank),
 );
+
+const cardImagesDir = "../images/car-cards";
+
+const cardImages = import.meta.glob<{ default: ImageMetadata }>(
+  `../images/car-cards/*.png`,
+);
+
+const featuredCardImages = filterObjectByKeysContaining(
+  cardImages,
+  featuredListings.map((listing) => listing.id),
+);
+
+const createFeaturedCardImageUrl = (listingId: string) => {
+  return `${cardImagesDir}/${listingId}.png`;
+};
+
+console.log(featuredCardImages);
 
 const metadataList = await Astro.glob("../metadata.json");
 assert(metadataList.length === 1);
@@ -27,50 +48,15 @@ const turoReviewUrl =
           {
             featuredListings.map((listing) => {
               const listingDetail = listing.data.data;
-              const {
-                name,
-                drive,
-                seats,
-                doors,
-                fuelUsage,
-                fuelType,
-                year,
-                pricePerDay,
-                transmission,
-                cc,
-                shortName,
-                shortFuelType,
-                description,
-                features,
-                heroImageUrl,
-                cardImageUrl,
-              } = listingDetail;
+              const { name, description, features } = listingDetail;
 
               const listingUrl = `/listings/${listing.id}`;
 
               const threeFeatures = features.slice(0, 3);
 
-              const toyotaLandcruiserInset = {
-                bottom: "-65px",
-                right: "-165px",
-              } satisfies Inset;
-
-              const rangeRoverSportInset = {
-                right: "-250px",
-                bottom: "-75px",
-              } satisfies Inset;
-
-              type Inset = {
-                right: string;
-                bottom: string;
-              };
-
-              type ListingIds = typeof listing.id;
-
-              const customInset = {
-                "land-rover-sport-2018": rangeRoverSportInset,
-                "toyota-landcruiser-2022": toyotaLandcruiserInset,
-              };
+              const featuredCardImageUrl = createFeaturedCardImageUrl(
+                listing.id,
+              );
 
               return (
                 <div class="swiper-slide">
@@ -135,8 +121,8 @@ const turoReviewUrl =
                           </div>
                           <div class="col-xl-5">
                             <div class="at-hero-banner position-relative mt-4 mt-sm-0 right-5">
-                              <img
-                                src={cardImageUrl}
+                              <Image
+                                src={featuredCardImages[featuredCardImageUrl]()}
                                 alt="car"
                                 class="at_hero_car"
                               />
@@ -252,7 +238,7 @@ const turoReviewUrl =
                     range and enjoy your drive!
                   </p>
                 </div>
-                <img src="/img/home1/car-red.png" alt="car" class="img-fluid" />
+                <Image src={WhyChooseUsImage} alt="car" class="img-fluid" />
               </div>
             </div>
             <div class="col-xl-6 col-lg-6">

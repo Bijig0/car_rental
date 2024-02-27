@@ -4,14 +4,13 @@ import Description from "../components/Description";
 import EmailForm from "../components/EmailForm";
 import Features from "../components/Features";
 import MightAlsoLikeCard from "../components/MightAlsoLikeCard.astro";
+import filterObjectByKeysContaining from "../utils/filterObjectByKeysContaining";
 import MainLayout from "./MainLayout.astro";
-function range(start: number, end: number) {
-  var ans = [];
-  for (let i = start; i <= end; i++) {
-    ans.push(i);
-  }
-  return ans;
-}
+
+const putLastFirst = (arr: any[]) => {
+  const lastElement = arr[arr.length - 1];
+  return [lastElement, ...arr.slice(0, -1)];
+};
 interface Props {
   listing: CollectionEntry<"inventory">;
 }
@@ -38,12 +37,28 @@ const {
   listingImages,
 } = listingDetail;
 
-const { mainImage, subImagesCount } = listingImages;
-
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+
 const allInventoryListings = await getCollection("inventory");
 
-console.log({ mainImage });
+const cardImages = import.meta.glob<{ default: ImageMetadata }>(
+  `../images/listing/**/*.jpg`,
+);
+
+// console.log(cardImages);
+
+const filteredCardImagesObject = filterObjectByKeysContaining(cardImages, [
+  listing.id,
+]);
+
+const filteredCardImages = Object.values(filteredCardImagesObject);
+
+const inProperOrder = putLastFirst(filteredCardImages);
+
+const cleanedCardImages = inProperOrder;
+
+// console.log(filteredCardImages);
 ---
 
 <MainLayout>
@@ -103,21 +118,13 @@ console.log({ mainImage });
                 <div class="iv_double_slider mt-30">
                   <div class="iv_thumb_slider swiper">
                     <div class="swiper-wrapper">
-                      <div
-                        class="swiper-slide thumb-wrapper rounded overflow-hidden"
-                      >
-                        <img src={mainImage} alt="car" class="img-fluid" />
-                      </div>
                       {
-                        range(1, subImagesCount).map((index) => {
-                          const createSubImageUrl = (index: number) => {
-                            return `/img/listing/${listing.id}/${index}.jpg`;
-                          };
-                          const subImageUrl = createSubImageUrl(index);
+                        cleanedCardImages.map((image) => {
+                          console.log(image);
                           return (
                             <div class="swiper-slide thumb-wrapper rounded overflow-hidden">
-                              <img
-                                src={subImageUrl}
+                              <Image
+                                src={image()}
                                 alt="car"
                                 class="img-fluid"
                               />
@@ -130,15 +137,11 @@ console.log({ mainImage });
                   <div class="iv_thumb_control_slider swiper mt-3 mt-lg-4">
                     <div class="swiper-wrapper">
                       {
-                        range(1, subImagesCount).map((index) => {
-                          const createSubImageUrl = (index: number) => {
-                            return `/img/listing/${listing.id}/${index}.jpg`;
-                          };
-                          const subImageUrl = createSubImageUrl(index);
+                        cleanedCardImages.map((image) => {
                           return (
                             <div class="swiper-slide rounded overflow-hidden">
-                              <img
-                                src={subImageUrl}
+                              <Image
+                                src={image()}
                                 alt="car"
                                 class="img-fluid"
                               />
