@@ -21,6 +21,7 @@ const {
   cc,
   shortName,
   shortFuelType,
+  cardImageUrl,
 } = listingDetail;
 
 const listingUrl = `/listings/${listing.id}`;
@@ -38,7 +39,7 @@ const listingUrl = `/listings/${listing.id}`;
   <span class="date position-absolute">{year}</span>
   <div class="feature-thumb position-relative overflow-hidden">
     <a href={listingUrl}
-      ><img src="img/home1/car-2.jpg" alt="car" class="img-fluid" /></a
+      ><img src={cardImageUrl} alt="car" class="img-fluid" /></a
     >
   </div>
   <div class="filter-card-content">
