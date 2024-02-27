@@ -6,7 +6,6 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 
-import { useState } from "react";
 import faqList from "./faqList";
 
 type SingleAccordionProps = {
@@ -46,8 +45,8 @@ const SingleAccordion = (props: SingleAccordionProps) => {
 const FAQ = () => {
   const faqFirstHalf = faqList.slice(0, 3);
   const faqSecondHalf = faqList.slice(3);
-  const [expandedTitles, setExpandedTitles] = useState<string[]>([]);
-  console.log({ expandedTitles });
+  // const [expandedTitles, setExpandedTitles] = useState<string[]>([]);
+  // console.log({ expandedTitles });
   return (
     <div className="faq-section pt-120 pb-120">
       <div className="container">
@@ -74,16 +73,17 @@ const FAQ = () => {
                           const expandedAsUUID = expanded.map((each) =>
                             createUUID(each)
                           );
-                          setExpandedTitles(expandedAsUUID);
+                          // setExpandedTitles(expandedAsUUID);
                         }}
                         className="accordion theme-accordion"
                         id="accordion_1"
                       >
                         {faqFirstHalf.map(({ title, text }) => {
                           console.log({ title, text });
-                          const isExpanded = expandedTitles.includes(
-                            createUUID(title)
-                          );
+                          // const isExpanded = expandedTitles.includes(
+                          //   createUUID(title)
+                          // );
+                          const isExpanded = true;
                           return (
                             <SingleAccordion
                               isExpanded={isExpanded}
@@ -101,15 +101,16 @@ const FAQ = () => {
                           const expandedAsUUID = expanded.map((each) =>
                             createUUID(each)
                           );
-                          setExpandedTitles(expandedAsUUID);
+                          // setExpandedTitles(expandedAsUUID);
                         }}
                         className="accordion theme-accordion"
                         id="accordion_1"
                       >
                         {faqSecondHalf.map(({ title, text }) => {
-                          const isExpanded = expandedTitles.includes(
-                            createUUID(title)
-                          );
+                          // const isExpanded = expandedTitles.includes(
+                          //   createUUID(title)
+                          // );
+                          const isExpanded = true;
                           return (
                             <SingleAccordion
                               isExpanded={isExpanded}
