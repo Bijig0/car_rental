@@ -24,7 +24,6 @@ import removeCode from "gulp-remove-code";
 import rename from "gulp-rename";
 import sassLint from "gulp-sass-lint";
 import sourcemaps from "gulp-sourcemaps";
-import uglify from "gulp-uglify-es";
 
 // ------------ DEVELOPMENT TASKS -------------
 
@@ -161,7 +160,7 @@ export const dev = series(parallel(compileJS, compileSCSS), watchFiles);
 // PRODUCTION VERSION
 export const build = series(
   parallel(compileSCSS, compileJS),
-  parallel(minifyScripts, minifyCss),
+  // parallel(minifyScripts, minifyCss),
   // renameSources,
   // browserSyncInit
 );
