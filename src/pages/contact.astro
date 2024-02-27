@@ -1,6 +1,14 @@
 ---
+import assert from "assert";
 import ContactForm from "../components/ContactForm";
 import MainLayout from "../layouts/MainLayout.astro";
+
+const metadataList = await Astro.glob("../metadata.json");
+assert(metadataList.length === 1);
+const metadata = metadataList[0];
+
+const email = metadata["email"];
+const phoneNumber = metadata["phoneNumber"];
 ---
 
 <MainLayout>
@@ -64,14 +72,9 @@ import MainLayout from "../layouts/MainLayout.astro";
               <ul class="fs-md">
                 <li class="fw-500">
                   <strong class="fw-bold text-secondary"
-                    >Office Address-1:
-                  </strong>Autohive Car Delarship Agency (United Estate Of
-                  America) Co., Ltd. Bridge 8, Room 9201,
-                </li>
-                <li class="mt-30 fw-500">
-                  <strong class="fw-bold text-secondary"
-                    >Office Address-2:
-                  </strong>#25 Jocker Goru Zhong Road, NYPD 200025 USA
+                    >Location
+                  </strong>Melbourne, Victoria, Australia. <br /><br />Please
+                  contact our whatsapp or email for enquiries
                 </li>
               </ul>
               <hr class="mt-4 mb-4" />
@@ -82,8 +85,8 @@ import MainLayout from "../layouts/MainLayout.astro";
                     ><i class="fa-brands fa-whatsapp"></i></span
                   >
                   <div class="ms-3 info-content">
-                    <span class="d-block">Emergency Call:</span>
-                    <a href="tel:905431478798">+90 54 3147 8789</a>
+                    <span class="d-block">Whatsapp:</span>
+                    <a href={phoneNumber}>{phoneNumber}</a>
                   </div>
                 </li>
                 <li class="d-flex align-items-center">
@@ -93,9 +96,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                   >
                   <div class="ms-3 info-content">
                     <span class="d-block">General communication</span>
-                    <a href="maito:exampleautohive@gmail.com"
-                      >exampleautohive@gmail.com</a
-                    >
+                    <a href={email}>{email}</a>
                   </div>
                 </li>
               </ul>
