@@ -28,13 +28,16 @@ const AccordionHeader = ({ title }: { title: string }) => {
 };
 
 const SingleAccordion = (props: SingleAccordionProps) => {
-  const { title, text, isExpanded } = props;
-  const { getCollapseProps, getToggleProps } = useCollapse();
+  const { title, text } = props;
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
   return (
     <div key={title} className="accordion-item">
       <div className={`accordion-header`}>
-        <button {...getToggleProps()} className={`accordion-button collapsed`}>
+        <button
+          {...getToggleProps()}
+          className={`accordion-button ${isExpanded ? undefined : "collapsed"}`}
+        >
           {title}
         </button>
       </div>
