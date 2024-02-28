@@ -13,8 +13,13 @@ const createUUID = (title: string): string => title.replaceAll(" ", "");
 
 const AccordionHeader = ({ title }: { title: string }) => {
   return (
-    <div className={`accordion-header`}>
-      <button className={`accordion-button collapsed`}>{title}</button>
+    <div style={{ width: "100%" }} className={`accordion-header`}>
+      <button
+        style={{ width: "100%" }}
+        className={`accordion-button collapsed`}
+      >
+        {title}
+      </button>
     </div>
   );
 };

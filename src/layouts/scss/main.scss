@@ -108,6 +108,10 @@
 .szh-accordion__item-content {
     transition: height 0.25s cubic-bezier(0, 0, 0, 1);
 }
+
+.szh-accordion__item-btn {
+    width: 100%
+}
 //Themes 
 @import 'theme/theme-class';
 @import 'theme/theme-default';
