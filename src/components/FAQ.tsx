@@ -33,13 +33,13 @@ const SingleAccordion = (props: SingleAccordionProps) => {
   console.log({ uuid, isExpanded });
   return (
     <AccordionItem
-      style={{ willChange: "transform" }}
+      style={{ willChange: "transition" }}
       key={title}
       className="accordion-item"
       header={<AccordionHeader title={title} />}
     >
       <div
-        style={{ willChange: "transform" }}
+        style={{ willChange: "transition" }}
         className="accordion-collapse collapse show"
         id="ac_1"
         data-bs-parent="#accordion_1"
