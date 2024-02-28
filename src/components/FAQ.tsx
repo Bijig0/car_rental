@@ -13,7 +13,10 @@ const createUUID = (title: string): string => title.replaceAll(" ", "");
 
 const AccordionHeader = ({ title }: { title: string }) => {
   return (
-    <div style={{ width: "100%" }} className={`accordion-header`}>
+    <div
+      style={{ width: "100%", willChange: "auto" }}
+      className={`accordion-header`}
+    >
       <button
         style={{ width: "100%" }}
         className={`accordion-button collapsed`}
@@ -30,11 +33,13 @@ const SingleAccordion = (props: SingleAccordionProps) => {
   console.log({ uuid, isExpanded });
   return (
     <AccordionItem
+      style={{ willChange: "transform" }}
       key={title}
       className="accordion-item"
       header={<AccordionHeader title={title} />}
     >
       <div
+        style={{ willChange: "transform" }}
         className="accordion-collapse collapse show"
         id="ac_1"
         data-bs-parent="#accordion_1"
