@@ -5,6 +5,7 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+import React, {useState} from "react";
 
 import faqList from "./faqList";
 
@@ -19,6 +20,7 @@ const createUUID = (title: string): string => title.replaceAll(" ", "");
 const SingleAccordion = (props: SingleAccordionProps) => {
   const { title, text, isExpanded } = props;
   const uuid = createUUID(title);
+  const [expandedTiles, setExpandedTitles] = useState<string[]>([])
   console.log({ uuid, isExpanded });
   return (
     <AccordionItem uuid={uuid} key={title} className="accordion-item">
