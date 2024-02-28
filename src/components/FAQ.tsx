@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Accordion, AccordionItem } from "@szhsin/react-accordion";
 
 import faqList from "./faqList";
+import { useCollapse } from "react-collapsed";
 
 type SingleAccordionProps = {
   title: string;
@@ -29,17 +29,17 @@ const AccordionHeader = ({ title }: { title: string }) => {
 
 const SingleAccordion = (props: SingleAccordionProps) => {
   const { title, text, isExpanded } = props;
-  const uuid = createUUID(title);
-  console.log({ uuid, isExpanded });
+  const { getCollapseProps, getToggleProps } = useCollapse();
+
   return (
-    <AccordionItem
-      style={{ willChange: "transition" }}
-      key={title}
-      className="accordion-item"
-      header={<AccordionHeader title={title} />}
-    >
+    <div key={title} className="accordion-item">
+      <div className={`accordion-header`}>
+        <button {...getToggleProps()} className={`accordion-button collapsed`}>
+          {title}
+        </button>
+      </div>
       <div
-        style={{ willChange: "transition" }}
+        {...getCollapseProps()}
         className="accordion-collapse collapse show"
         id="ac_1"
         data-bs-parent="#accordion_1"
@@ -48,7 +48,7 @@ const SingleAccordion = (props: SingleAccordionProps) => {
           <p>{text}</p>
         </div>
       </div>
-    </AccordionItem>
+    </div>
   );
 };
 
@@ -75,9 +75,7 @@ const FAQ = () => {
                 <div className="tab-pane fade show active" id="general">
                   <div className="row g-4">
                     <div className="col-xl-6">
-                      <Accordion
-                        transition
-                        transitionTimeout={250}
+                      <div
                         className="accordion theme-accordion"
                         id="accordion_1"
                       >
@@ -91,12 +89,10 @@ const FAQ = () => {
                             />
                           );
                         })}
-                      </Accordion>
+                      </div>
                     </div>
                     <div className="col-xl-6">
-                      <Accordion
-                        transition
-                        transitionTimeout={250}
+                      <div
                         className="accordion theme-accordion"
                         id="accordion_1"
                       >
@@ -109,7 +105,7 @@ const FAQ = () => {
                             />
                           );
                         })}
-                      </Accordion>
+                      </div>
                     </div>
                   </div>
                 </div>
