@@ -262,6 +262,7 @@ a.social-btn {
     color: $secondary;
     font-weight: 700;
     transition: $transition;
+    -webkit-transition: $transition;
     &:hover {
         background: $primary;
         color: $white; 
