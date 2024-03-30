@@ -1,0 +1,65 @@
+---
+import Picture from "astro/components/Picture.astro";
+import Card from "../components/Card.astro";
+import FAQ from "../components/FAQ";
+import TirePrintLeft from "../images/tire-print-left.png";
+import TirePrintRight from "../images/tire-print-right.png";
+import MainLayout from "../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+const allInventoryListings = await getCollection("inventory");
+
+---
+
+<MainLayout>
+  <!--main content wrapper start-->
+  <div slot="body-content" class="main-wrapper">
+    <!--breadcrumb section start-->
+    <!--breadcrumb section start-->
+    <section
+      class="breadcrumb-section position-relative z-2 overflow-hidden mt--75"
+    >
+      <Picture
+        formats={["avif", "webp"]}
+        src={TirePrintLeft}
+        alt="tire print"
+        class="position-absolute start-0 z-1 tire-print"
+      />
+      <Picture
+        formats={["avif", "webp"]}
+        src={TirePrintRight}
+        alt="tire print"
+        class="position-absolute end-0 z-1 tire-print"
+      />
+        <div class="filter-items-wrapper mt-5">
+              <div class="row g-4 justify-content-center filter-grid">
+                {
+                  allInventoryListings.map((listing) => (
+                    <Card listing={listing} />
+                  ))
+                }
+              </div>
+            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div
+              class="breadcrumb-content-wrapper text-center position-relative z-3"
+            >
+              <h1 class="text-white">FAQs</h1>
+              <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item text-white fw-500">
+                  <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item text-white fw-500">FAQs</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--breadcrumb section end-->
+    <!--contact section end-->
+    <FAQ client:only="react" />
+  </div>
+  <!-- main content wrapper ends -->
+</MainLayout>
