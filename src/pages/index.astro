@@ -41,11 +41,9 @@ const turoReviewUrl =
 ---
 
 <MainLayout>
-  <!--main content wrapper start-->
-  <div slot="body-content" class="main-wrapper">
-    <!--hero section start-->
-    <section class="dealership-hero position-relative overflow-hidden">
-      <div class="swiper at-hero-slider-wrapper" data-speed="900">
+<div slot="body-content" class="main-wrapper">
+  <section class="dealership-hero position-relative overflow-hidden">
+    <div class="swiper at-hero-slider-wrapper" data-speed="900">
         <div class="swiper-wrapper">
           {
             featuredListings.map((listing) => {
@@ -160,12 +158,6 @@ const turoReviewUrl =
                   <button class="at-filter-btn active" data-filter="*"
                     >Our Fleet</button
                   >
-                  <!-- <button class="at-filter-btn" data-filter=".featured"
-                >Featured</button
-              >
-              <button class="at-filter-btn" data-filter=".popular"
-                >Popular</button
-              > -->
                 </div>
               </div>
             </div>
@@ -179,38 +171,13 @@ const turoReviewUrl =
               </div>
             </div>
           </div>
-          <!-- <div class="text-center mt-5">
-        <a href="/listings" class="at-explore-btn color-secondary"
-          ><span class="me-2">
-            <svg
-              width="39"
-              height="26"
-              viewBox="0 0 39 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M32.7143 7.85706L37.5142 12.9999M37.5142 12.9999L32.7143 18.1428M37.5142 12.9999H18.1428"
-                stroke="#FC0012"
-                stroke-width="1.71429"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-              <circle
-                cx="13"
-                cy="13"
-                r="12"
-                stroke="#FC0012"
-                stroke-width="1.71429"></circle>
-            </svg>
-          </span>View More
-        </a>
-      </div> -->
         </section>
       </div>
-      <!--latest collection end-->
+  </section>
+       <!--latest collection end-->
 
       <!--about section start-->
-      <section
+  <section
         class="about-section pt-120 pb-220 bg-primary-light position-relative z-1 overflow-hidden"
       >
         <img
@@ -297,7 +264,7 @@ const turoReviewUrl =
           </div>
         </div>
       </section>
-      <!--about section end-->
+        <!--about section end-->
 
       <!--feedback section start-->
       <section
@@ -528,10 +495,11 @@ const turoReviewUrl =
       </section>
       <!--feedback section end-->
 
-      <!--faq & app section start-->
-      <div class="merge-section position-relative z-1 overflow-hidden mt-120">
+    <div class="merge-section position-relative z-1 overflow-hidden mt-120">
         <!-- main content wrapper ends -->
       </div>
-    </section>
-  </div>
+
+</div>;
+
+
 </MainLayout>

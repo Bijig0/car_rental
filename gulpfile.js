@@ -159,7 +159,8 @@ export const dev = series(parallel(compileJS, compileSCSS), watchFiles);
 
 // PRODUCTION VERSION
 export const build = series(
-  compileJS
+  compileJS,
+  compileSCSS
   // parallel(minifyScripts, minifyCss),
   // renameSources,
   // browserSyncInit
