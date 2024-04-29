@@ -1,4 +1,3 @@
-import netlify from "@astrojs/netlify";
 import react from "@astrojs/react";
 import { defineConfig } from "astro/config";
 const SENTRY_AUTH_TOKEN =
@@ -8,5 +7,4 @@ const SENTRY_AUTH_TOKEN =
 export default defineConfig({
   integrations: [react()],
   output: "server",
-  adapter: netlify(),
 });
