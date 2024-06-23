@@ -44,10 +44,14 @@ const listingUrl = "/";
         loading="eager"
         formats={["avif", "webp"]}
         src={cardImageUrl}
-        width={1000}
-        height={300}
         alt="car"
-        class="img-fluid"
+        width={300}
+        height={160}
+        style={{
+          objectFit: "cover",
+          minWidth: "100%",
+          minHeight: "auto",
+        }}
       /></a
     >
   </div>
