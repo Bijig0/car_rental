@@ -1,12 +1,9 @@
 ---
-import { type CollectionEntry } from "astro:content";
 import Description from "../components/Description";
 import EmailForm from "../components/EmailForm";
 import Features from "../components/Features";
-import MightAlsoLikeCard from "../components/MightAlsoLikeCard.astro";
 import TirePrintLeft from "../images/tire-print-left.png";
 import TirePrintRight from "../images/tire-print-right.png";
-import filterObjectByKeysContaining from "../utils/filterObjectByKeysContaining";
 import MainLayout from "./MainLayout.astro";
 
 const putLastFirst = (arr: any[]) => {
@@ -14,7 +11,7 @@ const putLastFirst = (arr: any[]) => {
   return [lastElement, ...arr.slice(0, -1)];
 };
 interface Props {
-  listing: any
+  listing: any;
 }
 
 const { listing } = Astro.props;
@@ -29,7 +26,7 @@ const {
   fuelUsage,
   fuelType,
   year,
-  pricePerDay,
+  pricePerWeek,
   transmission,
   cc,
   shortName,
@@ -40,7 +37,6 @@ const {
 } = listingDetail;
 
 import { Picture } from "astro:assets";
-import { getCollection } from "astro:content";
 
 // const allInventoryListings = await getCollection("inventory");
 
@@ -48,8 +44,7 @@ import { getCollection } from "astro:content";
 //   `../images/listing/**/*.{webp,jpg}`
 // );
 
-
-console.log({listingImages})
+console.log({ listingImages });
 
 // const filteredCardImagesObject = filterObjectByKeysContaining(cardImages, [
 //   listing.id,
@@ -123,15 +118,17 @@ console.log({listingImages})
                   <div class="iv_thumb_slider swiper">
                     <div class="swiper-wrapper">
                       {
-                        cleanedCardImages.map((image) => {
+                        listingImages.subImages.map((image) => {
                           console.log(image);
                           return (
                             <div class="swiper-slide thumb-wrapper rounded overflow-hidden">
                               <Picture
                                 loading="eager"
                                 formats={["avif", "webp"]}
-                                src={image()}
+                                src={image}
                                 alt="car"
+                                width={1000}
+                                height={300}
                                 class="img-fluid"
                               />
                             </div>
@@ -143,14 +140,16 @@ console.log({listingImages})
                   <div class="iv_thumb_control_slider swiper mt-3 mt-lg-4">
                     <div class="swiper-wrapper">
                       {
-                        cleanedCardImages.map((image) => {
+                        listingImages.subImages.map((image) => {
                           return (
                             <div class="swiper-slide rounded overflow-hidden">
                               <Picture
                                 loading="eager"
                                 formats={["avif", "webp"]}
-                                src={image()}
+                                src={image}
                                 alt="car"
+                                width={300}
+                                height={300}
                                 class="img-fluid"
                               />
                             </div>
@@ -299,7 +298,7 @@ console.log({listingImages})
               <div
                 class="iv_sidebar_widget iv_pricing_widget widget-padding bg-secondary rounded"
               >
-                <h3 class="mb-2 text-white">{pricePerDay}/day</h3>
+                <h3 class="mb-2 text-white">${pricePerWeek} / week</h3>
                 <div class="widget_meta d-flex align-items-center">
                   <span class="text-white"
                     ><i class="fa-solid fa-gauge-high"></i>Melbourne, Vic</span
@@ -339,11 +338,11 @@ console.log({listingImages})
         </div>
         <div class="inventroy-slider swiper mt-40 pb-120 overflow-visible">
           <div class="swiper-wrapper">
-            {
+            <!-- {
               allInventoryListings.map((listing) => {
                 return <MightAlsoLikeCard listing={listing} />;
               })
-            }
+            } -->
           </div>
           <div class="slider-btn-prev swiper-btn">
             <i class="fa-solid fa-arrow-left"></i>
