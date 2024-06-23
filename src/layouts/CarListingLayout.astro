@@ -268,7 +268,11 @@ console.log({ otherCars });
                 <hr class="mt-40 mb-30" />
                 <h4 class="mb-40">About This Listing</h4>
                 <!-- Description -->
-                <Description client:load description={description} />
+                <Description
+                  client:load
+                  description={description}
+                  delimiter="\\n"
+                />
                 <hr class="mt-30 mb-30" />
                 <h4 class="mb-30">Car Features</h4>
                 <div class="iv_feature_accordion">

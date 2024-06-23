@@ -2,15 +2,18 @@ import { useCollapse } from "react-collapsed";
 
 type Props = {
   description: string;
+  delimiter: string;
 };
 
 const Description = (props: Props) => {
+  const { description, delimiter } = props;
   const { getCollapseProps, getToggleProps } = useCollapse();
-
-  const paragraphs = props.description.split("\n");
-
+  const paragraphs = description.split(delimiter);
   const firstParagraph = paragraphs[0];
   const remainingParagraphs = paragraphs.slice(1);
+
+  console.log({ firstParagraph });
+  console.log({ remainingParagraphs });
 
   return (
     <>
