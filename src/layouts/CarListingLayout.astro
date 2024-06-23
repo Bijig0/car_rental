@@ -1,9 +1,11 @@
 ---
+import { sanityClient } from "sanity:client";
 import Description from "../components/Description";
 import EmailForm from "../components/EmailForm";
 import Features from "../components/Features";
 import TirePrintLeft from "../images/tire-print-left.png";
 import TirePrintRight from "../images/tire-print-right.png";
+import { CARS_QUERY } from "../sanity/lib/queries";
 import MainLayout from "./MainLayout.astro";
 
 const putLastFirst = (arr: any[]) => {
@@ -37,6 +39,7 @@ const {
 } = listingDetail;
 
 import { Picture } from "astro:assets";
+import MightAlsoLikeCard from "../components/MightAlsoLikeCard.astro";
 
 // const allInventoryListings = await getCollection("inventory");
 
@@ -44,6 +47,7 @@ import { Picture } from "astro:assets";
 //   `../images/listing/**/*.{webp,jpg}`
 // );
 
+const otherCars = await sanityClient.fetch(CARS_QUERY);
 console.log({ listingImages });
 
 // const filteredCardImagesObject = filterObjectByKeysContaining(cardImages, [
@@ -57,6 +61,8 @@ console.log({ listingImages });
 // const cleanedCardImages = inProperOrder;
 
 // console.log(filteredCardImages);
+
+console.log({ otherCars });
 ---
 
 <MainLayout>
@@ -338,11 +344,11 @@ console.log({ listingImages });
         </div>
         <div class="inventroy-slider swiper mt-40 pb-120 overflow-visible">
           <div class="swiper-wrapper">
-            <!-- {
-              allInventoryListings.map((listing) => {
-                return <MightAlsoLikeCard listing={listing} />;
+            {
+              otherCars.map((otherCarListing) => {
+                return <MightAlsoLikeCard listing={otherCarListing} />;
               })
-            } -->
+            }
           </div>
           <div class="slider-btn-prev swiper-btn">
             <i class="fa-solid fa-arrow-left"></i>

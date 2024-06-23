@@ -7,44 +7,6 @@ import { slugify } from "../../utils/createSlug";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  // const query = q("*", { isArray: true })
-  //   .filterByType("inventory")
-  //   .grab$({
-  //     data: q.object({
-  //       transmission: q.string(),
-  //       year: q.number(),
-  //       name: q.string(),
-  //       shortName: q.string(),
-  //       drive: q.string(),
-  //       seats: q.number(),
-  //       doors: q.number(),
-  //       fuelUsage: q.string(),
-  //       shortFuelType: q.string(),
-  //       fuelType: q.string(),
-  //       description: q.string(),
-  //       features: q.array(q.string()),
-  //       safety: q
-  //         .object({
-  //           childSafetySeat: q.boolean(),
-  //           pricePerWeek: q.string(),
-  //         })
-  //         .optional(),
-  //       guidelines: q.array(q.string()).optional(),
-  //       pricePerWeek: q.number(),
-  //       cc: q.number(),
-  //       heroImageUrl: q("types").filter().deref().grabOne("url", q.string()),
-  //       // listingImages: q.object({
-  //       //   mainImageUrl: q.string().optional(),
-  //       //   subImages: q.array(q.string()).optional(),
-  //       // }),
-  //     }),
-  //     // name: q.string(),
-  //   });
-  // const runQuery = makeSafeQueryRunner((query) => sanityClient.fetch(query));
-
-  // const data = await runQuery(query);
-  // console.log(data);
-
   const cars = await sanityClient.fetch(CARS_QUERY);
   console.log(cars[0].data);
   const asStaticPath = cars.map((car: any) => {

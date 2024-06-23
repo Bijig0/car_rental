@@ -7,7 +7,7 @@ interface Props {
 
 const { listing } = Astro.props;
 
-const listingDetail = listing.data.data;
+const listingDetail = listing.data;
 
 const {
   name,
@@ -17,24 +17,15 @@ const {
   fuelUsage,
   fuelType,
   year,
-  pricePerDay,
+  pricePerWeek,
   transmission,
   cc,
   shortName,
   shortFuelType,
+  cardImageUrl,
 } = listingDetail;
 
-const listingUrl = `/listings/${listing.id}`;
-
-const cardImagesDir = "../images/car-cards";
-
-const cardImages = import.meta.glob<{ default: ImageMetadata }>(
-  `../images/car-cards/*.png`
-);
-
-const cardImageUrl = `${cardImagesDir}/${listing.id}.png`;
-
-const cardImage = cardImages[cardImageUrl];
+const listingUrl = "/";
 ---
 
 <div
@@ -52,7 +43,9 @@ const cardImage = cardImages[cardImageUrl];
       ><Picture
         loading="eager"
         formats={["avif", "webp"]}
-        src={cardImage()}
+        src={cardImageUrl}
+        width={1000}
+        height={300}
         alt="car"
         class="img-fluid"
       /></a
@@ -60,7 +53,7 @@ const cardImage = cardImages[cardImageUrl];
   </div>
   <div class="filter-card-content">
     <div class="price-btn text-end position-relative">
-      <span class="small-btn-meta">{pricePerDay}/day</span>
+      <span class="small-btn-meta">{pricePerWeek}/day</span>
     </div>
     <a href={listingUrl} class="mt-4 d-block">
       <h5>{shortName ?? name} {year}</h5>
