@@ -1,18 +1,53 @@
 ---
+import { makeSafeQueryRunner, q } from "groqd";
 import { sanityClient } from "sanity:client";
-import CarListingLayout from "../../layouts/CarListingLayout.astro";
 import { CARS_QUERY } from "../../sanity/lib/queries";
 import { slugify } from "../../utils/createSlug";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  console.log("test");
+  const query = q("*", { isArray: true })
+    .filterByType("inventory")
+    .grab$({
+      data: q.object({
+        transmission: q.string(),
+        year: q.number(),
+        name: q.string(),
+        shortName: q.string(),
+        drive: q.string(),
+        seats: q.number(),
+        doors: q.number(),
+        fuelUsage: q.string(),
+        shortFuelType: q.string(),
+        fuelType: q.string(),
+        description: q.string(),
+        features: q.array(q.string()),
+        safety: q.object({
+          childSafetySeat: q.boolean(),
+          pricePerWeek: q.string(),
+        }),
+        // guidelines: q.array(
+        //   q.object({
+        //     message: q.string(),
+        //     _key: q.string(),
+        //   })
+        // ),
+        pricePerWeek: q.number(),
+        cc: q.number(),
+      }),
+      // name: q.string(),
+    });
+  const runQuery = makeSafeQueryRunner((query) => sanityClient.fetch(query));
+
+  const data = await runQuery(query);
+  console.log(data);
+
   const cars = await sanityClient.fetch(CARS_QUERY);
-  console.log({ cars });
+  // console.log(cars[0].data);
   const asStaticPath = cars.map((car: any) => {
     const slug = slugify(car);
-    console.log({ slug });
+    // console.log({ slug });
     return {
       params: { listing: slug },
       props: { listing: car },
@@ -41,12 +76,11 @@ export async function getStaticPaths() {
 
 const { listing } = Astro.props;
 
-console.log({ listing });
+// console.log({ listing });
 
-const listingData  = listing.data
-
+const listingData = listing.data;
 
 if (listingData === undefined) throw new Error("listingDetail is undefined");
 ---
 
-<CarListingLayout listing={listingData} />
+<!-- <CarListingLayout listing={listingData} /> -->
