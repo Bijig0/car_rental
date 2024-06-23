@@ -12,8 +12,8 @@ const Description = (props: Props) => {
   const firstParagraph = paragraphs[0];
   const remainingParagraphs = paragraphs.slice(1);
 
-  console.log({ firstParagraph });
-  console.log({ remainingParagraphs });
+  // console.log({ firstParagraph });
+  // console.log({ remainingParagraphs });
 
   return (
     <>

@@ -8,10 +8,10 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const cars = await sanityClient.fetch(CARS_QUERY);
-  console.log(cars[0].data);
+  // console.log(cars[0].data);
   const asStaticPath = cars.map((car: any) => {
     const slug = slugify(car);
-    // console.log({ slug });
+    console.log({ slug });
     return {
       params: { listing: slug },
       props: { listing: car },

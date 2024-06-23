@@ -1,6 +1,5 @@
 ---
 import { sanityClient } from "sanity:client";
-import Description from "../components/Description";
 import EmailForm from "../components/EmailForm";
 import Features from "../components/Features";
 import TirePrintLeft from "../images/tire-print-left.png";
@@ -268,11 +267,11 @@ console.log({ otherCars });
                 <hr class="mt-40 mb-30" />
                 <h4 class="mb-40">About This Listing</h4>
                 <!-- Description -->
-                <Description
+                <!-- <Description
                   client:load
                   description={description}
                   delimiter="\\n"
-                />
+                /> -->
                 <hr class="mt-30 mb-30" />
                 <h4 class="mb-30">Car Features</h4>
                 <div class="iv_feature_accordion">
