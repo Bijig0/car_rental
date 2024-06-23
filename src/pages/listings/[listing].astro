@@ -1,33 +1,52 @@
 ---
-import { getEntry } from "astro:content";
-import path from "path";
+import { sanityClient } from "sanity:client";
 import CarListingLayout from "../../layouts/CarListingLayout.astro";
+import { CARS_QUERY } from "../../sanity/lib/queries";
+import { slugify } from "../../utils/createSlug";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const allListings = import.meta.glob("../../content/inventory/*.json");
-  const listingPaths = Object.keys(allListings);
-
-  const extractFileName = (filePath: string) =>
-    path.basename(filePath, path.extname(filePath));
-
-  const fileNames = listingPaths.map(extractFileName);
-
-  const asStaticPath = fileNames.map((fileName) => {
+  console.log("test");
+  const cars = await sanityClient.fetch(CARS_QUERY);
+  console.log({ cars });
+  const asStaticPath = cars.map((car: any) => {
+    const slug = slugify(car);
+    console.log({ slug });
     return {
-      params: { listing: fileName },
+      params: { listing: slug },
+      props: { listing: car },
     };
   });
-
   return asStaticPath;
 }
 
-const { listing: listingId } = Astro.params;
+// export async function getStaticPaths() {
+//   const allListings = import.meta.glob("../../content/inventory/*.json");
+//   const listingPaths = Object.keys(allListings);
 
-const listingDetail = await getEntry("inventory", listingId);
+//   const extractFileName = (filePath: string) =>
+//     path.basename(filePath, path.extname(filePath));
 
-if (listingDetail === undefined) throw new Error("listingDetail is undefined");
+//   const fileNames = listingPaths.map(extractFileName);
+
+//   const asStaticPath = fileNames.map((fileName) => {
+//     return {
+//       params: { listing: fileName },
+//     };
+//   });
+
+//   return asStaticPath;
+// }
+
+const { listing } = Astro.props;
+
+console.log({ listing });
+
+const listingData  = listing.data
+
+
+if (listingData === undefined) throw new Error("listingDetail is undefined");
 ---
 
-<CarListingLayout listing={listingDetail} />
+<CarListingLayout listing={listingData} />

@@ -14,12 +14,12 @@ const putLastFirst = (arr: any[]) => {
   return [lastElement, ...arr.slice(0, -1)];
 };
 interface Props {
-  listing: CollectionEntry<"inventory">;
+  listing: any
 }
 
 const { listing } = Astro.props;
 
-const listingDetail = listing.data.data;
+const listingDetail = listing;
 
 const {
   name,
@@ -42,23 +42,24 @@ const {
 import { Picture } from "astro:assets";
 import { getCollection } from "astro:content";
 
-const allInventoryListings = await getCollection("inventory");
+// const allInventoryListings = await getCollection("inventory");
 
-const cardImages = import.meta.glob<{ default: ImageMetadata }>(
-  `../images/listing/**/*.{webp,jpg}`
-);
+// const cardImages = import.meta.glob<{ default: ImageMetadata }>(
+//   `../images/listing/**/*.{webp,jpg}`
+// );
 
-// console.log(cardImages);
 
-const filteredCardImagesObject = filterObjectByKeysContaining(cardImages, [
-  listing.id,
-]);
+console.log({listingImages})
 
-const filteredCardImages = Object.values(filteredCardImagesObject);
+// const filteredCardImagesObject = filterObjectByKeysContaining(cardImages, [
+//   listing.id,
+// ]);
 
-const inProperOrder = putLastFirst(filteredCardImages);
+// const filteredCardImages = Object.values(filteredCardImagesObject);
 
-const cleanedCardImages = inProperOrder;
+// const inProperOrder = putLastFirst(filteredCardImages);
+
+// const cleanedCardImages = inProperOrder;
 
 // console.log(filteredCardImages);
 ---

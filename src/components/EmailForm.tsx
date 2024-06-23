@@ -41,12 +41,18 @@ const EmailForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (inputs: Inputs) => {
+    const templateParams = {
+      to_name: "Brady",
+      from_name: "Gifleet Car Rental",
+      subject: "New Car Rental Quote From Contact us",
+      message: `New From Car Rental Quote, details: ${JSON.stringify(inputs)}`,
+    };
+
     const serviceId = "service_010xydf";
     const templateName = "template_1dcm4rn";
     const publicKey = "Yd6r5t5etWEKD3GNh";
-    const form = e.target as HTMLFormElement;
-    return emailjs.sendForm(serviceId, templateName, form, publicKey);
+    return emailjs.send(serviceId, templateName, templateParams, publicKey);
   };
 
   const {
@@ -59,10 +65,9 @@ const EmailForm = () => {
     mutationKey: ["sendEmail"],
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (_, e) => {
-    console.log(_);
-    if (e === undefined) throw new Error("Form event is undefined");
-    sendEmailMutate(e as React.FormEvent<HTMLFormElement>);
+  const onSubmit: SubmitHandler<Inputs> = (inputs) => {
+    console.log(inputs);
+    sendEmailMutate(inputs);
   };
 
   return (
