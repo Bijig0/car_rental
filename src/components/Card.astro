@@ -19,7 +19,7 @@ const {
   fuelUsage,
   fuelType,
   year,
-  pricePerDay,
+  pricePerWeek,
   transmission,
   cc,
   shortName,
@@ -60,7 +60,7 @@ const listingUrl = `/listings/${slugify(listing)}`;
     </div>
     <div class="filter-card-content">
       <div class="price-btn text-end position-relative">
-        <span class="small-btn-meta">{pricePerDay}/day</span>
+        <span class="small-btn-meta">${pricePerWeek}/week</span>
       </div>
       <a href={listingUrl} class="mt-4 d-block">
         <h5>{shortName ?? name} {year}</h5>
