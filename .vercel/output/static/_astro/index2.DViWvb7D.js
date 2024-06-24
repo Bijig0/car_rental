@@ -1,4 +1,4 @@
-import{j as a}from"./jsx-runtime.Dhsgnf4I.js";import{p as b,aU as j,aw as P,aZ as g,ac as w,a_ as L,as as B,a$ as k,ay as _,b0 as T,X as A,aW as C,ax as S,aX as W,au as D,af as H,aY as E}from"./studio-component.BEJh8vwW.js";import{r as v}from"./index.uubelm5h.js";import"./client.dRIi1H27.js";const G=b.hr`
+import{j as a}from"./jsx-runtime.Dhsgnf4I.js";import{p as b,aU as j,aw as P,aZ as g,ac as w,a_ as L,as as B,a$ as k,ay as _,b0 as T,X as A,aW as C,ax as S,aX as W,au as D,af as H,aY as E}from"./studio-component.AXKajpkr.js";import{r as v}from"./index.uubelm5h.js";import"./client.dRIi1H27.js";const G=b.hr`
   background-color: var(--card-border-color);
   height: 1px;
   margin: 0;

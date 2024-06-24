@@ -32,7 +32,7 @@ const turoReviewUrl =
               const listingDetail = listing.data;
               const { name, description, features } = listingDetail;
 
-              console.log({ listingDetail });
+              console.log({ description });
 
               const listingUrl = `/listings/${slugify(listing)}`;
 
@@ -52,7 +52,7 @@ const turoReviewUrl =
                               <h1 class="text-white mb-4 mt-3 display-4">
                                 {name}
                               </h1>
-                              <p class="mb-30">{description.split("\n")[0]}</p>
+                              
                               <ul class="car-info mt-3 mb-30 fs-md fw-500">
                                 {threeFeatures.map((feature) => {
                                   return (
@@ -100,7 +100,7 @@ const turoReviewUrl =
                             <div class="at-hero-banner position-relative mt-4 mt-sm-0 right-5">
                               <Picture
                                 loading="eager"
-                                src={listing.data.cardImageUrl}
+                                src={listing.data.cardImageUrl ?? ""}
                                 alt="car"
                                 width={1000}
                                 height={300}

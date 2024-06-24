@@ -27,11 +27,7 @@ const {
   cardImageUrl,
 } = listingDetail;
 
-console.log({ sluggified: slugify(listing) });
-
 const listingUrl = `/listings/${slugify(listing)}`;
-
-console.log({ listingDetail });
 ---
 
 <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 latest">
@@ -49,7 +45,7 @@ console.log({ listingDetail });
       <a href={listingUrl}>
         <Picture
           loading="eager"
-          src={cardImageUrl}
+          src={cardImageUrl ?? ""}
           formats={["avif", "webp"]}
           alt="car"
           width={300}

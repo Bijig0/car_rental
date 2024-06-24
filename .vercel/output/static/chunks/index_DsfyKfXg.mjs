@@ -1,0 +1,122 @@
+import { s as sanityClient } from './page-ssr_DDgu3XPF.mjs';
+import { c as createComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute, d as renderComponent, e as createAstro } from './astro/server_ExnHLPWg.mjs';
+import 'kleur/colors';
+import 'html-escaper';
+import assert from 'assert';
+import { $ as $$Picture, a as $$MainLayout } from './MainLayout_DVhaic_z.mjs';
+import { s as slugify, C as CARS_QUERY } from './createSlug_BuF4LW8J.mjs';
+
+const $$Astro$1 = createAstro();
+const $$Card = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
+  Astro2.self = $$Card;
+  const { listing } = Astro2.props;
+  const listingDetail = listing.data;
+  const {
+    name,
+    drive,
+    seats,
+    doors,
+    fuelUsage,
+    fuelType,
+    year,
+    pricePerDay,
+    transmission,
+    cc,
+    shortName,
+    shortFuelType,
+    cardImageUrl
+  } = listingDetail;
+  console.log({ sluggified: slugify(listing) });
+  const listingUrl = `/listings/${slugify(listing)}`;
+  console.log({ listingDetail });
+  return renderTemplate`${maybeRenderHead()}<div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 latest"> <div class="filter-card-item position-relative overflow-hidden rounded bg-white"> <a href="#" class="icon-btn compare-btn position-absolute"><i class="fa-solid fa-compress"></i></a> <a href="#" class="icon-btn wish-btn position-absolute"><i class="fa-solid fa-heart"></i></a> <span class="date position-absolute">${year}</span> <div class="feature-thumb position-relative overflow-hidden"> <a${addAttribute(listingUrl, "href")}> ${renderComponent($$result, "Picture", $$Picture, { "loading": "eager", "src": cardImageUrl, "formats": ["avif", "webp"], "alt": "car", "width": 300, "height": 160, "style": {
+    objectFit: "cover",
+    minWidth: "100%",
+    minHeight: "auto"
+  } })} </a> </div> <div class="filter-card-content"> <div class="price-btn text-end position-relative"> <span class="small-btn-meta">${pricePerDay}/day</span> </div> <a${addAttribute(listingUrl, "href")} class="mt-4 d-block"> <h5>${shortName ?? name} ${year}</h5> </a> <span class="meta-content"><strong>Drive Type:</strong> <a href="#">${drive}</a></span> <hr class="spacer mt-3 mb-3"> <div class="card-feature-box d-flex align-items-center mb-4"> <div class="icon-box d-flex align-items-center text-capitalize"> <span class="me-2"><i class="flaticon-speedometer"></i></span> ${cc}cc
+</div> <div class="icon-box d-flex align-items-center text-capitalize"> <span class="me-2"><i class="flaticon-steering-wheel"></i></span> ${transmission} </div> <div class="icon-box d-flex align-items-center text-capitalize"> <span class="me-2"><i class="flaticon-petrol"></i></span> ${shortFuelType ?? fuelType} </div> </div> <a${addAttribute(listingUrl, "href")} class="btn outline-btn btn-sm d-block">View Details</a> </div> </div> </div>`;
+}, "/Users/a61403/Desktop/car_rental/src/components/Card.astro", void 0);
+
+const WhyChooseUsImage = new Proxy({"src":"/_astro/car-red.DQL45Q91.png","width":1440,"height":625,"format":"jpg"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/Users/a61403/Desktop/car_rental/src/images/car-red.png";
+							}
+							if (target[name] !== undefined && globalThis.astroAsset) globalThis.astroAsset?.referencedImages.add("/Users/a61403/Desktop/car_rental/src/images/car-red.png");
+							return target[name];
+						}
+					});
+
+const $$Astro = createAstro();
+const $$Index = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Index;
+  const allInventoryListings = await sanityClient.fetch(CARS_QUERY);
+  const featuredListings = allInventoryListings.filter(
+    (listing) => [1, 2, 3].includes(listing.metadata.rank)
+  );
+  const metadataList = await Astro2.glob(/* #__PURE__ */ Object.assign({"../metadata.json": () => import('./metadata_BbPXXa3r.mjs')}), () => "../metadata.json");
+  assert(metadataList.length === 1);
+  const metadata = metadataList[0];
+  const turoReviewUrl = "https://turo.com/au/en/drivers/29391881#:~:text=4.96,(90%20reviews)";
+  return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, {}, { "body-content": ($$result2) => renderTemplate`${maybeRenderHead()}<div class="main-wrapper"> <section class="dealership-hero position-relative overflow-hidden"> <div class="swiper at-hero-slider-wrapper" data-speed="900"> <div class="swiper-wrapper"> ${featuredListings.map((listing) => {
+    const listingDetail = listing.data;
+    const { name, description, features } = listingDetail;
+    console.log({ listingDetail });
+    const listingUrl = `/listings/${slugify(listing)}`;
+    const threeFeatures = features.slice(0, 3);
+    return renderTemplate`<div class="swiper-slide"> <div class="dl-hero-single"> <div class="container"> <div class="at_hero_slider"> <div class="row"> <div class="col-xl-7"> <div class="at-hero-title"> <span class="at-subtitle text-primary position-relative fw-bold"> ${metadata["shortBusinessName"]} </span> <h1 class="text-white mb-4 mt-3 display-4"> ${name} </h1> <p class="mb-30">${description.split("\\n")[0]}</p> <ul class="car-info mt-3 mb-30 fs-md fw-500"> ${threeFeatures.map((feature) => {
+      return renderTemplate`<li class="pt-1"> <span class="me-2"> <i class="fa-regular fa-circle-check"></i> </span> ${feature} </li>`;
+    })} </ul> <a${addAttribute(`${listingUrl}`, "href")} class="at-explore-btn"> <span class="me-2"> <svg width="49" height="28" viewBox="0 0 49 28" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M42.5 9L47.715 14.1189M47.715 14.1189L42.5 19.3339M47.715 14.1189H19.5" stroke="#FC0012" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <rect x="1" y="1" width="32" height="26" rx="13" stroke="#FC0012" stroke-width="2"></rect> </svg> </span>
+Explore More
+</a> </div> </div> <div class="col-xl-5"> <div class="at-hero-banner position-relative mt-4 mt-sm-0 right-5"> ${renderComponent($$result2, "Picture", $$Picture, { "loading": "eager", "src": listing.data.cardImageUrl, "alt": "car", "width": 1e3, "height": 300, "formats": ["avif", "webp"], "class": "at_hero_car" })} </div> </div> </div> </div> </div> </div> </div>`;
+  })} <div class="swiper-pagination"></div> </div> <!--hero section end--> <!--latest collection start--> <section class="latest-collection pb-120"> <div class="container"> <div class="row align-items-center justify-content-between"> <div class="col-lg-6"> <div class="at-section-title text-center text-lg-start"> <span class="at-subtitle position-relative lead text-primary">Luxury Car Rentals</span> <h2 class="h1 mt-2 mb-0">Select from our finest choices</h2> </div> </div> <div class="col-lg-6 align-self-end"> <div class="collection-filter-controls d-flex align-items-center justify-content-center justify-content-lg-end flex-wrap mt-5 mt-lg-0"> <button class="at-filter-btn active" data-filter="*">Our Fleet</button> </div> </div> </div> <div class="filter-items-wrapper mt-5"> <div class="row g-4 justify-content-center filter-grid"> ${allInventoryListings.map((listing) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "listing": listing })}`)} </div> </div> </div> </section> </div> </section> <!--latest collection end--> <!--about section start--> <section class="about-section pt-120 pb-220 bg-primary-light position-relative z-1 overflow-hidden"> <img src="/img/shapes/tire-primary-light.png" alt="tire" class="tire-primary-light position-absolute end-0 top-0 z--1"> <span class="small-circle-shape position-absolute z--1"></span> <div class="container"> <div class="row align-items-center"> <div class="col-xl-6 col-lg-6"> <div class="about-left position-relative z-1"> <span class="circle-large position-absolute z--1"></span> <div class="at-section-title mb-20"> <span class="at-subtitle position-relative lead text-primary">Why Choose Us</span> <h2 class="h1 mt-2 mb-4">
+Renting Luxury Cars <br> Without The Hassle
+</h2> <p>
+We specialize in luxury car rentals all around the Melbourne
+                  Victoria area for all purposes from photoshoots to tours down
+                  the Mt Dandenong range. Select a car from our selective range
+                  and enjoy your drive!
+</p> </div> ${renderComponent($$result2, "Picture", $$Picture, { "loading": "eager", "formats": ["avif", "webp"], "src": WhyChooseUsImage, "alt": "car", "class": "img-fluid" })} </div> </div> <div class="col-xl-6 col-lg-6"> <div class="about-right mt-5 mt-lg-0"> <div class="about-icon-box bg-white shadow rounded"> <div class="ab-icon-box-top d-flex align-items-center mb-3"> <span class="icon-wrapper d-flex align-items-center justify-content-center rounded"><i class="flaticon-shield"></i></span> <h5 class="mb-0 ms-3">3+ years of car rental experience</h5> </div> <p class="mb-0"> ${metadata["shortBusinessName"]} has been proudly serving satisfied
+                  renters for 3+ years all around Melbourne, Victoria.
+</p> </div> <div class="about-icon-box bg-white shadow rounded mt-20 ms-md-5"> <div class="ab-icon-box-top d-flex align-items-center mb-3"> <span class="icon-wrapper d-flex align-items-center justify-content-center rounded"><i class="flaticon-shield"></i></span> <h5 class="mb-0 ms-3">Customer service that cares</h5> </div> <p class="mb-0">
+Our highly trained staff are available throughout our business
+                  hours to answer any enquiries or support you in any
+                  emergencies
+</p> </div> <div class="about-icon-box bg-white shadow rounded mt-20"> <div class="ab-icon-box-top d-flex align-items-center mb-3"> <span class="icon-wrapper d-flex align-items-center justify-content-center rounded"><i class="flaticon-price-tag"></i></span> <h5 class="mb-0 ms-3">Rent at reasonable Prices</h5> </div> <p class="mb-0">
+We here at Gifleet believe in fair pricing. Our prices are
+                  competitive and amongst the lowest in the Melbourne, Victoria
+                  area.
+</p> </div> </div> </div> </div> </div> </section> <!--about section end--> <!--feedback section start--> <section class="feedback-section position-relative" data-background="/img/home1/video-bg.jpg"> <div class="countdown-area"> <div class="main-countdown-wrapper d-inline-flex align-items-center bg-white"> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-heart"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="">500</span><span>+</span> </h3> <span class="subtitle">Happy Customers</span> </div> </div> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-car-repair"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="">7</span><span>+</span> </h3> <span class="subtitle">Cars Available</span> </div> </div> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-speedometer-1"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="">4.95</span><span> ★</span> </h3> <a> <span class="subtitle">Average Rating (Turo)</span> </a> </div> </div> <div class="countdown-box d-xl-flex text-center text-xl-start align-items-center"> <span class="icon-wrapper d-inline-flex align-items-center justify-content-center rounded-circle text-primary"><i class="flaticon-drive"></i></span> <div class="countdown-box-content ms-xl-3 mt-3 mt-xl-0"> <h3 class="mb-1"> <span class="">24/7</span><span></span> </h3> <span class="subtitle">Emergency Support</span> </div> </div> </div> </div> <div class="container"> <div class="video-content-wrapper"> <div class="row align-items-center"> <div class="col-6"> <div class="quote-icon"> <img src="/img/icons/quote-icon.svg" alt="quote" class="img-fluid"> </div> </div> <div class="col-6"> <div class="video-content text-center"> <a href="https://www.youtube.com/watch?v=6WZOxnYi4Cs" class="video-popup-btn bg-primary text-white"><i class="fa-solid fa-play"></i></a> </div> </div> </div> </div> </div> <div class="feedback-slider-area mt-5"> <div class="container"> <div class="row"> <div class="col-lg-12"> <div class="feedback-slider position-relative"> <div class="swiper at_feedback_slider"> <div class="swiper-wrapper"> <div class="swiper-slide feedback-single bg-white position-relative rounded"> <a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="rating-box position-absolute rounded-1"> <span class="me-1"><i class="fa-solid fa-star"></i></span>5.0
+</div> <h4 class="mb-3">Another Awesome Experience!</h4> <p class="mb-4">
+Another awesome experience with Gifleet! The car is
+                          absolutely beautiful. Had a blast and thoroughly
+                          enjoyed the car. Hand over and pick up was stress free
+                          and easy, communication was on point at all times.
+                          Very professional! Thanks again !
+</p> </a><div class="d-flex justify-content-between"><a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="author-info d-flex align-items-center"> <img src="/img/author/author-1.jpg" alt="author" class="rounded-circle flex-shrink-0 border border-2"> <div class="author-info-content ms-3"> <h6 class="mb-1 text-secondary">Thomas H</h6> <span>15 January 2024</span> </div> </div> </a><a href="https://turo.com/au/en/drivers/29391881#:~:text=4.96-,(90%20reviews),-Deborah%20L." class="btn btn-primary mt-50 hide-on-mobile">View more reviews
+</a> </div> </div> <div class="swiper-slide feedback-single bg-white position-relative rounded"> <a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="rating-box position-absolute rounded-1"> <span class="me-1"><i class="fa-solid fa-star"></i></span>5.0
+</div> <h4 class="mb-3">Great Experience!</h4> <p class="mb-4">
+I had a great experience renting this car. Dealing
+                          with the owner was easy, and the car was in good
+                          condition. Highly recommended!
+</p> </a><div class="d-flex justify-content-between"><a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="author-info d-flex align-items-center"> <img src="/img/author/author-3.jpg" alt="author" class="rounded-circle flex-shrink-0 border border-2"> <div class="author-info-content ms-3"> <h6 class="mb-1 text-secondary">Imesh A</h6> <span>23 September 2023</span> </div> </div> </a><a href="https://turo.com/au/en/drivers/29391881#:~:text=4.96-,(90%20reviews),-Deborah%20L." class="btn btn-primary mt-50 hide-on-mobile">View more reviews
+</a> </div> </div> <div class="swiper-slide feedback-single bg-white position-relative rounded"> <a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="rating-box position-absolute rounded-1"> <span class="me-1"><i class="fa-solid fa-star"></i></span>5.0
+</div> <h4 class="mb-3">Great Car!</h4> <p class="mb-4">
+Great car, really enjoyed it. For a 2013 Porsche it
+                          presented very well, close to new. The modified
+                          exhaust is amazing, the sound really enhanced the
+                          unique Porsche sound. Would hire again!!
+</p> </a><div class="d-flex justify-content-between"><a${addAttribute(turoReviewUrl, "href")} class="color-secondary"> <div class="author-info d-flex align-items-center"> <img src="/img/author/author-2.jpg" alt="author" class="rounded-circle flex-shrink-0 border border-2"> <div class="author-info-content ms-3"> <h6 class="mb-1 text-secondary">Sam K</h6> <span>18 December 2023</span> </div> </div> </a><a href="https://turo.com/au/en/drivers/29391881#:~:text=4.96-,(90%20reviews),-Deborah%20L." class="btn btn-primary mt-50 hide-on-mobile">View more reviews
+</a> </div> </div> </div> <div class="slide-arrow-btn position-absolute slide-btn-next"> <i class="fa-solid fa-arrow-right"></i> </div> <div class="slide-arrow-btn position-absolute slide-btn-prev"> <i class="fa-solid fa-arrow-left"></i> </div> </div> </div> </div> </div> </div> </div> </section> <!--feedback section end--> <div class="merge-section position-relative z-1 overflow-hidden mt-120"> <!-- main content wrapper ends --> </div> </div>`, "default": ($$result2) => renderTemplate` ;
+` })}`;
+}, "/Users/a61403/Desktop/car_rental/src/pages/index.astro", void 0);
+
+const $$file = "/Users/a61403/Desktop/car_rental/src/pages/index.astro";
+const $$url = "";
+
+export { $$Index as default, $$file as file, $$url as url };
