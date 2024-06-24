@@ -15,6 +15,10 @@ const featuredListings = allInventoryListings.filter((listing) =>
   [1, 2, 3].includes(listing.metadata.rank)
 );
 
+const sortedFeaturedListings = featuredListings.sort(
+  (a, b) => a.metadata.rank - b.metadata.rank
+);
+
 const metadataList = await Astro.glob("../metadata.json");
 assert(metadataList.length === 1);
 const metadata = metadataList[0];
@@ -28,7 +32,7 @@ const turoReviewUrl =
       <div class="swiper at-hero-slider-wrapper" data-speed="900">
         <div class="swiper-wrapper">
           {
-            featuredListings.map((listing) => {
+            sortedFeaturedListings.map((listing) => {
               const listingDetail = listing.data;
               const { name, description, features } = listingDetail;
 
@@ -46,13 +50,13 @@ const turoReviewUrl =
                         <div class="row">
                           <div class="col-xl-7">
                             <div class="at-hero-title">
-                              <span class="at-subtitle text-primary position-relative fw-bold">
-                                {metadata["shortBusinessName"]}
-                              </span>
+                              <span class="at-subtitle text-primary position-relative fw-bold" />
                               <h1 class="text-white mb-4 mt-3 display-4">
                                 {name}
                               </h1>
-                              
+                              <p class="mb-30">
+                                {description?.split("\\n")[0]}
+                              </p>
                               <ul class="car-info mt-3 mb-30 fs-md fw-500">
                                 {threeFeatures.map((feature) => {
                                   return (
