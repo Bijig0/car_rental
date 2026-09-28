@@ -7,7 +7,8 @@
     "start": "gulp dev & astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.5",
@@ -69,7 +70,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/validator": "^13.11.9"
+    "@types/validator": "^13.11.9",
+    "vitest": "^2.1.9"
   },
   "engines": {
     "node": "22.x"
