@@ -124,6 +124,13 @@
             padding: 8px 12px;
             background: rgba($bg-color, 0.1);
         }
+        // background-color only, so .form-select keeps its arrow image
+        select {
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            padding: 8px 36px 8px 12px;
+            background-color: rgba($bg-color, 0.1);
+        }
         .input-box {
             span {
                 width: 38px;

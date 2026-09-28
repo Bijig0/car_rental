@@ -114,7 +114,7 @@ const ContactForm = () => {
               <label className="fw-semibold text-secondary mb-1">Phone</label>
               <input
                 type="tel"
-                placeholder="Full Name"
+                placeholder="Phone"
                 className="border w-100 rounded color-secondary"
                 {...register("phoneNumber")}
               />
@@ -129,7 +129,7 @@ const ContactForm = () => {
                 How did you hear about us?
               </label>
               <select
-                className="form-select color-secondary"
+                className="form-select rounded color-secondary"
                 defaultValue=""
                 {...register("heardAbout")}
               >
