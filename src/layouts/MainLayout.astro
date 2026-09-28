@@ -44,6 +44,14 @@ const address = metadata[0]["address"];
 
     <!--title-->
     <title>Gifleet Melbourne Car Rental</title>
+
+    <script>
+      import { initAnalytics } from "../analytics/posthog";
+      import { recordVisit } from "../analytics/visits";
+
+      recordVisit();
+      initAnalytics();
+    </script>
   </head>
 
   <body>

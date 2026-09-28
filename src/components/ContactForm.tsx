@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   QueryClient,
@@ -8,12 +7,15 @@ import {
 import { useForm, type SubmitHandler } from "react-hook-form";
 import validator from "validator";
 import { z } from "zod";
+import { HEARD_ABOUT_OPTIONS } from "../analytics/heardAboutOptions";
+import { sendEnquiry } from "./sendEnquiry";
 
 const schema = z.object({
   firstName: z.string(),
   lastName: z.string(),
   email: z.string().email(),
   phoneNumber: z.string().refine(validator.isMobilePhone),
+  heardAbout: z.string().optional(),
   message: z.string().nullable(),
 });
 
@@ -41,19 +43,7 @@ const ContactForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const sendEmail = async (inputs: Inputs) => {
-    const templateParams = {
-      to_name: "Brady",
-      from_name: "Gifleet Car Rental",
-      subject: "New Car Rental Quote From Contact us",
-      message: `New From Car Rental Quote, details: ${JSON.stringify(inputs)}`,
-    };
-
-    const serviceId = "service_010xydf";
-    const templateName = "template_1dcm4rn";
-    const publicKey = "Yd6r5t5etWEKD3GNh";
-    return emailjs.send(serviceId, templateName, templateParams, publicKey);
-  };
+  const sendEmail = (inputs: Inputs) => sendEnquiry({ form: "contact", inputs });
 
   const {
     mutate: sendEmailMutate,
@@ -132,6 +122,25 @@ const ContactForm = () => {
             {errors.phoneNumber ? (
               <ErrorText>{errors.phoneNumber.message}</ErrorText>
             ) : null}
+          </div>
+          <div className="col-sm-12">
+            <div className="input-field">
+              <label className="fw-semibold text-secondary mb-1">
+                How did you hear about us?
+              </label>
+              <select
+                className="form-select color-secondary"
+                defaultValue=""
+                {...register("heardAbout")}
+              >
+                <option value="">Select one (optional)</option>
+                {HEARD_ABOUT_OPTIONS.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className="col-sm-12">
             <div className="input-field">
